@@ -53,6 +53,15 @@ DOMAIN-SUFFIX,adobedtm.com
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zafinsvc.com
 DOMAIN-SUFFIX,za.group
+# > Wise
+DOMAIN-SUFFIX,transferwise.com
+DOMAIN-SUFFIX,wi.se
+DOMAIN-SUFFIX,hotjar.com
+DOMAIN-SUFFIX,authy.com
+DOMAIN-SUFFIX,ocsp.digicert.com
+DOMAIN-SUFFIX,mixpanel.com
+DOMAIN-SUFFIX,singular.net
+DOMAIN-SUFFIX,wise.com
 # > 大师兄影视
 DOMAIN,sdk.alibaba.com.ailbaba.me
 DOMAIN,img.ffzypic.com
