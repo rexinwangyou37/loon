@@ -235,3 +235,5 @@ IP-CIDR6,ff00::/8,no-resolve
 
 # > 其他分流修正
 DOMAIN-KEYWORD, anti-ad.net
+# > 国内直连
+GEOIP,cn,DIRECT
