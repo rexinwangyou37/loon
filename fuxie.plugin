@@ -343,7 +343,7 @@ https://guanyu.longfor.com/app-server/api/v1/main/start url reject
 
 # >>>>>>>>>>>>>>> ✅ H开头 ✅ <<<<<<<<<<<<<<
 # > 哈富证券 #开屏广告+首页和交易页横幅广告+弹窗广告
-^https:\/\/emisdatacenterhk\.hafoo\.com\.hk\/ad\/api\/v2\/appMarket reject-dict
+^https:\/\/emisdatacenterhk\.hafoo\.com\.hk\/ad\/api\/v\d\/appMarket reject-dict
 # > 华彩生活 #开屏广告
 ^https?:\/\/static\.creditcard\.hxb\.com\.cn\/mcube\/apps\/group\d\/M00\/00\/2[A-Z0-9]{1}\/amRG7WO.+\.jpg url reject-200
 # > 虎扑 #开屏广告
