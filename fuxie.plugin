@@ -14,22 +14,22 @@ hostname = ads.ysepay.com, ad.ysepay.com, 118.89.204.198,103.41.167.237,2402:4e0
 
 # >>>>>>>>>>>>>>> ✅ 2开头 ✅ <<<<<<<<<<<<<<
 # > 21经济网
-^https?:\/\/api\.21jingji\.com\/ad\/ url reject
+^https?:\/\/api\.21jingji\.com\/ad\/ reject
 
 # >>>>>>>>>>>>>>> ✅ 3开头 ✅ <<<<<<<<<<<<<<
 # >>>>>>>>>>>>>>> ✅ 4开头 ✅ <<<<<<<<<<<<<<
 # >>>>>>>>>>>>>>> ✅ 5开头 ✅ <<<<<<<<<<<<<<
 # > 51信用卡管家 V12.9.2
-^https?:\/\/api\.u51\.com\/(generic-config-gateway|rs-resys)\/api\/v\d\/(creditpage-config|recommend) url reject-200
+^https?:\/\/api\.u51\.com\/(generic-config-gateway|rs-resys)\/api\/v\d\/(creditpage-config|recommend) reject-200
 ^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js
 ^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js
 # > 58
-^https?+:\/\/.+?\.58cdn\.com\.cn\/brandads\/ url reject-200
-^https?+:\/\/app\.58\.com\/api\/home\/invite\/popupAdv url reject-200
-^https?:\/\/app\.58\.com\/api\/home\/(advertising|appadv)\/ url reject
-^https?:\/\/app\.58\.com\/api\/log\/ url reject
+^https?+:\/\/.+?\.58cdn\.com\.cn\/brandads\/ reject-200
+^https?+:\/\/app\.58\.com\/api\/home\/invite\/popupAdv reject-200
+^https?:\/\/app\.58\.com\/api\/home\/(advertising|appadv)\/ reject
+^https?:\/\/app\.58\.com\/api\/log\/ reject
 # > 555影视
-^https?:\/\/vip7\.fzwdyy\.cn:8083\/api\/(getAdvertInfo|getGOOGAdvert) url reject-200
+^https?:\/\/vip7\.fzwdyy\.cn:8083\/api\/(getAdvertInfo|getGOOGAdvert) reject-200
 
 # >>>>>>>>>>>>>>> ✅ 6开头 ✅ <<<<<<<<<<<<<<
 # >>>>>>>>>>>>>>> ✅ 7开头 ✅ <<<<<<<<<<<<<<
@@ -39,75 +39,75 @@ hostname = ads.ysepay.com, ad.ysepay.com, 118.89.204.198,103.41.167.237,2402:4e0
 
 # >>>>>>>>>>>>>>> ✅ A开头 ✅ <<<<<<<<<<<<<<
 # > 阿里巴巴
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome url reject
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources url reject
-^https:\/\/gw\.alicdn\.com\/imgextra\/i\d\/[\w!]+-\d-tps-702-758\.png url reject-dict
-^https:\/\/(gw|heic)\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602)\.jpg_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 url reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome reject
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources reject
+^https:\/\/gw\.alicdn\.com\/imgextra\/i\d\/[\w!]+-\d-tps-702-758\.png reject-dict
+^https:\/\/(gw|heic)\.alicdn\.com\/imgextra\/i\d\/\d*\/?[\w!]+-\d-(octopus|tps-1125-1602)\.jpg_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q[59]0 reject-dict
 # > 爱美剧
-^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ url reject
-^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/pay/ok$ url reject-dict
-^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ads\/ url reject
+^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ reject
+^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/pay/ok$ reject-dict
+^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ads\/ reject
 # > 爱回收
-^https?:\/\/gw\.aihuishou\.com\/app-portal\/home\/getadvertisement url reject
+^https?:\/\/gw\.aihuishou\.com\/app-portal\/home\/getadvertisement reject
 # > 爱思助手
-^https:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml url reject
+^https:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml reject
 # > 爱奇艺
 ^http:\/\/t7z\.cupid\.iqiyi\.com\/mixer\? url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/myBlockAds.js
 # > 安徽移动
-^https?:\/\/api\.ahmobile\.cn:443\/eip\?eip_serv_id=app\.getAllNew url reject-200
+^https?:\/\/api\.ahmobile\.cn:443\/eip\?eip_serv_id=app\.getAllNew reject-200
 # > 安徽掌上10000
-^https?:\/\/www\.ahzs10000\.com\/palmhall\/client\/base\/newVerson_getStartUp\.action url reject-200
+^https?:\/\/www\.ahzs10000\.com\/palmhall\/client\/base\/newVerson_getStartUp\.action reject-200
 # > 阿里云盘
 ^https?:\/\/api\.aliyundrive\.com\/apps\/v\d\/users\/apps\/widgets$ url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/alidrive.js
 # > 爱桐乡
-^https?:\/\/mapi\.txcmapp\.com\/api\/open\/atx2\/ad\.php url reject-200
+^https?:\/\/mapi\.txcmapp\.com\/api\/open\/atx2\/ad\.php reject-200
 # > 安吉星
-^https:\/\/www\.onstar\.com\.cn\/mssos\/sos\/social\/v1\/community\/article\/page url reject-dict
-^https:\/\/api\.shanghaionstar\.com\/sos\/contentinfo\/v1\/public\/landingpage url reject-dict
+^https:\/\/www\.onstar\.com\.cn\/mssos\/sos\/social\/v1\/community\/article\/page reject-dict
+^https:\/\/api\.shanghaionstar\.com\/sos\/contentinfo\/v1\/public\/landingpage reject-dict
 # > AcFun弹幕视频网
-^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ url reject
+^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ reject
 # > 爱企查去广告
 # > 开屏广告
-^https?:\/\/b2baifanfan\.baidu\.com\/crm\/web\/b2b\/im\/common\/getConfigByDeviceNum url reject-dict
+^https?:\/\/b2baifanfan\.baidu\.com\/crm\/web\/b2b\/im\/common\/getConfigByDeviceNum reject-dict
 # > 首页 - 轮播图
-^https:\/\/aiqicha\.baidu\.com\/app\/bannerPicAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/bannerPicAjax reject-dict
 # > 首页 - 悬浮部件
-^https:\/\/aiqicha\.baidu\.com\/app\/getPopConfigAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/getPopConfigAjax reject-dict
 # > 首页 - 热门话题
-^https:\/\/aiqicha\.baidu\.com\/app\/getHotTopicAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/getHotTopicAjax reject-dict
 # > 首页 - 每日早报
-^https:\/\/aiqicha\.baidu\.com\/app\/getNewsReportAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/getNewsReportAjax reject-dict
 # > 首页 - 专家讲堂
-^https:\/\/aiqicha\.baidu\.com\/app\/getExpertVideoAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/getExpertVideoAjax reject-dict
 # > 首页 - 热门快讯
-^https:\/\/aiqicha\.baidu\.com\/apps\/getHotRecommendV2Ajax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/apps\/getHotRecommendV2Ajax reject-dict
 # > 首页 - 底部登录横幅
-^https:\/\/aiqicha\.baidu\.com\/m\/getLoginWordsAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/m\/getLoginWordsAjax reject-dict
 # > 首页 - 弹窗
-^https:\/\/aiqicha\.baidu\.com\/app\/getAppPopSettingAjax url reject-dict
-^https:\/\/aiqicha\.baidu\.com\/app\/commonstatusAjax url reject
+^https:\/\/aiqicha\.baidu\.com\/app\/getAppPopSettingAjax reject-dict
+^https:\/\/aiqicha\.baidu\.com\/app\/commonstatusAjax reject
 # > 首页 - 精选监控
-^https:\/\/aiqicha\.baidu\.com\/apps\/getHomeMonitorDataAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/apps\/getHomeMonitorDataAjax reject-dict
 # > 首页 - 搜索栏大家都在搜
-^https:\/\/aiqicha\.baidu\.com\/apps\/searchRecommendAjax url reject-dict
+^https:\/\/aiqicha\.baidu\.com\/apps\/searchRecommendAjax reject-dict
 # > 爱阅书香 #开屏广告
-^https?:\/\/icc\.one\/iFreeTime\/xid32uxaoecnfv2\/ url reject
+^https?:\/\/icc\.one\/iFreeTime\/xid32uxaoecnfv2\/ reject
 
 # >>>>>>>>>>>>>>> ✅ B开头 ✅ <<<<<<<<<<<<<<
 # > 缤纷生活 #开屏广告
-^https?:\/\/mlife\.jf365\.boc\.cn\/AppPrj\/FirstPic\.do\?txnId=2PIC000001 url reject-200
+^https?:\/\/mlife\.jf365\.boc\.cn\/AppPrj\/FirstPic\.do\?txnId=2PIC000001 reject-200
 # > 百信银行 #开屏广告
-^https?:\/\/mres\.aibank\.com\/app\/resource\/cim\/cim0000001\/.+\.jpg url reject-200
+^https?:\/\/mres\.aibank\.com\/app\/resource\/cim\/cim0000001\/.+\.jpg reject-200
 # > 北京银行 #开屏广告
-^https?:\/\/cdnmobibank.bankofbeijing\.com\.cn\/cdn\/MarketingCloud\/.+\/.+\/99_1\/.+\.jpg url reject-200
+^https?:\/\/cdnmobibank.bankofbeijing\.com\.cn\/cdn\/MarketingCloud\/.+\/.+\/99_1\/.+\.jpg reject-200
 # > 开屏广告
-^https?:\/\/mime\.baidu\.com\/v5\/start_screen_ads/list url reject-dict
+^https?:\/\/mime\.baidu\.com\/v5\/start_screen_ads/list reject-dict
 # > 应用内灵感语录，输入页面推荐里语录
 ^https?:\/\/mime\.baidu\.com\/sapi\/v1\/lccorpus\/(applist|pannellist)  url echo-response application/json echo-response https://github.com/Keywos/rule/raw/main/mocks/mime.json
 # > 输入法点击图标 
@@ -115,477 +115,477 @@ hostname = ads.ysepay.com, ad.ysepay.com, 118.89.204.198,103.41.167.237,2402:4e0
 ^https?:\/\/mime\.baidu\.com\/commer\/pocket_api\/enterprise_list url echo-response application/json echo-response https://github.com/Keywos/rule/raw/main/mocks/mime.json
 ^https?:\/\/mbd\.baidu\.com\/ccs\/v1\/start\/confsync\?appname=baidu_input url echo-response application/json echo-response https://github.com/Keywos/rule/raw/main/mocks/bd.json
 # > 百度网盘_设置信息流
-^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list url reject
+^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list reject
 # > 百度网盘_通用广告
-^https?:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad url reject
+^https?:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad reject
 # > 百度网盘_活动推广
-^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry url reject
+^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry reject
 # > 百度贴吧（副作用:新回复等通知功能不可用,需手动进入消息tab页点击查看）
 ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
 ^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
 # > 百度翻译 #开屏广告
-^https?:\/\/mime\.baidu\.com\/v\d\/(IosStart|activity)\/(getStartInfo|advertisement) url reject
+^https?:\/\/mime\.baidu\.com\/v\d\/(IosStart|activity)\/(getStartInfo|advertisement) reject
 # > 百度文库 #开屏广告
-^https?:\/\/appwk\.baidu\.com\/xpage\/interface\/wknaad url reject-200
+^https?:\/\/appwk\.baidu\.com\/xpage\/interface\/wknaad reject-200
 # > 半月谈 #开屏广告
-^https?:\/\/www\.banyuetanapp\.com\/byt-api\/ad\/getAdvertList\?adSpaceId=100000002 url reject-200
+^https?:\/\/www\.banyuetanapp\.com\/byt-api\/ad\/getAdvertList\?adSpaceId=100000002 reject-200
 # > 宝宝树孕育 #开屏广告
-^https?:\/\/plough\.babytree\.com\/plough\.do url reject-dict
+^https?:\/\/plough\.babytree\.com\/plough\.do reject-dict
 # > 宝宝树孕育 #弹窗广告
-^http:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive url reject-dict
-^http:\/\/go\.babytree\.com\/go_pregnancy\/api\/index_activity\/get_app_index_activity url reject-200
+^http:\/\/mapiweb\.babytree\.com\/newapi\/luban\/behavior\/receive reject-dict
+^http:\/\/go\.babytree\.com\/go_pregnancy\/api\/index_activity\/get_app_index_activity reject-200
 # > 波点音乐 #开屏广告
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/finds\/module\?moduleId url reject-dict
-^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/myPage\?uid url reject-dict
-^https:\/\/bd-api\.kuwo\.cn\/api\/play\/listening\/entrance\/music\?musicId url reject-dict
-^https:\/\/h5app\.kuwo\.cn\/m\/kwtemplatePage\/index\.html\?id=1157&app=bodianhdzx url reject-dict
-^https:\/\/h5app\.kuwo\.cn\/m\/bdvipact2205\/index\.html\?fromsrc=huodong url reject-dict
-^https:\/\/bodianimgcdn\.kuwo\.cn\/images\/0e83c1821cd2681de08e20bec73d1e75 url reject-dict
-^https:\/\/bodianimgcdn\.kuwo\.cn\/images\/198c0b313fe9e53b03240c7b30b4acc9 url reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/finds\/module\?moduleId reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/service\/banner\/myPage\?uid reject-dict
+^https:\/\/bd-api\.kuwo\.cn\/api\/play\/listening\/entrance\/music\?musicId reject-dict
+^https:\/\/h5app\.kuwo\.cn\/m\/kwtemplatePage\/index\.html\?id=1157&app=bodianhdzx reject-dict
+^https:\/\/h5app\.kuwo\.cn\/m\/bdvipact2205\/index\.html\?fromsrc=huodong reject-dict
+^https:\/\/bodianimgcdn\.kuwo\.cn\/images\/0e83c1821cd2681de08e20bec73d1e75 reject-dict
+^https:\/\/bodianimgcdn\.kuwo\.cn\/images\/198c0b313fe9e53b03240c7b30b4acc9 reject-dict
 # > 贝太厨房 #开屏广告
-^https?:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d\/promote\/ios\/start\/page url reject
+^https?:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d\/promote\/ios\/start\/page reject
 # > 北京首汽 #开屏广告
-^https?:\/\/gateway\.shouqiev\.com\/fsda\/app\/bootImage\.json url reject
+^https?:\/\/gateway\.shouqiev\.com\/fsda\/app\/bootImage\.json reject
 # > 本来生活 #开屏广告
-^https?:\/\/img0[1-9]{1}\.benlailife\.com\/AppHomePageImage\/upload\/files\/.*.jpg url reject-200
+^https?:\/\/img0[1-9]{1}\.benlailife\.com\/AppHomePageImage\/upload\/files\/.*.jpg reject-200
 # > 贝壳找房 #开屏广告
-^https?:\/\/apps\.api\.ke\.com\/config\/config\/(bootpage|getactivityconfig) url reject-200
+^https?:\/\/apps\.api\.ke\.com\/config\/config\/(bootpage|getactivityconfig) reject-200
 # > 币世界 #开屏广告
-^https?:\/\/iapi\.bishijie\.com\/actopen\/advertising\/ url reject
+^https?:\/\/iapi\.bishijie\.com\/actopen\/advertising\/ reject
 # > 百视TV #开屏广告
-^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertisingV2 url reject
+^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertisingV2 reject
 # > 必胜客 #开屏广告
-^https?:\/\/res\.pizzahut\.com\.cn\/CRM\/phad\/member\/app\/member url reject-200
+^https?:\/\/res\.pizzahut\.com\.cn\/CRM\/phad\/member\/app\/member reject-200
 # > 币安 #开屏广告
-^https:\/\/www\.(binance|yingwangtech)\.(com|info|net)\/bapi\/composite\/v1\/public\/market\/holiday-atmosphere url reject-dict
+^https:\/\/www\.(binance|yingwangtech)\.(com|info|net)\/bapi\/composite\/v1\/public\/market\/holiday-atmosphere reject-dict
 
 # >>>>>>>>>>>>>>> ✅ C开头 ✅ <<<<<<<<<<<<<<
 # > 长沙银行（倒计时还在） #开屏广告
-^https?:\/\/eappstatic\.bankofchangsha\.com\/eapp\/mpbank\/appicon\/202[2-9]{1}\/[0-9]{2}\/[0-9]{2}\/.+.jpg url reject-200
+^https?:\/\/eappstatic\.bankofchangsha\.com\/eapp\/mpbank\/appicon\/202[2-9]{1}\/[0-9]{2}\/[0-9]{2}\/.+.jpg reject-200
 # > 车来了
-^https?:\/\/pic1.chelaile.net.cn\/adv\/ url reject
-^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ url reject
-^https?:\/\/api\.chelaile\.net\.cn\/goocity\/advert\/ url reject
-^https?:\/\/atrace\.chelaile\.net\.cn\/exhibit\?&adv_image url reject-img
-^https?:\/\/web\.chelaile\.net\.cn\/api\/adpub\/ url reject
+^https?:\/\/pic1.chelaile.net.cn\/adv\/ reject
+^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ reject
+^https?:\/\/api\.chelaile\.net\.cn\/goocity\/advert\/ reject
+^https?:\/\/atrace\.chelaile\.net\.cn\/exhibit\?&adv_image reject-img
+^https?:\/\/web\.chelaile\.net\.cn\/api\/adpub\/ reject
 # > 曹操专车
-^https?:\/\/ptmpcap\.caocaokeji\.cn\/advert-bss\/ url reject-img
-^https?:\/\/cap\.caocaokeji\.cn\/advert-bss\/ url reject
+^https?:\/\/ptmpcap\.caocaokeji\.cn\/advert-bss\/ reject-img
+^https?:\/\/cap\.caocaokeji\.cn\/advert-bss\/ reject
 # > 财经杂志 #开屏广告
-^https?:\/\/api\.caijingmobile\.com\/(ad|advert)\/ url reject
+^https?:\/\/api\.caijingmobile\.com\/(ad|advert)\/ reject
 # > 超星学习通 #开屏广告
-^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig\? url reject
+^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig\? reject
 # > 长城炼金术 #开屏广告
-^https:\/\/fintechappdr\.cgws\.com\/api\/business-operation\/app\/a\/flash\/window\/get\?type=2 url reject-dict
+^https:\/\/fintechappdr\.cgws\.com\/api\/business-operation\/app\/a\/flash\/window\/get\?type=2 reject-dict
 # > 潮玩宇宙 #开屏广告
-^https:\/\/ios-api\.lucklyworld\.com\/v6\/api\/config\/startup url reject-dict
+^https:\/\/ios-api\.lucklyworld\.com\/v6\/api\/config\/startup reject-dict
 # > 超级课程表 #开屏广告
-^http:\/\/182\.92\.244\.70\/d\/json url reject-dict
+^http:\/\/182\.92\.244\.70\/d\/json reject-dict
 # > CSDN #开屏广告
-^https?:\/\/app-gw\.csdn\.net\/abtesting\/v2\/getList? url reject
-^https?:\/\/app-gw\.csdn\.net\/silkroad-api\/api\/v\d\/assemble\/list\/pub\/channel\/app_open_screen_ad url reject
+^https?:\/\/app-gw\.csdn\.net\/abtesting\/v2\/getList? reject
+^https?:\/\/app-gw\.csdn\.net\/silkroad-api\/api\/v\d\/assemble\/list\/pub\/channel\/app_open_screen_ad reject
 
 # >>>>>>>>>>>>>>> ✅ D开头 ✅ <<<<<<<<<<<<<<
 # > 东方航空 #开屏广告
-^https?:\/\/app\.ceair\.com\/customize\/security\/update url reject-dict
-^https?:\/\/app\.ceair\.com\/customize\/main\/adScreen url reject-dict
+^https?:\/\/app\.ceair\.com\/customize\/security\/update reject-dict
+^https?:\/\/app\.ceair\.com\/customize\/main\/adScreen reject-dict
 # > 动卡空间（2秒倒计时还在）#开屏广告
-^https?:\/\/m\.creditcard\.ecitic\.com\/citiccard\/mbk\/appspace-getway\/getWay\/dkkj-system-web\/system\/v\d\/init-config url reject-dict
-^https:\/\/ump\.sz\.creditcard\.ecitic\.com\/citiccard\/cm-ump\/ump-gateway\/ump-net-app\/ump-net-app\/adv url reject-dict
+^https?:\/\/m\.creditcard\.ecitic\.com\/citiccard\/mbk\/appspace-getway\/getWay\/dkkj-system-web\/system\/v\d\/init-config reject-dict
+^https:\/\/ump\.sz\.creditcard\.ecitic\.com\/citiccard\/cm-ump\/ump-gateway\/ump-net-app\/ump-net-app\/adv reject-dict
 # > 叮嗒出行 #开屏广告
-^https?:\/\/img\.admobile\.top\/admobile-adRequest\/.*.(jpg|png) url reject-200
-^https?:\/\/webcdn\.m\.qq\.com\/qiantu\/upload\/202[0-9]{5}\/.*.(jpg|png) url reject-200
+^https?:\/\/img\.admobile\.top\/admobile-adRequest\/.*.(jpg|png) reject-200
+^https?:\/\/webcdn\.m\.qq\.com\/qiantu\/upload\/202[0-9]{5}\/.*.(jpg|png) reject-200
 # > 滴滴青桔 #开屏广告
-^https?:\/\/pt-starimg\.didistatic\.com\/static\/starimg\/node\/.*.(jpg|png|gif) url reject-200
-^https?:\/\/omgup[0-9]{1}\.xiaojukeji\.com\/api url reject-200
-^https?:\/\/omgup*\.xiaojukeji\.com\/api url reject-200
+^https?:\/\/pt-starimg\.didistatic\.com\/static\/starimg\/node\/.*.(jpg|png|gif) reject-200
+^https?:\/\/omgup[0-9]{1}\.xiaojukeji\.com\/api reject-200
+^https?:\/\/omgup*\.xiaojukeji\.com\/api reject-200
 # > 滴滴出行（推荐英文版） #开屏广告
-^https?://res\.xiaojukeji\.com\/resapi\/activity\/mget url reject-dict
-^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) url reject
+^https?://res\.xiaojukeji\.com\/resapi\/activity\/mget reject-dict
+^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) reject
 # > 滴滴打车 #开屏广告
-^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core url reject-dict
+^https:\/\/conf\.diditaxi\.com\.cn\/homepage\/v1\/core reject-dict
 # > 滴滴 #开屏广告
-^https?:\/\/img-ys011\.didistatic\.com\/static\/ad_oss\/.*.jpg url reject
+^https?:\/\/img-ys011\.didistatic\.com\/static\/ad_oss\/.*.jpg reject
 # > 得物 #开屏广告
-^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement url reject
+^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement reject
 # > 到梦空间 #开屏广告
-^https:\/\/appdmkj\.5idream\.net\/appPic\/homepage url reject-dict
+^https:\/\/appdmkj\.5idream\.net\/appPic\/homepage reject-dict
 # > 豆瓣 #开屏广告
-^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash url reject-dict
-^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* url reject-dict
+^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash reject-dict
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* reject-dict
 # > 斗鱼直播 #开屏广告
-^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo url reject
+^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo reject
 # > 当当 #开屏广告
-^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init url reject-200
+^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init reject-200
 # > 滴答 #开屏广告
-^https?:\/\/capis(-\d)?\.didapinche\.com\/(ad|adbase) url reject
-^https?:\/\/capis(-?\w*)?\.didapinche\.com\/publish\/api\/upgrade url reject-dict
-^https?+:\/\/www\.didapinche\.com\/app\/adstat\/ url reject-200
+^https?:\/\/capis(-\d)?\.didapinche\.com\/(ad|adbase) reject
+^https?:\/\/capis(-?\w*)?\.didapinche\.com\/publish\/api\/upgrade reject-dict
+^https?+:\/\/www\.didapinche\.com\/app\/adstat\/ reject-200
 # > 东方财富 #开屏广告
-^https?:\/\/emdcadvertise\.eastmoney\.com\/infoService\/v2 url reject-200
+^https?:\/\/emdcadvertise\.eastmoney\.com\/infoService\/v2 reject-200
 # > 丁香医生 #开屏广告
-^https?:\/\/dxy\.com\/app\/i\/ask\/biz\/feed\/launch url reject
+^https?:\/\/dxy\.com\/app\/i\/ask\/biz\/feed\/launch reject
 # > 大智慧 #开屏广告
-^https?://ssp\.dzh\.com\.cn/v2api/adgroupjson url reject
+^https?://ssp\.dzh\.com\.cn/v2api/adgroupjson reject
 # > 电E宝 #开屏广告
-^https?:\/\/app\.95598pay\.com\/debapi\/adsite\/ url reject-200
+^https?:\/\/app\.95598pay\.com\/debapi\/adsite\/ reject-200
 # > 大众点评 #开屏广告
-^https:\/\/img\.meituan\.net\/dpmobile\/.*.(gif|jpg) url reject-200
-^https:\/\/img\.meituan\.net\/dpmobile\/.+93241\.png url reject-200
+^https:\/\/img\.meituan\.net\/dpmobile\/.*.(gif|jpg) reject-200
+^https:\/\/img\.meituan\.net\/dpmobile\/.+93241\.png reject-200
 # > 电视家 #开屏广告
-^https?:\/\/api\.gaoqingdianshi\.com\/api\/v\d\/ad\/ url reject
-^https?:\/\/cdn\.dianshihome\.com\/static\/ad\/ url reject
+^https?:\/\/api\.gaoqingdianshi\.com\/api\/v\d\/ad\/ reject
+^https?:\/\/cdn\.dianshihome\.com\/static\/ad\/ reject
 # > 低端影视 #开屏广告
-^https?:\/\/ddrk\.me\/image\/logo_footer\.png url reject-img
-^https?:\/\/img\.ddrk\.me\/ad190824 url reject-img
-^https?:\/\/img\.ddrk\.me\/cover\.png url reject-img
-^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png url reject-img
+^https?:\/\/ddrk\.me\/image\/logo_footer\.png reject-img
+^https?:\/\/img\.ddrk\.me\/ad190824 reject-img
+^https?:\/\/img\.ddrk\.me\/cover\.png reject-img
+^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png reject-img
 # > 大师兄 #开屏广告
-^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/(dsx|xgapp)\.php\/v\d\/(top_notice\?|version|advert\?position=[^2]+) url reject-200
+^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/(dsx|xgapp)\.php\/v\d\/(top_notice\?|version|advert\?position=[^2]+) reject-200
 # > 动画疯(黑屏25秒) #开屏广告
 ^https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d/(token|m3u8).php\? url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js
 # > 到梦空间 #更新弹窗
-^https:\/\/appdmkj\.5idream\.net\/v2\/login\/message\/tip url reject-dict
+^https:\/\/appdmkj\.5idream\.net\/v2\/login\/message\/tip reject-dict
 # > 大麦 #开屏广告
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome url reject-200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome reject-200
 # > 叮咚买菜 #开屏广告
-^https:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd\?ad_id url reject-dict
+^https:\/\/maicai\.api\.ddxq\.mobi\/advert\/getAd\?ad_id reject-dict
 # > 叮咚买菜 #新人弹窗
-^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop url reject-dict
+^https:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop reject-dict
 
 # >>>>>>>>>>>>>>> ✅ E开头 ✅ <<<<<<<<<<<<<<
 # > 饿了么 #开屏广告
-^https:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) url reject
+^https:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) reject
 # > e代驾 #开屏广告
-^https?+:\/\/pic\.edaijia\.cn\/adsplash\/ url reject-200
+^https?+:\/\/pic\.edaijia\.cn\/adsplash\/ reject-200
 # > E充电 #开屏广告
-^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 url reject-200
+^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 reject-200
 
 # >>>>>>>>>>>>>>> ✅ F开头 ✅ <<<<<<<<<<<<<<
 # > 发现精彩
 ^https?:\/\/static\.95508\.com\/mmg\/images\/ads reject-dict
-#^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/.+\/(.+1125?.+2436|.+%.+%|.+_.+_) url reject-dict
+#^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/.+\/(.+1125?.+2436|.+%.+%|.+_.+_) reject-dict
 # > 飞客茶馆
-^https?:\/\/ptf\.flyertrip\.com\/common\/cf\/.*.jpg url reject-200
-^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=advis url reject
+^https?:\/\/ptf\.flyertrip\.com\/common\/cf\/.*.jpg reject-200
+^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=advis reject
 ^https?:\/\/47\.100\.65\.202\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist url response-body adv response-body ddgksf2013
 ^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1 url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/fly.js
 # > 凤凰秀
-^https?:\/\/dsa-mfp\.fengshows\.cn\/mfp\/mfpMultipleDelivery\.do\?.+?adunitid url reject
-^https?:\/\/api\.fengshows\.com\/api\/launchAD url reject-img
+^https?:\/\/dsa-mfp\.fengshows\.cn\/mfp\/mfpMultipleDelivery\.do\?.+?adunitid reject
+^https?:\/\/api\.fengshows\.com\/api\/launchAD reject-img
 # > 番茄小说去章末广告
-^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/(get_ads|stats|settings)\/ url reject
+^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/(get_ads|stats|settings)\/ reject
 # > 富途牛牛
-^https?:\/\/api\d\.futunn\.com\/ad\/ url reject
-^https?:\/\/api\.futunn\.com\/v\d\/ad\/ url reject
-^https:\/\/api\.futunn\.com\/v2\/(config|optimus)\/(promote-config|my-homepage-config|) url reject-dict
+^https?:\/\/api\d\.futunn\.com\/ad\/ reject
+^https?:\/\/api\.futunn\.com\/v\d\/ad\/ reject
+^https:\/\/api\.futunn\.com\/v2\/(config|optimus)\/(promote-config|my-homepage-config|) reject-dict
 # > 飞常准
-^https?:\/\/app\.variflight\.com\/ad\/ url reject
-^https?:\/\/app\.variflight\.com\/v\d\/advert\/ url reject
+^https?:\/\/app\.variflight\.com\/ad\/ reject
+^https?:\/\/app\.variflight\.com\/v\d\/advert\/ reject
 # > 飞猪旅行
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) url reject-dict
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryloadingbanner url reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(allresource|predict) reject-dict
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryloadingbanner reject-dict
 # > 返利网
-^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2023\/0[1-9]{1}\/.*.jpg url reject-200
-^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2023\/1[0-2]{1}\/.*.jpg url reject-200
-^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/202\d{1}\/\d{2}\/.*.jpg url reject-200
+^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2023\/0[1-9]{1}\/.*.jpg reject-200
+^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2023\/1[0-2]{1}\/.*.jpg reject-200
+^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/202\d{1}\/\d{2}\/.*.jpg reject-200
 # > 分期乐
-^https?:\/\/fm\.fenqile\.com\/routev2\/other\/getfloatAd\.json url reject-img
-^https?:\/\/fm\.fenqile\.com\/routev2\/other\/startImg\.json url reject-img
+^https?:\/\/fm\.fenqile\.com\/routev2\/other\/getfloatAd\.json reject-img
+^https?:\/\/fm\.fenqile\.com\/routev2\/other\/startImg\.json reject-img
 # > 丰巢
-^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/ url reject
+^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/ reject
 
 # >>>>>>>>>>>>>>> ✅ G开头 ✅ <<<<<<<<<<<<<<
 # > 光大银行 #开屏广告
-^https?:\/\/mobile\.cebbank\.com\/cebclient\/ClientNoticeList url reject-200
+^https?:\/\/mobile\.cebbank\.com\/cebclient\/ClientNoticeList reject-200
 # > 广发银行 #开屏广告
-^https?:\/\/static\.95508\.com\/icppweb\/images\/modelMaterial\/(advertising|accurate)\/202\d{5}\/.*.(png|jpg) url reject-200
-^https?:\/\/mps\.95508\.com\/mps\/club\/cardPortals\/adv\/\d{25}\.(png|jpg) url reject-img
-# > \d{25}\.(png|jpg) url reject-img 只拦截25位纯数字命名的png和jpg格式图片
+^https?:\/\/static\.95508\.com\/icppweb\/images\/modelMaterial\/(advertising|accurate)\/202\d{5}\/.*.(png|jpg) reject-200
+^https?:\/\/mps\.95508\.com\/mps\/club\/cardPortals\/adv\/\d{25}\.(png|jpg) reject-img
+# > \d{25}\.(png|jpg) reject-img 只拦截25位纯数字命名的png和jpg格式图片
 # > 广州农商银行 #开屏广告
-^https?:\/\/mbank\.grcbank\.com\/ydyh\/resources\/startpage\/.*.(jpg|png) url reject-200
+^https?:\/\/mbank\.grcbank\.com\/ydyh\/resources\/startpage\/.*.(jpg|png) reject-200
 # > 广西移动 #开屏广告
-^https?:\/\/gx\.10086\.cn\/zt-portal\/gxhzg\/portal\/app\/api\/v url reject-200
+^https?:\/\/gx\.10086\.cn\/zt-portal\/gxhzg\/portal\/app\/api\/v reject-200
 # > 广东移动 #开屏广告
-^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?servicename=GMCCAPP_704_002_001_001 url reject-200
+^https?:\/\/gd\.10086\.cn\/gmccapp\/serv\/\?servicename=GMCCAPP_704_002_001_001 reject-200
 # > 国泰君安君弘 #开屏广告
-^https?:\/\/dl\.app\.gtja\.com\/dzswem\/kvController url reject-200
-^https?:\/\/dl[0-9]{1}\.app\.gtja\.com\/dzswem\/kvController url reject-200
+^https?:\/\/dl\.app\.gtja\.com\/dzswem\/kvController reject-200
+^https?:\/\/dl[0-9]{1}\.app\.gtja\.com\/dzswem\/kvController reject-200
 # > 盖得排行 #开屏广告
-https://zone.guiderank-app.com/guiderank-web/app/ad/listLaunchADByCity.do url reject
+https://zone.guiderank-app.com/guiderank-web/app/ad/listLaunchADByCity.do reject
 # > 国美电器 #开屏广告
-^https?:\/\/prom\.mobile\.gome\.com\.cn\/mobile\/promotion\/promscms\/(\w+\.jsp|sale\w+\.jsp) url reject
+^https?:\/\/prom\.mobile\.gome\.com\.cn\/mobile\/promotion\/promscms\/(\w+\.jsp|sale\w+\.jsp) reject
 # > 国家地理杂志 #开屏广告
-^https?:\/\/dili\.bdatu\.com\/jiekou\/ad\/ url reject
+^https?:\/\/dili\.bdatu\.com\/jiekou\/ad\/ reject
 # > 国家地理 #开屏广告
-^https?+:\/\/wap\.ngchina\.cn\/news\/adverts\/ url reject-200
+^https?+:\/\/wap\.ngchina\.cn\/news\/adverts\/ reject-200
 # > 挂号网（微医） #开屏广告
-^https?:\/\/kano\.guahao\.cn\/[a-zA-Z0-9]{12} url reject-200
-^https?:\/\/kano\.guahao\.cn\/.+?\?resize=\d{3}-\d{4} url reject-img
-^https?:\/\/app\.wy\.guahao\.com\/json\/white\/dayquestion\/getpopad url reject
+^https?:\/\/kano\.guahao\.cn\/[a-zA-Z0-9]{12} reject-200
+^https?:\/\/kano\.guahao\.cn\/.+?\?resize=\d{3}-\d{4} reject-img
+^https?:\/\/app\.wy\.guahao\.com\/json\/white\/dayquestion\/getpopad reject
 # > 怪兽充电 #开屏广告
-https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert\/skin) url reject-dict
+https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert\/skin) reject-dict
 # > 冠寓开屏广告 #开屏广告
-https://guanyu.longfor.com/app-server/api/v1/main/start url reject
+https://guanyu.longfor.com/app-server/api/v1/main/start reject
 # > 广汽传祺 #更新弹窗
-^https:\/\/gsp\.gacmotor\.com\/gateway\/app-api\/app\/version\/latestupdate\?flatform=2&innerVersion= url reject-dict
+^https:\/\/gsp\.gacmotor\.com\/gateway\/app-api\/app\/version\/latestupdate\?flatform=2&innerVersion= reject-dict
 # > 广汽传祺 #开屏广告
-^https:\/\/gsp\.gacmotor\.com\/gateway\/webapi\/baseinfo\/advertise\/getAdvertiseByPositionCode\?positionCode=1 url reject-dict
+^https:\/\/gsp\.gacmotor\.com\/gateway\/webapi\/baseinfo\/advertise\/getAdvertiseByPositionCode\?positionCode=1 reject-dict
 #> 广汽本田 #开屏广告
-^https?:\/\/gha\.ghac\.cn\:8081\/base\/app\/api\/ad\/query\?adType=1 url reject-200
+^https?:\/\/gha\.ghac\.cn\:8081\/base\/app\/api\/ad\/query\?adType=1 reject-200
 # > 国家医保服务平台 #开屏广告
-^https:\/\/fuwu\.nhsa\.gov\.cn\/ebus\/fuwu\/api\/base\/cms\/iep\/web\/cms\/hmpgcfg\/queryAppHmpgCfgByApp url reject
+^https:\/\/fuwu\.nhsa\.gov\.cn\/ebus\/fuwu\/api\/base\/cms\/iep\/web\/cms\/hmpgcfg\/queryAppHmpgCfgByApp reject
 # > 冠寓开屏广告 #开屏广告
-^https?:\/\/guanyu\.longfor\.com\/app-server\/api\/v1\/main\/start url reject
+^https?:\/\/guanyu\.longfor\.com\/app-server\/api\/v1\/main\/start reject
 # > 公交云 #开屏广告
-^https?:\/\/m\.ibuscloud.com\/v2\/app\/getStartPage url reject
+^https?:\/\/m\.ibuscloud.com\/v2\/app\/getStartPage reject
 # > 高铁管家 #开屏广告
-^http:\/\/cdn\.133\.cn\/md\/gtgj\/.+\/.+720x1280 url reject-dict
+^http:\/\/cdn\.133\.cn\/md\/gtgj\/.+\/.+720x1280 reject-dict
 
 # >>>>>>>>>>>>>>> ✅ H开头 ✅ <<<<<<<<<<<<<<
 # > 哈富证券 #开屏广告+首页和交易页横幅广告+弹窗广告
 ^https:\/\/emisdatacenterhk\.hafoo\.com\.hk\/ad\/api\/v\d\/appMarket reject-dict
 # > 华彩生活 #开屏广告
-^https?:\/\/static\.creditcard\.hxb\.com\.cn\/mcube\/apps\/group\d\/M00\/00\/2[A-Z0-9]{1}\/amRG7WO.+\.jpg url reject-200
+^https?:\/\/static\.creditcard\.hxb\.com\.cn\/mcube\/apps\/group\d\/M00\/00\/2[A-Z0-9]{1}\/amRG7WO.+\.jpg reject-200
 # > 虎扑 #开屏广告
-^https?:\/\/du\.hupucdn\.com\/\w+h\d{4} url reject-img
-^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/(interfaceAdMonitor|interfaceAd)\/ url reject
-^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/(search|interfaceAdMonitor|status|hupuBbsPm)/(hotkey|init|hupuBbsPm)\. url reject-img
-^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/status\/init url reject
-^https?:\/\/games\.mobileapi\.hupu\.com\/\d\/(?:\d\.){2}\d\/status\/init url reject
+^https?:\/\/du\.hupucdn\.com\/\w+h\d{4} reject-img
+^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/(interfaceAdMonitor|interfaceAd)\/ reject
+^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/(search|interfaceAdMonitor|status|hupuBbsPm)/(hotkey|init|hupuBbsPm)\. reject-img
+^https?:\/\/games\.mobileapi\.hupu\.com\/.+?\/status\/init reject
+^https?:\/\/games\.mobileapi\.hupu\.com\/\d\/(?:\d\.){2}\d\/status\/init reject
 # > 杭州市民 #开屏广告
-^https?:\/\/ads\.iconntech\.com\/resource-delivery\/*\/.*.(jpg|png) url reject-200
-^https?:\/\/smkmp\.96225\.com\/smkcenter\/ad/ url reject
+^https?:\/\/ads\.iconntech\.com\/resource-delivery\/*\/.*.(jpg|png) reject-200
+^https?:\/\/smkmp\.96225\.com\/smkcenter\/ad/ reject
 # > 杭州公交 #开屏广告
-^https?:\/\/m\.ibuscloud\.com\/v2\/app\/getStartPage url reject
+^https?:\/\/m\.ibuscloud\.com\/v2\/app\/getStartPage reject
 # > 虎牙直播 #开屏广告
-^https?+:\/\/business\.msstatic\.com\/advertiser\/ url reject-200
-^https?:\/\/cdnfile1\.msstatic\.com\/cdnfile\/appad\/ url reject-img
+^https?+:\/\/business\.msstatic\.com\/advertiser\/ reject-200
+^https?:\/\/cdnfile1\.msstatic\.com\/cdnfile\/appad\/ reject-img
 # > 韩剧TV #开屏广告
-^https?:\/\/gfp\.veta\.naver\.com\/adcall\? url reject
-^https?:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp\? url reject
+^https?:\/\/gfp\.veta\.naver\.com\/adcall\? reject
+^https?:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp\? reject
 # > 好好住 #开屏广告
-^https?:\/\/api\.haohaozhu\.cn\/index\.php\/home\/AppInit\/getStartPhoto url reject
+^https?:\/\/api\.haohaozhu\.cn\/index\.php\/home\/AppInit\/getStartPhoto reject
 # > 红版报
-https://fbchina.flipchina.cn/v2/ad/query/* url reject
+https://fbchina.flipchina.cn/v2/ad/query/* reject
 # > 虎嗅 #开屏广告
-^https:\/\/api-ad-product\.huxiu\.com\/Api\/Product\/SDK\/Advert\/Query\/queryAdvertListInfo url reject
+^https:\/\/api-ad-product\.huxiu\.com\/Api\/Product\/SDK\/Advert\/Query\/queryAdvertListInfo reject
 # > 华尔街见闻 #开屏广告
-^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/advertising\/ads\/13424\/materials url reject-dict
+^https:\/\/api-one-wscn\.awtmt\.com\/apiv1\/advertising\/ads\/13424\/materials reject-dict
 # > 花生地铁 #开屏广告
-^https?:\/\/cmsapi\.wifi8\.com\/v\d\/(emptyAd|adNew)\/ url reject
-^https?:\/\/cmsfile\.wifi8\.com\/uploads\/png\/ url reject-img
+^https?:\/\/cmsapi\.wifi8\.com\/v\d\/(emptyAd|adNew)\/ reject
+^https?:\/\/cmsfile\.wifi8\.com\/uploads\/png\/ reject-img
 # > 合利宝展业通 #开屏广告
-^https?:\/\/promote-trx\.helipay\.com\/promote-business-client\/pos\/appAdvertisement\/appAdvertisementList url reject-dict
+^https?:\/\/promote-trx\.helipay\.com\/promote-business-client\/pos\/appAdvertisement\/appAdvertisementList reject-dict
 # > 火猫 #开屏广告
-^https?:\/\/api\.huomao\.com\/channels\/loginAd url reject-dict
+^https?:\/\/api\.huomao\.com\/channels\/loginAd reject-dict
 # > 和风天气 #开屏广告
-^https:\/\/hfapp-service\.qweather\.net\/v2\.0\/app\/ad\/list\? url reject-dict
+^https:\/\/hfapp-service\.qweather\.net\/v2\.0\/app\/ad\/list\? reject-dict
 # > 汇丰汇选 #更新弹窗
-^https:\/\/m\.prod\.app\.hsbcfts\.com\.cn\/api\/sapp\/biz\/config\/open\/queryappversion\?channelCode= url reject-dict
+^https:\/\/m\.prod\.app\.hsbcfts\.com\.cn\/api\/sapp\/biz\/config\/open\/queryappversion\?channelCode= reject-dict
 # > 华宝智投 #开屏广告
-^https?:\/\/api\.touker\.com\/v2\/IAdvertisementAPI\.queryStartAdvertisement url reject-dict
+^https?:\/\/api\.touker\.com\/v2\/IAdvertisementAPI\.queryStartAdvertisement reject-dict
 #> 航旅纵横  #开屏广告
-^https?:\/\/discardrp\.umetrip\.com\/gateway\/api\/umetrip\/native url reject-dict
+^https?:\/\/discardrp\.umetrip\.com\/gateway\/api\/umetrip\/native reject-dict
 #> 航旅纵横  #首页悬浮标签
-^http:\/\/home\.umetrip\.com\/gateway\/api\/umetrip\/native url reject-dict
+^http:\/\/home\.umetrip\.com\/gateway\/api\/umetrip\/native reject-dict
 # > 货拉拉 #开屏广告
-^https?:\/\/uapi\.huolala\.cn\/\?_m=open.*?advertising url reject-dict
+^https?:\/\/uapi\.huolala\.cn\/\?_m=open.*?advertising reject-dict
 # > 黄油相机 #开屏广告
-^https?:\/\/api4\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements url reject-dict
+^https?:\/\/api4\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements reject-dict
 # > 华住 #开屏广告
-^https?:\/\/appapi\.huazhu\.com:\d{4}\/client\/app\/getAppStartPage\/ url reject-dict
+^https?:\/\/appapi\.huazhu\.com:\d{4}\/client\/app\/getAppStartPage\/ reject-dict
 # > 好奇心日报 #开屏广告
-^https?:\/\/notch\.qdaily\.com\/api\/v\d\/boot_ad url reject-dict
-^https?:\/\/app3\.qdaily\.com\/app3\/boot_advertisements\.json url reject-dict
+^https?:\/\/notch\.qdaily\.com\/api\/v\d\/boot_ad reject-dict
+^https?:\/\/app3\.qdaily\.com\/app3\/boot_advertisements\.json reject-dict
 
 # >>>>>>>>>>>>>>> ✅ I开头 ✅ <<<<<<<<<<<<<<
 # >>>>>>>>>>>>>>> ✅ J开头 ✅ <<<<<<<<<<<<<<
 # > 建行生活 #开屏广告
-^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?txcode=A3341A(006|009|120) url reject-dict
+^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?txcode=A3341A(006|009|120) reject-dict
 # > 建行生活 #我的页面悬浮广告 
 ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\? url response-body "TAG_AD_INFO" response-body "TAG_AD_INFO0"
 # > 建行生活 #删除首页+金融+我的多个横幅等乱七八糟的广告
 ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB05 url echo-response application/json echo-response https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/jhshA3341AB05.json
 # > 吉林银行 #开屏广告
-^https:\/\/cdn\.jlbank\.com\.cn\/jlstaticresource\/APPSTART url reject-200
+^https:\/\/cdn\.jlbank\.com\.cn\/jlstaticresource\/APPSTART reject-200
 # > 江苏苏宁银行 #开屏广告
-^https:\/\/appbank\.suningbank\.com\/channel\/pubresource url reject-200
+^https:\/\/appbank\.suningbank\.com\/channel\/pubresource reject-200
 #> 京东云无线宝 #开屏广告
-^https?:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash url reject-200
+^https?:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash reject-200
 # > 驾校一点通 #开屏广告
-^https:\/\/richmanrules\.ksedt\.com\/intellectWaterfall(Bidding)?\/find url reject
+^https:\/\/richmanrules\.ksedt\.com\/intellectWaterfall(Bidding)?\/find reject
 # > 驾考宝典 #开屏广告
-^https?:\/\/\w+\.kakamobi\.cn\/api\/open\/v\d\/advert-sdk\/ url reject
-^https?:\/\/789\.kakamobi\.cn\/.+adver url reject-img
-^https?:\/\/smart\.789\.image\.mucang\.cn\/advert url reject-img
+^https?:\/\/\w+\.kakamobi\.cn\/api\/open\/v\d\/advert-sdk\/ reject
+^https?:\/\/789\.kakamobi\.cn\/.+adver reject-img
+^https?:\/\/smart\.789\.image\.mucang\.cn\/advert reject-img
 # > 交管12123 #开屏广告
-^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery url reject-200
+^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery reject-200
 # > 韭菜公社（开屏广告干净了,有小部分误杀） #开屏广告
-^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/.*.png url reject-200
+^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/.*.png reject-200
 # > 韭菜公社（开屏倒计时还在,没有误杀） #开屏广告
-^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\.png url reject-200
+^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\.png reject-200
 # > 机核网 #开屏广告
-^https?:\/\/www\.gcores\.com\/gapi\/v1\/app-start-pages\?page url reject-dict
+^https?:\/\/www\.gcores\.com\/gapi\/v1\/app-start-pages\?page reject-dict
 # > 江苏移动 #开屏广告
-^https?+:\/\/wap\.js\.10086\.cn\/jsmccClient\/cd\/market_content\/api\/v\d\/market_content\.page\.query url reject-200
+^https?+:\/\/wap\.js\.10086\.cn\/jsmccClient\/cd\/market_content\/api\/v\d\/market_content\.page\.query reject-200
 # > 界面新闻 #开屏广告
-^https?:\/\/img\.jiemian\.com\/ads\/ url reject
+^https?:\/\/img\.jiemian\.com\/ads\/ reject
 # > 金十数据 #开屏广告和应用内弹窗
-^https?:\/\/jad-api\.jin10\.com\/ad url reject
+^https?:\/\/jad-api\.jin10\.com\/ad reject
 # > 加油广东 #开屏广告
-^https?:\/\/img\.gdoil\.cn\/upload\/ad\/.*.(jpg|png) url reject-200
+^https?:\/\/img\.gdoil\.cn\/upload\/ad\/.*.(jpg|png) reject-200
 # > 简讯 #开屏广告
-^https?:\/\/api\.tipsoon\.com\/api\/v1\/top\/ad url reject-img
+^https?:\/\/api\.tipsoon\.com\/api\/v1\/top\/ad reject-img
 
 # >>>>>>>>>>>>>>> ✅ K开头 ✅ <<<<<<<<<<<<<<
 # > 口袋银行
-^https:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image\/.+.jpg url reject-200
+^https:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image\/.+.jpg reject-200
 # > 酷安
 ^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList) url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/coolapk.js
-^https?://api-access\.pangolin-sdk-toutiao\.com/api/ad/union/sdk url reject
-^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch url reject-dict
+^https?://api-access\.pangolin-sdk-toutiao\.com/api/ad/union/sdk reject
+^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch reject-dict
 # > 快看
-^https?:\/\/api\.kkmh\.com\/v\d\/ad\/show url reject-200
+^https?:\/\/api\.kkmh\.com\/v\d\/ad\/show reject-200
 # > 快递100
-^https?:\/\/cdn\.kuaidi100\.com\/images\/open\/appads url reject-img
-^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do url reject
+^https?:\/\/cdn\.kuaidi100\.com\/images\/open\/appads reject-img
+^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do reject
 # > 开源中国
-^https?:\/\/www\.oschina\.net\/action\/apiv2\/get_launcher url reject-img
+^https?:\/\/www\.oschina\.net\/action\/apiv2\/get_launcher reject-img
 # > 快手
-^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$ url reject
+^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$ reject
 # > 看理想
-^https?:\/\/api\.vistopia\.com\.cn\/api\/v\d\/home\/advertisement url reject
+^https?:\/\/api\.vistopia\.com\.cn\/api\/v\d\/home\/advertisement reject
 # > 快手联盟,优量汇,穿山甲
 ^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js
 # > 肯德基
-^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome5\/apphome url reject-200
+^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome5\/apphome reject-200
 # > keep
-^https?:\/\/static1\.keepcdn\.com\/ark_optimus\/202\d\/*\/*\/.*.(png|jpg) url reject-200
+^https?:\/\/static1\.keepcdn\.com\/ark_optimus\/202\d\/*\/*\/.*.(png|jpg) reject-200
 # > 口袋校园
-^https?+:\/\/pocketuni\.net\/\?app=api&mod=Message&act=ad url reject-200
+^https?+:\/\/pocketuni\.net\/\?app=api&mod=Message&act=ad reject-200
 
 # >>>>>>>>>>>>>>> ✅ L开头 ✅ <<<<<<<<<<<<<<
 # > 拉卡拉 #开屏广告
-#^https:\/\/lamb\.lakala\.com\/lamo\/adv\/access\/queryMaterialUrl url reject-dict
-#^https:\/\/wallet\.lakala\.com\/m\/lama\/mgt\/activity\/bank\/query\/list url reject-dict
-#^https:\/\/wallet\.lakala\.com\/m\/a\/lama\/mgt\/activity\/biz\/query\/byMerInfo url reject-dict
-#^https:\/\/wallet\.lakala\.com\/m\/a\/message\/v3\/fetchMsgList url reject-dict
+#^https:\/\/lamb\.lakala\.com\/lamo\/adv\/access\/queryMaterialUrl reject-dict
+#^https:\/\/wallet\.lakala\.com\/m\/lama\/mgt\/activity\/bank\/query\/list reject-dict
+#^https:\/\/wallet\.lakala\.com\/m\/a\/lama\/mgt\/activity\/biz\/query\/byMerInfo reject-dict
+#^https:\/\/wallet\.lakala\.com\/m\/a\/message\/v3\/fetchMsgList reject-dict
 # > 懒人听书 #开屏广告
-^https?:\/\/118\.178\.214\.118\/yyting\/advertclient\/ClientAdvertList\.action url reject-img
-^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action url reject-img
-^https?:\/\/display\.wting\.info\/.*.jpeg url reject-200
+^https?:\/\/118\.178\.214\.118\/yyting\/advertclient\/ClientAdvertList\.action reject-img
+^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action reject-img
+^https?:\/\/display\.wting\.info\/.*.jpeg reject-200
 # > 联想 #开屏广告
-^https?:\/\/api\.club\.lenovo\.cn\/common\/open_ad url reject
+^https?:\/\/api\.club\.lenovo\.cn\/common\/open_ad reject
 # > 来疯 #开屏广告
-^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads url reject
-^https?+:\/\/api\.jxedt\.com\/ad\/ url reject-200
+^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads reject
+^https?+:\/\/api\.jxedt\.com\/ad\/ reject-200
 # > 懒投资 #开屏广告
-^https?:\/\/ios\.lantouzi\.com\/api\/startpage url reject
+^https?:\/\/ios\.lantouzi\.com\/api\/startpage reject
 # > 乐橙 #开屏广告
-https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* url reject
+https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* reject
 # > lofter #开屏广告
-^https?:\/\/ad\.lofter.com\/v1\.1\yitou\madr url reject-200
-^http?:\/\/images\.pinduoduo\.com\/marketing\_api url reject-200
-^https?:\/\/lofter\.lf127\.net\/ad\-material url reject-200
+^https?:\/\/ad\.lofter.com\/v1\.1\yitou\madr reject-200
+^http?:\/\/images\.pinduoduo\.com\/marketing\_api reject-200
+^https?:\/\/lofter\.lf127\.net\/ad\-material reject-200
 # > 蓝基因 #开屏广告
-^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList\?ad_type=(.*?)start_ad url reject
+^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList\?ad_type=(.*?)start_ad reject
 # > LING Club #开屏广告
-^https?:\/\/api\.00bang\.cn\/llb\/baseinfo\/advertise\/getAdvertiseByPageCode url reject-200
+^https?:\/\/api\.00bang\.cn\/llb\/baseinfo\/advertise\/getAdvertiseByPageCode reject-200
 # > 乐刻启动页去广告 #开屏广告
-^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew url reject-200
+^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.front\.AppAdvertisingFrontService\/getAppAdvertisingNew reject-200
 
 # >>>>>>>>>>>>>>> ✅ M开头 ✅ <<<<<<<<<<<<<<
 # > 买单吧 #开屏广告
-^https?:\/\/creditcardapp\.bankcomm\.cn\/mappweb_interface\/common\/(qryPopAds|qryLaunchAds)\.do url reject-200
+^https?:\/\/creditcardapp\.bankcomm\.cn\/mappweb_interface\/common\/(qryPopAds|qryLaunchAds)\.do reject-200
 # > 民生银行 #开屏广告
-^https?+:\/\/www\.cmbc\.com\.cn\/m\/image\/loadingpage\/ url reject-200
-^https:\/\/www\.cmbc\.com\.cn\/m\/image\/banner\/.*.png url reject-200
-# > .*.png url reject-200 所有png类型图片都拦截
+^https?+:\/\/www\.cmbc\.com\.cn\/m\/image\/loadingpage\/ reject-200
+^https:\/\/www\.cmbc\.com\.cn\/m\/image\/banner\/.*.png reject-200
+# > .*.png reject-200 所有png类型图片都拦截
 # > 美团 #开屏广告
-^https:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ url reject
-^https:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg url reject
-^https:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp url reject
-^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) url reject
+^https:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ reject
+^https:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg reject
+^https:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp reject
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) reject
 # > 美团外卖 #开屏广告
-^https?:\/\/img\.meituan\.net\/bizad\/.*.jpg url reject-200
-^https:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+ url reject
-^http:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\?ad url reject-dict
-^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+ url reject
+^https?:\/\/img\.meituan\.net\/bizad\/.*.jpg reject-200
+^https:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+ reject
+^http:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\?ad reject-dict
+^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+ reject
 # > 美团众包 #开屏广告
-^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage url reject-200
+^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage reject-200
 # > 米家 #开屏广告+横幅广告
-^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|myTab|openingBanner)\? url reject-dict
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|myTab|openingBanner)\? reject-dict
 # > 米读 #开屏广告
-^https:\/\/apiwz\.midukanshu\.com\/advert\/getPopup$ url reject
-^https:\/\/apiwz\.midukanshu\.com\/advert\/treasureInfo$ url reject
-^https:\/\/apiwz\.midukanshu\.com\/config\/getAds$ url reject
+^https:\/\/apiwz\.midukanshu\.com\/advert\/getPopup$ reject
+^https:\/\/apiwz\.midukanshu\.com\/advert\/treasureInfo$ reject
+^https:\/\/apiwz\.midukanshu\.com\/config\/getAds$ reject
 # > 马卡龙玩图 #开屏广告
-^https:\/\/app\.api\.versa-ai\.com\/launch\/ads\? url reject-200
-^https?:\/\/static01\.versa-ai\.com\/upload\/ec0ba51d68f9\/.*.jpg url reject-200
+^https:\/\/app\.api\.versa-ai\.com\/launch\/ads\? reject-200
+^https?:\/\/static01\.versa-ai\.com\/upload\/ec0ba51d68f9\/.*.jpg reject-200
 # > 蘑菇租房 #开屏广告
-^https?:\/\/api\.mgzf\.com\/renter-operation\/home\/startHomePage url reject
+^https?:\/\/api\.mgzf\.com\/renter-operation\/home\/startHomePage reject
 # > 漫画人 #开屏广告
-^https?:\/\/mangaapi\.manhuaren\.com\/v\d\/public\/getStartPageAds url reject
+^https?:\/\/mangaapi\.manhuaren\.com\/v\d\/public\/getStartPageAds reject
 # > 埋堆堆 #开屏广告
-^https?:\/\/api\.mddcloud\.com\.cn\/api\/ad\/getClassAd\.action url reject-img
-^https?:\/\/api\.mddcloud\.com\.cn\/api\/advert\/getHomepage\.action url reject-img
-^https?:\/\/mob\.mddcloud\.com\.cn\/api\/(ad|advert)\/ url reject
+^https?:\/\/api\.mddcloud\.com\.cn\/api\/ad\/getClassAd\.action reject-img
+^https?:\/\/api\.mddcloud\.com\.cn\/api\/advert\/getHomepage\.action reject-img
+^https?:\/\/mob\.mddcloud\.com\.cn\/api\/(ad|advert)\/ reject
 # > 妈妈网孕育 #开屏广告
-^https:\/\/qimg\.cdnmama\.com\/rd url reject-dict
+^https:\/\/qimg\.cdnmama\.com\/rd reject-dict
 # > 咪咕 #开屏广告
-^https?+:\/\/gg\w+?\.cmvideo\.cn\/v\d\/iflyad\/ url reject-200
-^https?+:\/\/ggic\d?\.cmvideo\.cn\/ad\/ url reject-200
-^https?+:\/\/ggx\.cmvideo\.cn\/request\/ url reject-200
-^https?+:\/\/.+?\/cdn-adn\/ url reject-200
+^https?+:\/\/gg\w+?\.cmvideo\.cn\/v\d\/iflyad\/ reject-200
+^https?+:\/\/ggic\d?\.cmvideo\.cn\/ad\/ reject-200
+^https?+:\/\/ggx\.cmvideo\.cn\/request\/ reject-200
+^https?+:\/\/.+?\/cdn-adn\/ reject-200
 # > 美图秀秀 #开屏广告
-^https?:\/\/mea\.meitudata\.com\/kaiping url reject
+^https?:\/\/mea\.meitudata\.com\/kaiping reject
 # > 马蜂窝 #开屏广告
-^https:\/\/mapi\.mafengwo\.cn\/ad\/get_launch_ad_list\/v url reject-200
+^https:\/\/mapi\.mafengwo\.cn\/ad\/get_launch_ad_list\/v reject-200
 # > 美味不用等 #开屏广告
-^https?+:\/\/capi\.mwee\.cn\/app-api\/V\d{2}\/app\/(ad|getstartad) url reject
+^https?+:\/\/capi\.mwee\.cn\/app-api\/V\d{2}\/app\/(ad|getstartad) reject
 # > 蜜雪冰城 #开屏广告
-^https:\/\/mxsa\.mxbc\.net\/api\/v1\/adinfo\/limitedAds$ url reject
+^https:\/\/mxsa\.mxbc\.net\/api\/v1\/adinfo\/limitedAds$ reject
 # > 脉脉 #开屏广告
-^https?:\/\/open\.taou\.com\/maimai\/(launch_ad|ad?) url reject
-^https?:\/\/api\.taou\.com\/sdk\/global\/splash_ad url reject
-^https?:\/\/track\.mm\.taou\.com/v\d\/track url reject
+^https?:\/\/open\.taou\.com\/maimai\/(launch_ad|ad?) reject
+^https?:\/\/api\.taou\.com\/sdk\/global\/splash_ad reject
+^https?:\/\/track\.mm\.taou\.com/v\d\/track reject
 # > 猫眼 #开屏广告
-^https:\/\/p0\.pipi\.cn\/adAdmin\/.+\.jpg\?imageMogr2\/quality\/85\?may_covertWebp url reject-dict
+^https:\/\/p0\.pipi\.cn\/adAdmin\/.+\.jpg\?imageMogr2\/quality\/85\?may_covertWebp reject-dict
 # > 每日优鲜 #开屏广告
-^https:\/\/j-image\.missfresh\.cn\/img_(.+)\.gif$ url reject
-^https:\/\/j-image\.missfresh\.cn\/img_(.+)\.(jpg|jpeg|gif|png)\?iopcmd=convert&dst=webp&q=85$ url reject
+^https:\/\/j-image\.missfresh\.cn\/img_(.+)\.gif$ reject
+^https:\/\/j-image\.missfresh\.cn\/img_(.+)\.(jpg|jpeg|gif|png)\?iopcmd=convert&dst=webp&q=85$ reject
 # > 秒拍 #开屏广告
-^https?:\/\/b-api\.ins\.miaopai\.com\/\d\/ad/ url reject
+^https?:\/\/b-api\.ins\.miaopai\.com\/\d\/ad/ reject
 # > 猫耳FM #开屏广告
-^https:\/\/app\.missevan\.com\/site\/launch\? url reject
+^https:\/\/app\.missevan\.com\/site\/launch\? reject
 # > 米游社 #开屏广告
-^https?:\/\/upload-bbs\.mihoyo\.com\/upload\/202[2-9]{1}\/[0-9]{2}\/[0-9]{2}\/[a-z0-9]{32}_[a-z0-9]{19}\.(jpg|png)$ url reject-200
+^https?:\/\/upload-bbs\.mihoyo\.com\/upload\/202[2-9]{1}\/[0-9]{2}\/[0-9]{2}\/[a-z0-9]{32}_[a-z0-9]{19}\.(jpg|png)$ reject-200
 # > 麦当劳 #开屏广告
-^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/(splash|hotActivity) url reject-200
+^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/(splash|hotActivity) reject-200
 
 # >>>>>>>>>>>>>>> ✅ N开头 ✅ <<<<<<<<<<<<<<
 # > 农业银行 #开屏广告
-^https:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(bdfb4|86fb9|7aa68) url reject-dict
-^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(9ce31|1bf6e|6bd18) url reject-dict
+^https:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(bdfb4|86fb9|7aa68) reject-dict
+^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(9ce31|1bf6e|6bd18) reject-dict
 ^https:\/\/mobilepaas\.abchina\.com\.cn:441\/mgw\.htm$ url script-response-header https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/header.js
 # > 南方航空弹窗
-^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement url reject-200
+^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement reject-200
 # > 南方航空更新弹窗
-^https?:\/\/3g\.csair\.com\/CSMBP\/data\/homePage\/getLaunchInfoNew\.do url reject-200
+^https?:\/\/3g\.csair\.com\/CSMBP\/data\/homePage\/getLaunchInfoNew\.do reject-200
 # > 奈菲影视 #开屏广告
-^https?:\/\/www\.nfmovies\.com\/pic\/tu\/ url reject-img
-^https?:\/\/www\.nfmovies\.com\/templets\/default\/images\/logos url reject-img
-^https?:\/\/www\.nfmovies\.com\/uploads\/images\/play\.jpg url reject-img
+^https?:\/\/www\.nfmovies\.com\/pic\/tu\/ reject-img
+^https?:\/\/www\.nfmovies\.com\/templets\/default\/images\/logos reject-img
+^https?:\/\/www\.nfmovies\.com\/uploads\/images\/play\.jpg reject-img
 # > 宁聚 #开屏广告
-^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/advertise\/advertise-r1\/get-list\?data=u8obKDIrIWt2NR9wBuMwQ5O61eEsP url reject
-^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/common\/system-boot-inform\/detail url reject
+^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/advertise\/advertise-r1\/get-list\?data=u8obKDIrIWt2NR9wBuMwQ5O61eEsP reject
+^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/common\/system-boot-inform\/detail reject
 
 # >>>>>>>>>>>>>>> ✅ O开头 ✅ <<<<<<<<<<<<<<
 # > ofo共享单车
-^https?:\/\/supportda\.ofo\.com\/adaction\? url reject
-^https?:\/\/ma\.ofo\.com\/(adImage|ads) url reject
-^https?:\/\/activity2\.api\.ofo\.com\/ofo\/Api\/v2\/ads url reject
+^https?:\/\/supportda\.ofo\.com\/adaction\? reject
+^https?:\/\/ma\.ofo\.com\/(adImage|ads) reject
+^https?:\/\/activity2\.api\.ofo\.com\/ofo\/Api\/v2\/ads reject
 
 # >>>>>>>>>>>>>>> ✅ P开头 ✅ <<<<<<<<<<<<<<
 # > 浦大喜奔#开屏广告
@@ -595,501 +595,501 @@ https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* url reject
 # > 平安壹钱包 #开屏广告
 ^https?:\/\/mobile\.1qianbao\.com\/mtp-web\/ui\/op_common_query_business_yqb\.json reject-200
 # > 平安好车主 #开屏广告
-^https?:\/\/iobs\.pingan\.com\.cn\/download\/bweb-per-sf-prd\/bweb url reject-200
-^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(YourSystemName|icore-apps-ad) url reject-200
+^https?:\/\/iobs\.pingan\.com\.cn\/download\/bweb-per-sf-prd\/bweb reject-200
+^https?:\/\/iobs\.pingan\.com\.cn\/download\/icore-aops-base-dmz-prd\/(YourSystemName|icore-apps-ad) reject-200
 # > 平安证券 #开屏广告
-^https:\/\/pacdn\.m\.stock\.pingan\.com\/images\/ url reject-dict
+^https:\/\/pacdn\.m\.stock\.pingan\.com\/images\/ reject-dict
 # > Pornhub #视频开头广告
 ^https?:\/\/(\w{0,3}(\.){0,1}(pornhub)(\.)\w{0,3})(?!.*?(/(cdn-cgi)))(?!.*?(\.(css|js|jpeg|jpg|png|gif|ico|mp3|mp4|svg|tff|PNG|woff|woff2|m3u8))).* url script-response-body https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/surge_pornhub.js
-^https:\/\/(cn|www)\.pornhub\.com\/_xa\/ads.* url reject
+^https:\/\/(cn|www)\.pornhub\.com\/_xa\/ads.* reject
 # > 苹果TestFlight App更新时, 提示"APP不可用"问题. 解除区域限制.
 ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ url script-request-body https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js
 # > 澎湃新闻 #开屏广告
-^https?:\/\/adpai\.thepaper\.cn\/.+&ad= url reject
+^https?:\/\/adpai\.thepaper\.cn\/.+&ad= reject
 # > 票根 #开屏广告
-^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ url reject-200
+^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ reject-200
 
 # >>>>>>>>>>>>>>> ✅ Q开头 ✅ <<<<<<<<<<<<<<
 # > 七猫小说
 ^https?:\/\/(api-\w+|xiaoshuo)\.wtzw\.com\/api\/v\d\/ url script-response-body https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/QiMaoXiaoShuo.js
 # > 汽车之家
-^https?:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/ url reject-img
-^https?:\/\/app2\.autoimg\.cn\/apppdfs\/ url reject-img
+^https?:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/ reject-img
+^https?:\/\/app2\.autoimg\.cn\/apppdfs\/ reject-img
 # > 穷游
-^https?+:\/\/open\.qyer\.com\/qyer\/startpage\/ url reject-200
-^https?:\/\/open\.qyer\.com\/qyer\/config\/get url reject
-^https?:\/\/media\.qyer\.com\/ad\/ url reject
+^https?+:\/\/open\.qyer\.com\/qyer\/startpage\/ reject-200
+^https?:\/\/open\.qyer\.com\/qyer\/config\/get reject
+^https?:\/\/media\.qyer\.com\/ad\/ reject
 # > 亲宝宝
-^https?:\/\/api\.qbb6\.com\/ad\/ url reject
+^https?:\/\/api\.qbb6\.com\/ad\/ reject
 # > 全家便利店
-^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/biz\/base\/appversion\/latest url reject
+^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/biz\/base\/appversion\/latest reject
 # > 去哪儿
-^https:\/\/homefront\.qunar\.com\/front\/splash\/ad url reject-dict
+^https:\/\/homefront\.qunar\.com\/front\/splash\/ad reject-dict
 # > 球迷报
-^https?:\/\/a\.qiumibao\.com\/activities\/config\.php url reject
+^https?:\/\/a\.qiumibao\.com\/activities\/config\.php reject
 
 # >>>>>>>>>>>>>>> ✅ R开头 ✅ <<<<<<<<<<<<<<
 # > 日日煮
-^https?:\/\/cms\.daydaycook\.com\.cn\/api\/cms\/advertisement\/ url reject
-^https?:\/\/api\.daydaycook\.com\.cn\/daydaycook\/server\/ad\/ url reject
+^https?:\/\/cms\.daydaycook\.com\.cn\/api\/cms\/advertisement\/ reject
+^https?:\/\/api\.daydaycook\.com\.cn\/daydaycook\/server\/ad\/ reject
 # > 日淘任意门
-^https?:\/\/app\.meruki\.cn\/\?n=Sig\.Front\.AppFront\.GetOpenAdDoorzo url reject-dict
+^https?:\/\/app\.meruki\.cn\/\?n=Sig\.Front\.AppFront\.GetOpenAdDoorzo reject-dict
 # > 人民日报
-^https:\/\/app\.peopleapp\.com\/Api\/\d+/HomeApi\/(getAdvertImage|adv) url reject
-^https?:\/\/stat\.peopleapp\.com\/ url reject
-^https?:\/\/adstatic\.peopleapp\.com\/upload\/AppLoad\/.*.(jpg|png) url reject-200
+^https:\/\/app\.peopleapp\.com\/Api\/\d+/HomeApi\/(getAdvertImage|adv) reject
+^https?:\/\/stat\.peopleapp\.com\/ reject
+^https?:\/\/adstatic\.peopleapp\.com\/upload\/AppLoad\/.*.(jpg|png) reject-200
 
 # >>>>>>>>>>>>>>> ✅ S开头 ✅ <<<<<<<<<<<<<<
 # > 顺丰
 ^https://ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/queryInfoFlow url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/shunfeng_json.js
-^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade url reject-dict
-^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/ url reject
-^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen url reject
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade reject-dict
+^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/ reject
+^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen reject
 # > 顺丰优选
-^https://mapi.sfbest.com\/brokerservice-server\/cms\/getPositionById.* url reject
+^https://mapi.sfbest.com\/brokerservice-server\/cms\/getPositionById.* reject
 # > 神舟汽车
-^https?:\/\/img01\.10101111cdn\.com\/adpos\/share\/ url reject-img
+^https?:\/\/img01\.10101111cdn\.com\/adpos\/share\/ reject-img
 # > 首汽约车
-^https?+:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/car-rest\/webservice\/passenger\/recommendADs url reject-200
-^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passenger-token\/leachtoken\/webservice\/homepage\/queryADs url reject
-^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passengerController\/notk\/passenger\/recommendADs url reject
-^https?:\/\/img\.yun\.01zhuanche\.com\/statics\/app\/advertisement\/.+?-750-1334 url reject-img
+^https?+:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/car-rest\/webservice\/passenger\/recommendADs reject-200
+^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passenger-token\/leachtoken\/webservice\/homepage\/queryADs reject
+^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passengerController\/notk\/passenger\/recommendADs reject
+^https?:\/\/img\.yun\.01zhuanche\.com\/statics\/app\/advertisement\/.+?-750-1334 reject-img
 # > 深圳通微信小程序
-^https?:\/\/wxsnsdythumb\.wxs\.qq\.com\/[0-9]{3}\/[0-9]{5}\/snscosdownload\/SZ\/reserved url reject-200
+^https?:\/\/wxsnsdythumb\.wxs\.qq\.com\/[0-9]{3}\/[0-9]{5}\/snscosdownload\/SZ\/reserved reject-200
 # > 盛趣游戏
-^https?:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd url reject
+^https?:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd reject
 # > 旅法师营地
-^https?+:\/\/www\.iyingdi\.cn\/ad url reject-200
+^https?+:\/\/www\.iyingdi\.cn\/ad reject-200
 # > 识货
-^https:\/\/sh-gateway\.shihuo\.cn\/v4\/services\/sh-adapi\/home\/ad\/ url reject
-^https:\/\/sh-gateway\.shihuo\.cn\/v4\/services\/sh-adapi\/home\/screen\? url reject
+^https:\/\/sh-gateway\.shihuo\.cn\/v4\/services\/sh-adapi\/home\/ad\/ reject
+^https:\/\/sh-gateway\.shihuo\.cn\/v4\/services\/sh-adapi\/home\/screen\? reject
 # > 苏宁
-^https?:\/\/mpcs\.suning\.com\/mpcs\/dm\/getDmInfo url reject
-^https?+:\/\/image\.suning\.cn\/uimg\/ma\/ad\/ url reject-200
-^https?:\/\/luckman\.suning\.com\/luck-web\/policy\/v\d\/msf\/index\.do url reject-200
+^https?:\/\/mpcs\.suning\.com\/mpcs\/dm\/getDmInfo reject
+^https?+:\/\/image\.suning\.cn\/uimg\/ma\/ad\/ reject-200
+^https?:\/\/luckman\.suning\.com\/luck-web\/policy\/v\d\/msf\/index\.do reject-200
 # > 四季線上影視
-^https?+:\/\/service\.4gtv\.tv\/4gtv\/Data\/(?>GetAD|ADLog) url reject-200
+^https?+:\/\/service\.4gtv\.tv\/4gtv\/Data\/(?>GetAD|ADLog) reject-200
 # > 闪现一下
-^https:\/\/api\.gameplus\.qq\.com\/community\.OnloadSrv\/GetPreloadScreenInfo url reject-200
+^https:\/\/api\.gameplus\.qq\.com\/community\.OnloadSrv\/GetPreloadScreenInfo reject-200
 # > 搜狗输入法 #开屏广告
-^https:\/\/us\.l\.qq\.com\/exapp url reject-200
+^https:\/\/us\.l\.qq\.com\/exapp reject-200
 ^https:\/\/sec\.sginput\.qq\.com\/q url script-response-header https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/header.js
 # > 搜狗输入法 #屏蔽游戏中心
-^https:\/\/h5api\.sginput\.qq\.com\/v1\/gcenter\/ios\/homepage url reject-dict
+^https:\/\/h5api\.sginput\.qq\.com\/v1\/gcenter\/ios\/homepage reject-dict
 # > 山东移动
-https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do url reject-dict
+https?:\/\/m\.sd\.10086\.cn\/zapi\/app_common\/homeWelcome\/welcome.do reject-dict
 # > 三联中读
-https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig url reject
+https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig reject
 # > 首旅如家
-^https?:\/\/app\.homeinns\.com\/api\/landing url reject
+^https?:\/\/app\.homeinns\.com\/api\/landing reject
 # > SOUL
-^https?:\/\/ssp\.soulapp\.cn\/api\/q\?bi url reject-200
+^https?:\/\/ssp\.soulapp\.cn\/api\/q\?bi reject-200
 # > 苏e行
-^https?:\/\/api\.bwton\.com\/bas\/ad url reject-200
-^https?:\/\/api\.bwton\.com\/bff\/app\/index\/(goods|recommend) url reject-dict
+^https?:\/\/api\.bwton\.com\/bas\/ad reject-200
+^https?:\/\/api\.bwton\.com\/bff\/app\/index\/(goods|recommend) reject-dict
 # > 上汽大众
-^https?:\/\/api\.mos\.csvw\.com\/mos\/operation\/home\/api\/v\d\/app\/brand\/queryDataForOperation url reject-200
+^https?:\/\/api\.mos\.csvw\.com\/mos\/operation\/home\/api\/v\d\/app\/brand\/queryDataForOperation reject-200
 # > 四川航空
-^https?:\/\/mapi\.sichuanair\.com\/zt\/tribeport\/encrypt_translate_key url reject-200
+^https?:\/\/mapi\.sichuanair\.com\/zt\/tribeport\/encrypt_translate_key reject-200
 
 # >>>>>>>>>>>>>>> ✅ T开头 ✅ <<<<<<<<<<<<<<
 # > 同花顺
-^https?:\/\/adm\.10jqka\.com\.cn\/interface\/ad\/recommend url reject-200
+^https?:\/\/adm\.10jqka\.com\.cn\/interface\/ad\/recommend reject-200
 # > 同花顺至尊版
-^https:\/\/stat\.10jqka\.com\.cn\/q\?ld=mobile&id=ad url reject-dict
+^https:\/\/stat\.10jqka\.com\.cn\/q\?ld=mobile&id=ad reject-dict
 # > 天府手机银行
-^https?:\/\/cgbank\.oss-cn-shenzhen\.aliyuncs\.com\/visual\/advertisingImg\/.+.jpg url reject-200
+^https?:\/\/cgbank\.oss-cn-shenzhen\.aliyuncs\.com\/visual\/advertisingImg\/.+.jpg reject-200
 # > T语音
-^https:\/\/ga-album-cdnqn\.52tt\.com\/prod-yunying\/.+.jpg url reject-dict
+^https:\/\/ga-album-cdnqn\.52tt\.com\/prod-yunying\/.+.jpg reject-dict
 # > TapTap
-https?:\/\/api\.taptapdada\.com\/startup\-logo\/v1\/combo\? url reject-dict
+https?:\/\/api\.taptapdada\.com\/startup\-logo\/v1\/combo\? reject-dict
 # > TubeMax
-^https:\/\/.*\.i18n-pglstatp\.com\/obj\/ad-pattern-sg url reject
+^https:\/\/.*\.i18n-pglstatp\.com\/obj\/ad-pattern-sg reject
 # > 途家民宿
-^https:\/\/client\.tujia\.com\/bnbapp-node url reject-dict
+^https:\/\/client\.tujia\.com\/bnbapp-node reject-dict
 ^https:\/\/client\.tujia\.com\/bnbapp-node\/app\/portal\/getportalconfig\/bnb\/v2 url response-body "banners":\[.+\], response-body "banners":[],
-^https:\/\/client\.tujia\.com\/bnbapp-node\/app\/(promotion\/popup\/getpopupups\/bnb|portal\/getStartPictureAdvertising) url reject
+^https:\/\/client\.tujia\.com\/bnbapp-node\/app\/(promotion\/popup\/getpopupups\/bnb|portal\/getStartPictureAdvertising) reject
 # > 腾讯游戏
-^https?:\/\/ssl\.kohsocialapp\.qq\.com:\d+\/game\/buttons url reject
-^https?:\/\/qt\.qq\.com\/lua\/mengyou\/get_splash_screen_info url reject
+^https?:\/\/ssl\.kohsocialapp\.qq\.com:\d+\/game\/buttons reject
+^https?:\/\/qt\.qq\.com\/lua\/mengyou\/get_splash_screen_info reject
 # > 腾讯动漫
-^https?:\/\/iphone\.ac\.qq\.com\/.*\/Support\/(getSystemConf|bootScreen) url reject
+^https?:\/\/iphone\.ac\.qq\.com\/.*\/Support\/(getSystemConf|bootScreen) reject
 # > 腾讯手机管家
-^https://otheve.beacon.qq.com\/analytics\/upload\?sid=.* url reject
+^https://otheve.beacon.qq.com\/analytics\/upload\?sid=.* reject
 # > 腾讯地图
-^https?+:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ url reject-200
-^https?:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ url reject
+^https?+:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ reject-200
+^https?:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ reject
 # > 腾讯新闻
 ^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/event_detail|news_feed\/hot_module_list)) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js
 # > 腾讯体育
-^https?:\/\/news\.ssp\.qq\.com\/app url reject
-^https?:\/\/sports3\.gtimg\.com\/community\/20cf93884470434eaf38b2e77ab7796a\.png url reject
+^https?:\/\/news\.ssp\.qq\.com\/app reject
+^https?:\/\/sports3\.gtimg\.com\/community\/20cf93884470434eaf38b2e77ab7796a\.png reject
 # > 腾讯QQ音乐
-^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ url reject
-^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ url reject
-^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad/.*?\d{4}\.jpg url reject-img
-^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/targeted_ads url reject-img
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ reject
+^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ reject
+^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad/.*?\d{4}\.jpg reject-img
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/targeted_ads reject-img
 # > 淘宝
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome\/ url reject-200
-^https?+:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.tmall\.wireless url reject-200
-^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv url reject-200
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome\/ reject-200
+^https?+:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.tmall\.wireless reject-200
+^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv reject-200
 ^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/ url response-body "ems_etao_advertise" response-body ""
-^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise\/ url reject-200
-^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get\/ url reject-200
-^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/ url reject-200
-^https:\/\/(heic|gw)\.alicdn\.com\/imgextra\/i\d\/.+-tps-(702-758|1125-1602)\.(heic|jpg|png) url reject-200
+^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise\/ reject-200
+^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get\/ reject-200
+^https?+:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/ reject-200
+^https:\/\/(heic|gw)\.alicdn\.com\/imgextra\/i\d\/.+-tps-(702-758|1125-1602)\.(heic|jpg|png) reject-200
 # > 淘票票
-^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryloadingbanner url reject-200
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryloadingbanner reject-200
 # > 天猫精灵
-^https:\/\/ossgw\.alicdn\.com\/creatives-assets\/image url reject-200
+^https:\/\/ossgw\.alicdn\.com\/creatives-assets\/image reject-200
 # > 途牛
-^https?+:\/\/m\.tuniu\.com\/api\/operation\/splash\/ url reject-200
+^https?+:\/\/m\.tuniu\.com\/api\/operation\/splash\/ reject-200
 # > 天猫养车
-^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/(popupDialogFacade|appHomeFacade)\/(popupDialogList|getNewUserPlateActivity) url reject-200
-^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/bannerFacade\/app\/list  url reject-200
+^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/(popupDialogFacade|appHomeFacade)\/(popupDialogList|getNewUserPlateActivity) reject-200
+^https?:\/\/api\.ncarzone\.com\/superapi\/canary\/bannerFacade\/app\/list  reject-200
 # > 天山云TV
-^https?:\/\/www\.tsytv\.com\.cn\/api\/app\/ios\/ads url reject-img
+^https?:\/\/www\.tsytv\.com\.cn\/api\/app\/ios\/ads reject-img
 # > 天翼云盘
-^http:\/\/api\.cloud\.189\.cn\/guns\/img\/recommendedPosition url reject-dict
+^http:\/\/api\.cloud\.189\.cn\/guns\/img\/recommendedPosition reject-dict
 # > 天府市民云（生活圈,社区打不开,需要的自己添加主机名）
-^https?:\/\/tfsmy\.chengdu\.gov\.cn\/api\/v5\/core\/version url reject-200
+^https?:\/\/tfsmy\.chengdu\.gov\.cn\/api\/v5\/core\/version reject-200
 # > 天天基金
-^https?:\/\/j5\.dfcfw\.com\/WG\/conf\/202[0-9]{5}/.*.(jpg|png) url reject-200
+^https?:\/\/j5\.dfcfw\.com\/WG\/conf\/202[0-9]{5}/.*.(jpg|png) reject-200
 # > 淘淘阅读
-^https?:\/\/bid\.adview\.cn\/agent\/getAd url reject
+^https?:\/\/bid\.adview\.cn\/agent\/getAd reject
 # > 同程旅行
-^https:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ url reject
+^https:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ reject
 # > 太平洋知科技
-^https:\/\/mrobot\.pconline\.com\.cn\/s-900\/onlineinfo\/cms\/launch url reject-200
+^https:\/\/mrobot\.pconline\.com\.cn\/s-900\/onlineinfo\/cms\/launch reject-200
 
 # >>>>>>>>>>>>>>> ✅ U开头 ✅ <<<<<<<<<<<<<<
 # > U净
-^https:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v2\/cloudcode\/wechat\/bid url reject
-^https:\/\/adsoss\.zhinengxiyifang\.cn\/ads url reject
-^https?:\/\/ads\.zhinengxiyifang\.cn\/api\/v1\.1\/ads\/* url reject-200
+^https:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v2\/cloudcode\/wechat\/bid reject
+^https:\/\/adsoss\.zhinengxiyifang\.cn\/ads reject
+^https?:\/\/ads\.zhinengxiyifang\.cn\/api\/v1\.1\/ads\/* reject-200
 
 # >>>>>>>>>>>>>>> ✅ V开头 ✅ <<<<<<<<<<<<<<
 # > vgTimeApp去开屏广告(需全新应用). 若要去新闻列表广告需要搭配广告联盟模块
 ^http:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js
 # > Vista看天下
-^https?:\/\/open3\.vistastory\.com\/v\d\/api\/inde/loading_ad url reject-200
+^https?:\/\/open3\.vistastory\.com\/v\d\/api\/inde/loading_ad reject-200
 
 # >>>>>>>>>>>>>>> ✅ W开头 ✅ <<<<<<<<<<<<<<
 # > 网易新闻
-^https?+:\/\/c\.m\.163\.com\/nc\/gl\/ url reject-200
+^https?+:\/\/c\.m\.163\.com\/nc\/gl\/ reject-200
 # > 网易有钱
-^https?+:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds url reject-200
+^https?+:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds reject-200
 # > 网易严选
-^https?+:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json url reject-200
+^https?+:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json reject-200
 # > 网易蜗牛读书
-^https?+:\/\/easyreadfs\.nosdn\.127\.net\/ad-material\/ url reject-200
-^https?+:\/\/p\.du\.163\.com\/ad\/ url reject-200
-http:\/\/analytics\.163\.com\/ntes url reject
+^https?+:\/\/easyreadfs\.nosdn\.127\.net\/ad-material\/ reject-200
+^https?+:\/\/p\.du\.163\.com\/ad\/ reject-200
+http:\/\/analytics\.163\.com\/ntes reject
 # > 网易考拉
-^https?+:\/\/kaola-haitao\.oss\.kaolacdn.com\/.+?_\d{3,4}+_\d{4}\.jpg\?x-oss-process=image\/resize,m_mfit,w_\d{3,4}+,h_\d{4}\/format,webp\/quality,Q_85 url reject-200
-^https?:\/\/sp\.kaola\.com\/api\/openad url reject-200
-^https?:\/\/gw\.kaola\.com\/gw\/dgmobile\/newOpenAd url reject
+^https?+:\/\/kaola-haitao\.oss\.kaolacdn.com\/.+?_\d{3,4}+_\d{4}\.jpg\?x-oss-process=image\/resize,m_mfit,w_\d{3,4}+,h_\d{4}\/format,webp\/quality,Q_85 reject-200
+^https?:\/\/sp\.kaola\.com\/api\/openad reject-200
+^https?:\/\/gw\.kaola\.com\/gw\/dgmobile\/newOpenAd reject
 # > 网易有道词典 翻译广告
-^https:\/\/dict\.youdao\.com\/course\/tab\/translateTab url reject-dict
+^https:\/\/dict\.youdao\.com\/course\/tab\/translateTab reject-dict
 # > 网易有道词典 听读训练
-^https:\/\/dict\.youdao\.com\/homepage\/tile url reject-dict
+^https:\/\/dict\.youdao\.com\/homepage\/tile reject-dict
 # > 网易有道词典 首次查词弹窗
-^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig url reject-dict
+^https:\/\/api-overmind\.youdao\.com\/openapi\/get\/luna\/dict\/dict-mobile\/prod\/dictCommonConfig reject-dict
 # > 网易有道词典 首页弹窗
-^https:\/\/cdke\.youdao\.com\/course3\/recommend\/dict\/startup url reject-dict
+^https:\/\/cdke\.youdao\.com\/course3\/recommend\/dict\/startup reject-dict
 # > 网易有道词典 搜索预想
-^https:\/\/dict\.youdao\.com\/commonsearch url reject-dict
+^https:\/\/dict\.youdao\.com\/commonsearch reject-dict
 # > 网易有道词典 会员优惠券弹窗
-^https:\/\/dict\.youdao\.com\/vip\/activity\/couponinfo url reject-dict
+^https:\/\/dict\.youdao\.com\/vip\/activity\/couponinfo reject-dict
 # > 网易有道词典 首页左上角福利中心
-^https:\/\/dict\.youdao\.com\/dictusertask\/system url reject-dict
+^https:\/\/dict\.youdao\.com\/dictusertask\/system reject-dict
 # > 完美世界电竞
-^https:\/\/api\.wmpvp\.com\/api\/v1\/config\/promote url reject
+^https:\/\/api\.wmpvp\.com\/api\/v1\/config\/promote reject
 # > 悟空遥控器
-^https?:\/\/img\.wukongtv\.com\/wkremote\/AD\/iOS\/.*.(jpg|png|jpeg) url reject-200
+^https?:\/\/img\.wukongtv\.com\/wkremote\/AD\/iOS\/.*.(jpg|png|jpeg) reject-200
 # > 蜗牛睡眠
-^https?:\/\/snailsleep\.net\/snail\/v\d\/adTask\/ url reject
-^https?:\/\/snailsleep\.net\/snail\/v\d\/screen\/qn\/get\? url reject
+^https?:\/\/snailsleep\.net\/snail\/v\d\/adTask\/ reject
+^https?:\/\/snailsleep\.net\/snail\/v\d\/screen\/qn\/get\? reject
 # > 唯品会
-^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/advertisement\/get url reject-200
-^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/layout\/productList\/eventData\/v url reject-200
-^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/coupon\/float_entrance\/get\?api_key url reject-200
-^https?:\/\/b\.appsimg\.com\/upload\/momin\/202[3-9]{1}\/.+\/.+\/.+\/.+\.jpg!85\.webp url reject-200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/advertisement\/get reject-200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/layout\/productList\/eventData\/v reject-200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/coupon\/float_entrance\/get\?api_key reject-200
+^https?:\/\/b\.appsimg\.com\/upload\/momin\/202[3-9]{1}\/.+\/.+\/.+\/.+\.jpg!85\.webp reject-200
 # > WPS
-^https?:\/\/ios\.wps\.cn\/ad-statistics-service url reject
-^https?+:\/\/mobile-pic\.cache\.iciba\.com\/feeds_ad\/ url reject-200
+^https?:\/\/ios\.wps\.cn\/ad-statistics-service reject
+^https?+:\/\/mobile-pic\.cache\.iciba\.com\/feeds_ad\/ reject-200
 # > 无他相机
-^https?+:\/\/api-release\.wuta-cam\.com\/ad_tree url reject-200
-^https?:\/\/res-release\.wuta-cam\.com\/json\/ads_component_cache\.json url reject
+^https?+:\/\/api-release\.wuta-cam\.com\/ad_tree reject-200
+^https?:\/\/res-release\.wuta-cam\.com\/json\/ads_component_cache\.json reject
 # > 威锋
-^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList) url reject
+^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList) reject
 # > 微店
-^https?+:\/\/thor\.weidian\.com\/ares\/home\.splash\/ url reject-200
+^https?+:\/\/thor\.weidian\.com\/ares\/home\.splash\/ reject-200
 # > 网上国网（倒计时还在）
-^https?:\/\/osg-static\.sgcc\.com\.cn\/omg-static\/.*.jpg url reject-200
+^https?:\/\/osg-static\.sgcc\.com\.cn\/omg-static\/.*.jpg reject-200
 # > 网易大神
-^https?:\/\/god\.gameyw\.netease\.com\/v\d\/ad\/serving\/app-start url reject
-^https?:\/\/ok\.166\.net\/reunionpub\/202[2-9]{1}-[0-9]{2}-[0-9]{2}\/ntesgod_cms\/.*.jpg$ url reject-200
+^https?:\/\/god\.gameyw\.netease\.com\/v\d\/ad\/serving\/app-start reject
+^https?:\/\/ok\.166\.net\/reunionpub\/202[2-9]{1}-[0-9]{2}-[0-9]{2}\/ntesgod_cms\/.*.jpg$ reject-200
 # > WIFI万能钥匙专业版
-^http:\/\/cds\.wifi188\.com\/feeds\.sec url reject-dict
-^https?:\/\/ia1\.wifi188\.com\/feeds\.sec url reject-200
-^https?:\/\/mp-api\.lsttnews\.com\/topicnews\/topicdata\.do url reject-200
+^http:\/\/cds\.wifi188\.com\/feeds\.sec reject-dict
+^https?:\/\/ia1\.wifi188\.com\/feeds\.sec reject-200
+^https?:\/\/mp-api\.lsttnews\.com\/topicnews\/topicdata\.do reject-200
 # > 亲邻开门 #首页横幅广告
-^https:\/\/qadx\.qinlinad\.com\/ad\/v2\/.+201210-11110485093 url reject-dict
+^https:\/\/qadx\.qinlinad\.com\/ad\/v2\/.+201210-11110485093 reject-dict
 # > 亲邻开门 #首页电商广告
-^https:\/\/qadx\.qinlinad\.com\/ad\/appFeed\?slot_id=ADS-220302-1121203411 url reject-dict
+^https:\/\/qadx\.qinlinad\.com\/ad\/appFeed\?slot_id=ADS-220302-1121203411 reject-dict
 # > 亲邻开门 #业主权益广告
-^https:\/\/qadx\.qinlinad\.com\/ad\/v2\/slotSwitch\?slot_id=ADS-220302-1157 url reject-dict
+^https:\/\/qadx\.qinlinad\.com\/ad\/v2\/slotSwitch\?slot_id=ADS-220302-1157 reject-dict
 
 # >>>>>>>>>>>>>>> ✅ X开头 ✅ <<<<<<<<<<<<<<
 # > 兴业银行 #开屏广告
-^https?:\/\/images\.cib\.com\.cn\/commons\/uploads\/commons\/[a-zA-Z0-9]{32}\.jpg\?ver=20221[1-2]{1} url reject-200
-^https?:\/\/images\.cib\.com\.cn\/commons\/uploads\/commons\/[a-zA-Z0-9]{32}\.jpg\?ver=20230[1-9]{1} url reject-200
+^https?:\/\/images\.cib\.com\.cn\/commons\/uploads\/commons\/[a-zA-Z0-9]{32}\.jpg\?ver=20221[1-2]{1} reject-200
+^https?:\/\/images\.cib\.com\.cn\/commons\/uploads\/commons\/[a-zA-Z0-9]{32}\.jpg\?ver=20230[1-9]{1} reject-200
 # > [a-zA-Z0-9]{32} 匹配32位的数字和大小写字母混合  [4-9]{1} 匹配4到9之间的其中一个数字
 # > 兴业生活 #开屏广告
-^https?:\/\/file\.cibfintech\.com\/file\/M0[0-9]{1}\/*\/*\/.*.zip url reject-img
+^https?:\/\/file\.cibfintech\.com\/file\/M0[0-9]{1}\/*\/*\/.*.zip reject-img
 # > reject-img 解压失败,进度100%   reject-200解压失败,进度0%
 # > 兴业证券优理宝（3秒倒计时还在） #开屏广告
-^https?:\/\/estock\.xyzq\.cn\/rest\/app\/splash\/imgurl url reject-200
+^https?:\/\/estock\.xyzq\.cn\/rest\/app\/splash\/imgurl reject-200
 # > 星财富 #开屏广告
-^https?:\/\/operationapi\.fosunhanig\.com\/ad\/v\d\/(PopupAdList|ScreenAdList|BannerList) url reject-200
+^https?:\/\/operationapi\.fosunhanig\.com\/ad\/v\d\/(PopupAdList|ScreenAdList|BannerList) reject-200
 # > 向日葵 #开屏广告
-^https?:\/\/client-api\.oray\.com\/materials\/SLCC_IOS_STARTUP\?lang=zh-Hans-CN url reject-dict
-^https:\/\/client-api-v2\.oray\.com\/materials\/(SLCC_iOS_DEVICE_FR|SLCC_IOS_STARTUP|SLCC_IOS_DEVICE|SUNLOGIN_CLIENT_IOS_PROMOTION) url reject-dict
+^https?:\/\/client-api\.oray\.com\/materials\/SLCC_IOS_STARTUP\?lang=zh-Hans-CN reject-dict
+^https:\/\/client-api-v2\.oray\.com\/materials\/(SLCC_iOS_DEVICE_FR|SLCC_IOS_STARTUP|SLCC_IOS_DEVICE|SUNLOGIN_CLIENT_IOS_PROMOTION) reject-dict
 # > 小利生活 #开屏广告
-^https?:\/\/mpos-pic\.helipay\.com\/upload\/images\/advertisment\/image\/20211029 url reject-200
+^https?:\/\/mpos-pic\.helipay\.com\/upload\/images\/advertisment\/image\/20211029 reject-200
 # > 小利生活 #首页横幅广告
-^https:\/\/mpos-app\.helipay\.com\/mpos-trx\/payment\/banner\/queryBanner url reject-dict
+^https:\/\/mpos-app\.helipay\.com\/mpos-trx\/payment\/banner\/queryBanner reject-dict
 # > 小合拓展 #开屏广告
-^https?:\/\/xhtz.oss-cn-guangzhou\.aliyuncs\.com\/home\/member\/.+\.png$ url reject-200
+^https?:\/\/xhtz.oss-cn-guangzhou\.aliyuncs\.com\/home\/member\/.+\.png$ reject-200
 # > 虾米音乐 #开屏广告
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit\/ url reject
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit\/ reject
 # > 携程（APP降级8.40.0版本） #开屏广告
-^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds url reject-200
+^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds reject-200
 # > 携程旅行 #更新弹窗
-^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS url reject-200
+^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS reject-200
 # > 虚拟定位 #更新弹窗
-^https?:\/\/app\.aa-ab\.com\/home url reject-200
+^https?:\/\/app\.aa-ab\.com\/home reject-200
 # > 熊猫直播 #开屏广告
-^https?:\/\/static\.api\.m\.panda\.tv\/index\.php\?method=clientconf\.firstscreen&__version=(play_cnmb|(\d+\.){0,3}\d+)&__plat=ios&__channel=appstore url reject-img
+^https?:\/\/static\.api\.m\.panda\.tv\/index\.php\?method=clientconf\.firstscreen&__version=(play_cnmb|(\d+\.){0,3}\d+)&__plat=ios&__channel=appstore reject-img
 # > 小米 #开屏广告
-^https?+:\/\/api\.jr\.mi\.com\/v\d\/adv\/ url reject-200
-^https?+:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen url reject-200
-^https?:\/\/api-mifit\.huami\.com\/discovery\/mi\/discovery\/(homepage_ad\?|sleep_ad\?|sport_summary_ad\?|sport_training_ad\?|step_detail_ad\?|training_video_ad\?) url reject-img
+^https?+:\/\/api\.jr\.mi\.com\/v\d\/adv\/ reject-200
+^https?+:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen reject-200
+^https?:\/\/api-mifit\.huami\.com\/discovery\/mi\/discovery\/(homepage_ad\?|sleep_ad\?|sport_summary_ad\?|sport_training_ad\?|step_detail_ad\?|training_video_ad\?) reject-img
 # > 小米商城 #开屏广告
 ^https?:\/\/api\.m\.mi\.com\/v1\/app\/start url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/weibo.js
 # > 小米有品 #开屏广告
-^https:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig url reject-200
+^https:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig reject-200
 # > 小米运动 #开屏广告
-^https:\/\/api-mifit-cn2\.huami\.com\/discovery\/mi\/cards\/startpage_ad url reject
+^https:\/\/api-mifit-cn2\.huami\.com\/discovery\/mi\/cards\/startpage_ad reject
 # > 小桔科技 #开屏广告
-^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds url reject
-^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) url reject
-^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget url reject
+^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds reject
+^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) reject
+^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget reject
 # > 新片场 #开屏广告
-^https?:\/\/app\.xinpianchang\.com\/open_screen\? url reject
+^https?:\/\/app\.xinpianchang\.com\/open_screen\? reject
 # > 下厨房 #开屏广告
-^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ url reject
+^https?:\/\/api\.xiachufang\.com\/v\d\/ad/ reject
 # > 迅雷 去除新人专享福利，大家都在看，经典必看
-^https?:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v\d\/slots:batchGet url reject-200
+^https?:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v\d\/slots:batchGet reject-200
 # > 迅游加速器 #开屏广告
-^https?+:\/\/portal-xunyou\.qingcdn\.com\/api\/v\d\/ios\/ads\/ url reject-200
-^https?+:\/\/portal-xunyou\.qingcdn\.com\/api\/v\d\/ios\/configs\/(?>splash_ad|ad_urls) url reject-200
+^https?+:\/\/portal-xunyou\.qingcdn\.com\/api\/v\d\/ios\/ads\/ reject-200
+^https?+:\/\/portal-xunyou\.qingcdn\.com\/api\/v\d\/ios\/configs\/(?>splash_ad|ad_urls) reject-200
 # > 新浪新闻 #开屏广告
-^https?+:\/\/edit\.sinaapp\.com\/ua\?t=adv url reject-200
+^https?+:\/\/edit\.sinaapp\.com\/ua\?t=adv reject-200
 # > 心悦俱乐部 #开屏广告
-^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/GetIndexPopFlash url reject-200
+^https?:\/\/bgw\.xinyue\.qq\.com\/xyapi\.PageService\/GetIndexPopFlash reject-200
 # > 闲鱼 #开屏广告
-^https:\/\/gw\.alicdn\.com\/mt url reject-200
-^https:\/\/gw\.alicdn\.com\/(tfs|tps)\/.+\d{3,4}-\d{4} url reject-200
+^https:\/\/gw\.alicdn\.com\/mt reject-200
+^https:\/\/gw\.alicdn\.com\/(tfs|tps)\/.+\d{3,4}-\d{4} reject-200
 # > 希尔顿荣誉客会 #开屏广告
-^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd url reject-200
+^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd reject-200
 # > 香蕉是一种水果
 ^https?:\/\/.+?\.(pipi|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|(\/|)vod\/reqplay\/) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js
 # > 小牛 #开屏广告
-^https?:\/\/app-api\.niu\.com\/v\d\/advertisement\/ url reject
+^https?:\/\/app-api\.niu\.com\/v\d\/advertisement\/ reject
 # > 讯飞 #开屏广告
-^https?+:\/\/imeclient\.openspeech\.cn\/adservice\/ url reject-200
+^https?+:\/\/imeclient\.openspeech\.cn\/adservice\/ reject-200
 # > 小兔充充 #开屏广告
-^https:\/\/ad\.xiaotucc\.com\/advert url reject
+^https:\/\/ad\.xiaotucc\.com\/advert reject
 # > 星途starway #开屏广告
-^https:\/\/app\.chinahxzq\.com\.cn:9302\/starway-api\/ad url reject-dict
-^https:\/\/app\.chinahxzq\.com\.cn\/starway\/adShow url reject-dict
+^https:\/\/app\.chinahxzq\.com\.cn:9302\/starway-api\/ad reject-dict
+^https:\/\/app\.chinahxzq\.com\.cn\/starway\/adShow reject-dict
 # > 苏打校园 #开屏广告
-^https:\/\/api\.sodalife\.xyz\/v1\/posters\?location=SODA_APP%3A(HOME%3ABOTTOM|HOME%3ACENTER|MINE%3ABOTTOM|REWARDS%3ACENTER) url reject-dict
-^https:\/\/api\.sodalife\.xyz\/v1\/goods url reject-dict
+^https:\/\/api\.sodalife\.xyz\/v1\/posters\?location=SODA_APP%3A(HOME%3ABOTTOM|HOME%3ACENTER|MINE%3ABOTTOM|REWARDS%3ACENTER) reject-dict
+^https:\/\/api\.sodalife\.xyz\/v1\/goods reject-dict
 # > 苏周到   #更新弹窗
-^https:\/\/szdmobile\.suzhou\.gov\.cn\/thirdapp-center\/appUpdate\/update url reject-dict
+^https:\/\/szdmobile\.suzhou\.gov\.cn\/thirdapp-center\/appUpdate\/update reject-dict
 # > 星火英语 #开屏广告
-^https:\/\/api\d\.sparke\.cn\/admodel\/list\?adspace=spgg&flag=\d$ url reject
+^https:\/\/api\d\.sparke\.cn\/admodel\/list\?adspace=spgg&flag=\d$ reject
 # > 雪球 #开屏广告
-^https:\/\/api\.xueqiu\.com\/brand\/search\/v1\.json\? url reject
+^https:\/\/api\.xueqiu\.com\/brand\/search\/v1\.json\? reject
 # > 小Biu智家 #开屏广告
-^https:\/\/shcss\.suning\.com\/shcss-web\/api\/appImage\/queryAppImage\.do url reject-200
+^https:\/\/shcss\.suning\.com\/shcss-web\/api\/appImage\/queryAppImage\.do reject-200
 # > 厦门航空 #开屏广告
-^https:\/\/mobileapi\.xiamenair\.com\/mobile-starter url reject-dict
+^https:\/\/mobileapi\.xiamenair\.com\/mobile-starter reject-dict
 
 # >>>>>>>>>>>>>>> ✅ Y开头 ✅ <<<<<<<<<<<<<<
 # > 云闪付（默认关闭,只使用分流去云闪付广告）
-# > ^https:\/\/wallet\.95516\.com\/s\/wl\/icon\/long url reject
-# > ^https?+:\/\/(tysdk|ads)\.95516\.com url reject-dict
+# > ^https:\/\/wallet\.95516\.com\/s\/wl\/icon\/long reject
+# > ^https?+:\/\/(tysdk|ads)\.95516\.com reject-dict
 # > 阳光惠生活 #开屏广告
-^https?:\/\/yghsh\.cebbank\.com\/static\/picture\/.*.jpg url reject-200
+^https?:\/\/yghsh\.cebbank\.com\/static\/picture\/.*.jpg reject-200
 # > 邮储银行,添加主机名后影响APP正常运行
 ^https:\/\/static.psbc.com:8090\/mbank_f\/images\/[0-9]+\.png - reject-200
-^https:\/\/mcc.psbc.com:9090\/mcc\/resources\/[0-9]+\.(jpg|png) url reject-200
+^https:\/\/mcc.psbc.com:9090\/mcc\/resources\/[0-9]+\.(jpg|png) reject-200
 # > [0-9]+\.(jpg|png)只拦截纯数字的jpg和png格式图片
 # > 邮储信用卡 #开屏广告
-^https?:\/\/d\.psbc\.com:9091\/mcc\/resources\/[0-9]+\.(jpg|png|jpeg) url reject-200
-^https?:\/\/d\.psbc\.com:9091\/mcc\/resources\/.+\.(jpg|jpeg) url reject-dict
+^https?:\/\/d\.psbc\.com:9091\/mcc\/resources\/[0-9]+\.(jpg|png|jpeg) reject-200
+^https?:\/\/d\.psbc\.com:9091\/mcc\/resources\/.+\.(jpg|jpeg) reject-dict
 # > 银盛小Y管家 #开屏广告
 ^https:\/\/ads\.ysepay\.com\/ads\/ctrl\/getAdvertisingInfo reject-dict
 # > 盈宝证券 #开屏广告
-^https:\/\/api\.winbull8\.com\/v1\/marketing\/(advert|activity)\/(list|page) url reject-200
+^https:\/\/api\.winbull8\.com\/v1\/marketing\/(advert|activity)\/(list|page) reject-200
 # > 盈立智投 #开屏广告
-^https:\/\/hz\.yxzq\.com\/news-configserver\/api\/v1\/query\/banner_advertisement url reject-dict
+^https:\/\/hz\.yxzq\.com\/news-configserver\/api\/v1\/query\/banner_advertisement reject-dict
 # > 银盛通 #开屏广告
-^https?:\/\/ad\.ysepay\.com\/yst-ad\/ST101001\/[0-9]{11}\.jpg url reject
+^https?:\/\/ad\.ysepay\.com\/yst-ad\/ST101001\/[0-9]{11}\.jpg reject
 # > 优酷 #开屏广告
 ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/myBlockAds.js
 # > 一淘 #开屏广告
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash url reject
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise url reject
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject
 # > 油管
 # > 视频广告请求
 (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) url 302 $1$2$3
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad url reject-200
-^https:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.+&oad url reject-dict
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad reject-200
+^https:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.+&oad reject-dict
 # > 通用广告请求
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads url reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) url reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext url reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
 # > 请求体
 ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|get_watch|next|player|reel\/reel_watch_sequence) url script-request-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/request.js
 # > 响应体
 ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(account\/get_setting|browse|get_watch|guide|next|player|reel\/reel_watch_sequence|search) url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/response.js
 # > 有道词典 #开屏广告
-^https?:\/\/oimage([a-z])([0-9])\.ydstatic\.com\/.+adpublish url reject
-^https?:\/\/oimage\w\d\.ydstatic\.com\/image\?.+?=adpublish url reject-img
-^https?+:\/\/dsp-impr2\.youdao\.com\/adload url reject-200
-^https?:\/\/impservice\.dictapp\.youdao\.com\/imp\/request url reject-img
-^https?:\/\/oral\.youdao\.com\/oral\/adInfo url reject-img
+^https?:\/\/oimage([a-z])([0-9])\.ydstatic\.com\/.+adpublish reject
+^https?:\/\/oimage\w\d\.ydstatic\.com\/image\?.+?=adpublish reject-img
+^https?+:\/\/dsp-impr2\.youdao\.com\/adload reject-200
+^https?:\/\/impservice\.dictapp\.youdao\.com\/imp\/request reject-img
+^https?:\/\/oral\.youdao\.com\/oral\/adInfo reject-img
 # > 雅虎 #开屏广告
-^https?:\/\/m\.yap\.yahoo\.com\/v\d{2}\/getAds\.do url reject
+^https?:\/\/m\.yap\.yahoo\.com\/v\d{2}\/getAds\.do reject
 # > 萤石 #开屏广告
-^https?:\/\/i\.ys7\.com\/api\/ads url reject
+^https?:\/\/i\.ys7\.com\/api\/ads reject
 # > 翼支付（APP降级10.66.80版本） #开屏广告
-^https:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appclient\/noEnc\/getAppPopup url reject-dict
-^https:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appClient\/noEnc\/getHomePageAds url reject-dict
+^https:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appclient\/noEnc\/getAppPopup reject-dict
+^https:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appClient\/noEnc\/getHomePageAds reject-dict
 # > 易车 #开屏广告
-^https?:\/\/api\.ycapp\.yiche\.com\/(appnews|yicheapp)\/getadlist url reject-img
-^https?:\/\/cheyouapi\.ycapp\.yiche\.com\/appforum\/getusermessagecount url reject-img
+^https?:\/\/api\.ycapp\.yiche\.com\/(appnews|yicheapp)\/getadlist reject-img
+^https?:\/\/cheyouapi\.ycapp\.yiche\.com\/appforum\/getusermessagecount reject-img
 # > 医考帮 #开屏广告
-^https?:\/\/api\.yikaobang\.com\.cn\/client\/main\/homePageSmallAd url reject
-^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/Client\/main\/startPage url reject
+^https?:\/\/api\.yikaobang\.com\.cn\/client\/main\/homePageSmallAd reject
+^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/Client\/main\/startPage reject
 # > 央视 #开屏广告
-^https?+:\/\/www\.cntv\.cn\/nettv\/adp\/ url reject-200
+^https?+:\/\/www\.cntv\.cn\/nettv\/adp\/ reject-200
 # > 猿辅导 #开屏广告
-^https:\/\/www\.yuanfudao\.com\/tutor-marketing-capi\/iphone\/homepage\/popups url reject-dict
+^https:\/\/www\.yuanfudao\.com\/tutor-marketing-capi\/iphone\/homepage\/popups reject-dict
 # > 印象笔记 #开屏广告
-^https?+:\/\/app\.yinxiang\.com\/ads\/ url reject-200
+^https?+:\/\/app\.yinxiang\.com\/ads\/ reject-200
 # > 央视频 #开屏广告
-^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/m8uTS50pt3DC0Xd6\.json url reject-200
+^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/m8uTS50pt3DC0Xd6\.json reject-200
 # > 云麦 #开屏广告
-^https?+:\/\/restapi\.iyunmai\.com\/api\/ios\/ad\/ url reject-200
+^https?+:\/\/restapi\.iyunmai\.com\/api\/ios\/ad\/ reject-200
 # > 艺龙旅行网 #开屏广告
-^https?+:\/\/mobile-api2011\.elong\.com\/ad(?>v|gateway) url reject-200
-^https?:\/\/webboot\.zhangyue\.com\/zycl\/api\/ad\/ url reject
-^https?:\/\/saad\.ms\.zhangyue\.net\/ad url reject
+^https?+:\/\/mobile-api2011\.elong\.com\/ad(?>v|gateway) reject-200
+^https?:\/\/webboot\.zhangyue\.com\/zycl\/api\/ad\/ reject
+^https?:\/\/saad\.ms\.zhangyue\.net\/ad reject
 # > 一刻相册 #开屏广告
-^https?:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/ url reject-200
+^https?:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/ reject-200
 # > 永辉生活 #开屏广告
-^https?:\/\/api\.yonghuivip\.com\/web\/shensuan\/ad\/getAd url reject-200
+^https?:\/\/api\.yonghuivip\.com\/web\/shensuan\/ad\/getAd reject-200
 # > 医考帮   #更新弹窗
-^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/version\/version\/check url reject
+^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/version\/version\/check reject
 # > 悠洗APP #开屏广告
-^https:\/\/api\.ulife\.group\/signintask\/adServing url reject-dict
-^https:\/\/api\.ulife\.group\/auth\/account\/(getUpgradeStrategy|entrance) url reject-dict
-^https:\/\/api\.ulife\.group\/market\/frontEntrance\/getThirdAdvertising\?displayPort=1&type=15 url reject-dict
-^https:\/\/api\.ulife\.group\/market\/memberCard\/listMemberCard\?isShowSecondaryCard=1 url reject-dict
+^https:\/\/api\.ulife\.group\/signintask\/adServing reject-dict
+^https:\/\/api\.ulife\.group\/auth\/account\/(getUpgradeStrategy|entrance) reject-dict
+^https:\/\/api\.ulife\.group\/market\/frontEntrance\/getThirdAdvertising\?displayPort=1&type=15 reject-dict
+^https:\/\/api\.ulife\.group\/market\/memberCard\/listMemberCard\?isShowSecondaryCard=1 reject-dict
 # > 游戏时光 #开屏广告
-^http:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json$ url reject-dict
+^http:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json$ reject-dict
 ^(http:\/\/www\.vgtime\.com\/app\/topic\/\d+\.jhtml\?.*?&close_ad=)false(&page=\d&sign=\w+&timestamp=\d+&font_size=\d$) url 302 $1true$2
 # > 易捷加油 #开屏广告
-^https:\/\/a\.sinopecsales\.com\/app\/cms url reject-dict
+^https:\/\/a\.sinopecsales\.com\/app\/cms reject-dict
 # > 友邻优课 #开屏广告
-https://new-app-api.ylyk.com/v1/user/myinfo/adviser url reject
+https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 # > 云宝宝大数据 #开屏广告
-^https?:\/\/nnapp\.cloudbae\.cn:\d+\/mc\/api\/advert/ url reject
-^https?:\/\/nnapp\.cloudbae\.cn\/mc\/api\/advert/ url reject
+^https?:\/\/nnapp\.cloudbae\.cn:\d+\/mc\/api\/advert/ reject
+^https?:\/\/nnapp\.cloudbae\.cn\/mc\/api\/advert/ reject
 # > 一汽大众开屏广告 #开屏广告
-^https?:\/\/one-app-h5\.faw-vw\.com\/prod-api\/mobile\/one-app\/general\/public\/v1\/official_activity\/get_animation_putaway_list\?appkey.* url reject-200
-^https?:\/\/one-app-h5\.faw-vw\.com\/prod-api\/mobile\/one-app\/general\/public\/v1\/first_page\/get_carousel_list?appkey.* url reject-200
+^https?:\/\/one-app-h5\.faw-vw\.com\/prod-api\/mobile\/one-app\/general\/public\/v1\/official_activity\/get_animation_putaway_list\?appkey.* reject-200
+^https?:\/\/one-app-h5\.faw-vw\.com\/prod-api\/mobile\/one-app\/general\/public\/v1\/first_page\/get_carousel_list?appkey.* reject-200
 # > 云鲸智能 #开屏广告
-^https:\/\/cn-app\.narwaltech\.com\/operate\/appPosition\/listSplash\?resourceIds=narwal_splash_screen url reject-dict
+^https:\/\/cn-app\.narwaltech\.com\/operate\/appPosition\/listSplash\?resourceIds=narwal_splash_screen reject-dict
 # > 云鲸智能 #设备横幅广告 #我的横幅广告
-^https:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=(index_banner|user_center_banner) url reject-dict
+^https:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=(index_banner|user_center_banner) reject-dict
 
 # >>>>>>>>>>>>>>> ✅ Z开头 ✅ <<<<<<<<<<<<<<
 # > 中国银行 #开屏广告
-^https:\/\/mbs\.boc\.cn\/ubas-mgateway-static\/images\/advertType\/.+.jpg url reject-200
+^https:\/\/mbs\.boc\.cn\/ubas-mgateway-static\/images\/advertType\/.+.jpg reject-200
 # > 中银跨境GO #开屏广告
-^https?:\/\/openapi\.boc\.cn\/unlogin\/app\/cbsp\/query_ad_list url reject-200
+^https?:\/\/openapi\.boc\.cn\/unlogin\/app\/cbsp\/query_ad_list reject-200
 # > 中信银行 #开屏广告
-^https?:\/\/wap.bank\.ecitic\.com:6443\/NMBFOServer\/cbframework\.do\?act=CUBEPAGEDATA url reject-200
-^https:\/\/imcs\.citicbank\.com\/cloud\/.+(1125.+2436|1242.+2688|750.+1638|563.+1218) url reject-dict
+^https?:\/\/wap.bank\.ecitic\.com:6443\/NMBFOServer\/cbframework\.do\?act=CUBEPAGEDATA reject-200
+^https:\/\/imcs\.citicbank\.com\/cloud\/.+(1125.+2436|1242.+2688|750.+1638|563.+1218) reject-dict
 # > 掌上生活 #开屏广告
-^https:\/\/az\dmbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec url reject-dict
-^https:\/\/mbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec url reject-dict
+^https:\/\/az\dmbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject-dict
+^https:\/\/mbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec reject-dict
 # > 掌上生活 #设置栏目内广告 
-^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec url reject
+^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec reject
 # > 招商银行 #开屏广告
-^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig url reject-200
-# > gif url reject 只拦截gif格式的图片
+^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig reject-200
+# > gif reject 只拦截gif格式的图片
 # > 掌上京彩 #开屏广告
-^https?:\/\/cdn-xyk-app\.bankofbeijing\.com\.cn\/cdn\/resource\/image\/advertise url reject-200
+^https?:\/\/cdn-xyk-app\.bankofbeijing\.com\.cn\/cdn\/resource\/image\/advertise reject-200
 # > 众邦银行（倒计时还在，点击任意位置跳过开屏动画） #开屏广告
-^https?:\/\/direct\.z-bank\.com\/portal\/AdvertImageDownLoad4Mobile\.do url reject-200
+^https?:\/\/direct\.z-bank\.com\/portal\/AdvertImageDownLoad4Mobile\.do reject-200
 # > 涨乐财富通 #开屏广告+弹窗广告
-^https:\/\/c\.zhangle\.com\/pic\/mktg\/diversity\/[0-9]{13}\.(jpg|png)$ url reject-dict
-^https:\/\/live\.inst-service\.htsc\.com\/live url reject-dict
-^https:\/\/geetest\.htsc\.com:8888\/pre_get_token url reject-dict
-^http:\/\/119\.29\.29\.98\/d url reject-dict
+^https:\/\/c\.zhangle\.com\/pic\/mktg\/diversity\/[0-9]{13}\.(jpg|png)$ reject-dict
+^https:\/\/live\.inst-service\.htsc\.com\/live reject-dict
+^https:\/\/geetest\.htsc\.com:8888\/pre_get_token reject-dict
+^http:\/\/119\.29\.29\.98\/d reject-dict
 # > 知乎
 # > 拦截DNS解析
-^https?:\/\/118\.89\.204\.198 url reject-dict
-^https?:\/\/103\.41\.167\.237 url reject-dict
-^https?:\/\/2402:4e00:1200:ed00:0:9089:6dac:96b6 url reject-200
+^https?:\/\/118\.89\.204\.198 reject-dict
+^https?:\/\/103\.41\.167\.237 reject-dict
+^https?:\/\/2402:4e00:1200:ed00:0:9089:6dac:96b6 reject-200
 # > 屏蔽下发的配置，如皮肤等
-^https?:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config url reject
+^https?:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config reject
 # >屏蔽我的页面开通会员的卡片
-# ^https?:\/\/api\.zhihu\.com\/unlimited\/go\/my_card url reject
+# ^https?:\/\/api\.zhihu\.com\/unlimited\/go\/my_card reject
 # > 拦截开屏广告
-^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\? url reject-dict
-^https?:\/\/api\.zhihu\.com\/commercial_api\/real_time_launch_v2\? url reject-dict
+^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\? reject-dict
+^https?:\/\/api\.zhihu\.com\/commercial_api\/real_time_launch_v2\? reject-dict
 # > 拦截品牌提问广告
-^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\? url reject-dict
-^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\? url reject-dict
+^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\? reject-dict
+^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\? reject-dict
 # > 去除底部标签页关注人角标
-^https?:\/\/api\.zhihu\.com\/moments\/tab_v2 url reject-dict
+^https?:\/\/api\.zhihu\.com\/moments\/tab_v2 reject-dict
 # > 去除消息通知角标
-^https?:\/\/api\.zhihu\.com\/(notifications\/v\d\/count) url reject-dict
+^https?:\/\/api\.zhihu\.com\/(notifications\/v\d\/count) reject-dict
 # > 拦截回答下的卡片广告
-^https?:\/\/www\.zhihu\.com\/api\/v\d\/answers\/\d+\/recommendations url reject-dict
+^https?:\/\/www\.zhihu\.com\/api\/v\d\/answers\/\d+\/recommendations reject-dict
 # > 拦截应用内弹窗
-^https?:\/\/api\.zhihu\.com\/me\/guides url reject-dict
+^https?:\/\/api\.zhihu\.com\/me\/guides reject-dict
 # > 去除关注页最常访问
-^https?:\/\/api\.zhihu\.com\/moments\/recent url reject-dict
+^https?:\/\/api\.zhihu\.com\/moments\/recent reject-dict
 # > 拦截推荐页顶部广告
-^https?:\/\/api\.zhihu\.com\/api\/v4\/ecom_data\/config url reject-dict
+^https?:\/\/api\.zhihu\.com\/api\/v4\/ecom_data\/config reject-dict
 # > 底栏加号的广告
-^https?:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/settings url reject-dict
+^https?:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/settings reject-dict
 # > 推荐页搜索栏左侧图标
-^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/current_reading url reject-dict
+^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/current_reading reject-dict
 # > 疑似推荐页内容更新红点
-^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/tag_config url reject-dict
+^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/tag_config reject-dict
 # > 暂不清楚作用
-^https?:\/\/api\.zhihu\.com\/commercial_api\/banners_v3\/app_topstory_banner url reject-dict
+^https?:\/\/api\.zhihu\.com\/commercial_api\/banners_v3\/app_topstory_banner reject-dict
 # > 获取用户信息 - 隔离用户数据，开启本地会员等
 ^https?:\/\/api\.zhihu\.com\/people\/ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
 # > 关键词屏蔽 - 解锁本地的关键词屏蔽功能，需要开启本地VIP
@@ -1126,61 +1126,61 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser url reject
 # > 搜索页 - 去除预置广告
 ^https?:\/\/api\.zhihu\.com\/search\/preset_words\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
 # > 中国移动 #开屏广告
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/(emotionMarket|explorePage\/getAdverList|init\/startInit) url reject
+^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/(emotionMarket|explorePage\/getAdverList|init\/startInit) reject
 # > 中国移动云盘 #开屏广告
-^https?:\/\/mcmm\.caiyun\.feixin\.10086\.cn:80\/mcmm\/api\/IAdvert url reject-200
-^https?:\/\/mcmm\.caiyun\.feixin\.10086\.cn:80\/mcmm\/api\/v\d\/getAdverts url reject-200
-^https?:\/\/middle\.yun\.139\.com\/openapi\/cardConfig\/queryCardInfoV3 url reject-200
+^https?:\/\/mcmm\.caiyun\.feixin\.10086\.cn:80\/mcmm\/api\/IAdvert reject-200
+^https?:\/\/mcmm\.caiyun\.feixin\.10086\.cn:80\/mcmm\/api\/v\d\/getAdverts reject-200
+^https?:\/\/middle\.yun\.139\.com\/openapi\/cardConfig\/queryCardInfoV3 reject-200
 # > 中国联通 #开屏广告
-^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) url reject
-^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) url reject
+^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) reject
+^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) reject
 # > 中国广电 #开屏广告
-^https?:\/\/app\.10099\.com\.cn\/contact-web\/api\/version\/getFlashScreenPage url reject-200
+^https?:\/\/app\.10099\.com\.cn\/contact-web\/api\/version\/getFlashScreenPage reject-200
 # > 追书神器 #开屏广告
-^https?:\/\/adx-cn\.anythinktech\.com\/bid url reject-200
+^https?:\/\/adx-cn\.anythinktech\.com\/bid reject-200
 # > 作业帮 #开屏广告
-^https?:\/\/syh\.zybang\.com\/com\/adx\/impress url reject-200
+^https?:\/\/syh\.zybang\.com\/com\/adx\/impress reject-200
 # > 掌上道具城 #开屏广告
-^https:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?_service=welink\.ad\.list&_ret_key=result&site_set url reject-200
+^https:\/\/djcapp\.game\.qq\.com\/daoju\/igw\/main\/\?_service=welink\.ad\.list&_ret_key=result&site_set reject-200
 # > 掌上公交-我的横幅广告
-^https?:\/\/quanguo\.mygolbs\.com:8081\/MyBusServer\/servlet\/MyGoServer\.HttpPool\.HttpHandlerServlet url reject-200
+^https?:\/\/quanguo\.mygolbs\.com:8081\/MyBusServer\/servlet\/MyGoServer\.HttpPool\.HttpHandlerServlet reject-200
 # > 掌阅 #开屏广告
-^https?+:\/\/ih2\.ireader\.com\/zyapi\/bookstore\/ad\/ url reject-200
-^https?+:\/\/ih2\.ireader\.com\/zyapi\/self\/screen\/ad url reject-200
-^https?+:\/\/ih2\.ireader\.com\/zycl\/api\/ad\/ url reject-200
-^https?:\/\/book\.img\.ireader\.com\/group6\/M00 url reject-img
+^https?+:\/\/ih2\.ireader\.com\/zyapi\/bookstore\/ad\/ reject-200
+^https?+:\/\/ih2\.ireader\.com\/zyapi\/self\/screen\/ad reject-200
+^https?+:\/\/ih2\.ireader\.com\/zycl\/api\/ad\/ reject-200
+^https?:\/\/book\.img\.ireader\.com\/group6\/M00 reject-img
 # > 浙里办 #开屏广告
-^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic url reject-200
+^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic reject-200
 # > 中油优途 #开屏广告
-^https?:\/\/sichuan\.95504\.net\/v\d\/gd\/index\/get url reject-200
+^https?:\/\/sichuan\.95504\.net\/v\d\/gd\/index\/get reject-200
 # > 中羽在线 #开屏广告
-^https?:\/\/app\.badmintoncn\.com\/mag\/operative\/v\d\/ad\/listNotEndByPlace\?place=first_page url reject-200
+^https?:\/\/app\.badmintoncn\.com\/mag\/operative\/v\d\/ad\/listNotEndByPlace\?place=first_page reject-200
 # > 指点天下 #开屏广告
-^https:\/\/zua\.zhidiantianxia\.cn\/api\/adverts url reject
+^https:\/\/zua\.zhidiantianxia\.cn\/api\/adverts reject
 # > 中国知网 #开屏广告
-^https?+:\/\/xyz\.cnki\.net\/resourcev7\/api\/manualpush\/SlidsList$ url reject-200
+^https?+:\/\/xyz\.cnki\.net\/resourcev7\/api\/manualpush\/SlidsList$ reject-200
 # > 最右 #开屏广告
-^https?:\/\/api\.izuiyou\.com\/ad\/ url reject
+^https?:\/\/api\.izuiyou\.com\/ad\/ reject
 # > 掌上英雄联盟 #开屏广告
-^https?:\/\/ossweb-img\.qq\.com\/upload\/adw\/image\/[0-9]{3}\/202[0-9]{5}\/[a-z0-9]{32}\.(jpg|jpeg) url reject-200
+^https?:\/\/ossweb-img\.qq\.com\/upload\/adw\/image\/[0-9]{3}\/202[0-9]{5}\/[a-z0-9]{32}\.(jpg|jpeg) reject-200
 # > 转转 #开屏广告
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen url reject
+^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen reject
 # > 转转 我的页面 - 发布闲置赚钱
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzusercenter\/myprofilevariouscards url reject-dict
+^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzusercenter\/myprofilevariouscards reject-dict
 # > 转转 我的页面 - 精选好货
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos url reject-dict
+^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos reject-dict
 # > 转转 移除悬浮窗
 ^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getfeedflowinfo url script-response-body https://raw.githubusercontent.com/axtyet/Luminous/main/KeLee/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js
 # > 转转 精简我的页面
 ^https:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/axtyet/Luminous/main/KeLee/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js
 # > 竹马 #开屏广告
-^http:\/\/online-api\.zhongheschool\.com\/api\/module\/show\/getLoading url reject
+^http:\/\/online-api\.zhongheschool\.com\/api\/module\/show\/getLoading reject
 # > 住这儿 #开屏广告
-^https?:\/\/z\.onewo\.com\/passer\/api\/ads\/v1\/8\/list url reject-200
+^https?:\/\/z\.onewo\.com\/passer\/api\/ads\/v1\/8\/list reject-200
 # > 智行APP（这个主机名会影响携程部分功能正常运行，携程8.40.0以下的版本，不受影响。） #开屏广告
-^https:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/scjson\/tripAds url reject-dict
+^https:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/scjson\/tripAds reject-dict
 # > 掌上鹿城 #开屏广告
-^https:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new url reject-dict
+^https:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new reject-dict
 
 
 
