@@ -126,6 +126,14 @@ DOMAIN-SUFFIX,rich.kuwo.cn
 # > 懂车帝
 DOMAIN-SUFFIX, p3-pack.byteimg.com
 DOMAIN-SUFFIX, p6-pack.byteimg.com
+# > NB助手
+DOMAIN, api-dsp.8ziben.com
+DOMAIN,sdk.zhangyuyidong.cn
+DOMAIN,open.e.kuaishou.cn
+DOMAIN,v66-ad.ndcjl.com
+DOMAIN,api-events.8ziben.com
+DOMAIN-SUFFIX,yximgs.com
+DOMAIN-SUFFIX,adkwai.com
 # > 懂球帝
 DOMAIN-SUFFIX, apimg.qunliao.info
 # > 深圳通微信小程序
