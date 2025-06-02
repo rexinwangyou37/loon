@@ -1254,8 +1254,6 @@ http-response ^https:\/\/m\.airchina\.com\.cn\/airchina\/gateway\/v\d(\.\d)*\/ap
 http-response ^https?:\/\/(\w{0,3}(\.){0,1}pornhub(\.)\w{0,3})(?!.*?(/cdn-cgi))(?!.*?(\.(css|js|jpeg|jpg|png|gif|ico|mp3|mp4|svg|tff|PNG|woff|woff2|m3u8))).* script-path=https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/surge_pornhub.js, requires-body=true, timeout=60, tag=Pornhub AdBlock, enable=true
 # > 移除百度搜索首页信息流广告
 http-response ^https?:\/\/(www|m)\.baidu\.com\/?($|\?from=\w{8,9}) script-path=https://kelee.one/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body=true, timeout=20, tag=移除百度搜索首页信息流广告
-# > 亲邻开门 #首页横幅广告
-http-response ^https:\/\/qadx\.qinlinad\.com\/ad\/v2\/slotSwitch\?slot_id=ADS requires-body=1, script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/qlkm.js, tag=亲邻开门首页横幅广告
 # > 易捷加油 #开屏广告弹窗广告横幅广告等
 http-response ^https:\/\/a\.sinopecsales\.com\/app\/cms\/AppCmsPage\.json requires-body=1, script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/yjjy.js, tag=易捷加油去广告
 # > 京粉 #首页横幅广告悬浮广告
