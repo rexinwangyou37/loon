@@ -1149,7 +1149,7 @@ http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad requires-body=true, script-pa
 # > 招商证券 #首页和理财页面横幅广告
 http-response ^https:\/\/marketing\.cmschina\.com\/mkt\/api\/v1\?.* script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/zszq.js, requires-body=true, timeout=20, tag=招商证券.js
 # > 搜狗输入法
-http-request ^https:\/\/sec\.sginput\.qq\.com\/q script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/header.js
+http-request ^https:\/\/sec\.sginput\.qq\.com\/q script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/header.js
 # > 12306
 http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60, tag=12306, enable={12306_enable}
 # > 51信用卡管家
