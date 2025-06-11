@@ -1143,7 +1143,7 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 # > 脚本
 [Script]
 # > 建行生活 #全面净化
-https?:\/\/yunbusiness\.ccb\.com\/(?>basic_service|clp_service)\/txCtrl\?txcode=A3341(?>SB16|C147|MB22|A009|A120|AB03|AB04|A068|A095|AB08) script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/jhsh.js, requires-body=true, timeout=20, tag=建行生活.js
+http-response ^https:\/\/yunbusiness\.ccb\.com\/(?>basic_service|clp_service)\/txCtrl\?txcode=A3341(?>SB16|C147|MB22|A009|A120|AB03|AB04|A068|A095|AB08) script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/jhsh.js, requires-body=true, timeout=20, tag=建行生活.js
 # > 建行生活外卖(饿了么) #弹窗广告
 http-response ^https?:\/\/g\.alicdn\.com\/.*o2o-ad requires-body=true, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/alicdn.js
 # > 招商证券 #首页和理财页面横幅广告
