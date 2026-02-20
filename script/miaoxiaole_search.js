@@ -1,12 +1,14 @@
-// 猫小乐：解锁在线搜索权限
 try {
   const obj = JSON.parse($response.body);
+  console.log("before:", $response.body);
 
-  // 按你的目标：把 result 强制改为 true
   obj.result = true;
 
-  $done({ body: JSON.stringify(obj) });
+  const out = JSON.stringify(obj);
+  console.log("after:", out);
+
+  $done({ body: out });
 } catch (e) {
-  // 如果不是 JSON 或解析失败，就原样放行，避免崩
+  console.log("parse error:", e);
   $done({});
 }
