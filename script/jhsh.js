@@ -1,99 +1,178 @@
-/********************************
-CCBLife Remove Ads - Version 1.0
-Please note that you may need to reinstall app for script to work.
+/*
+ * 建行生活（yunbusiness.ccb.com）首页净化脚本
+ * 适用：Loon http-response
+ * 目标：
+ *  - txcode=A3341AB03 / A3341AB05：清空首页广告/运营/推荐模块
+ *  - 特别处理：WINNOW_V3_FESTIVAL（首页滚动推广图，如“龙积分充话费…”）
+ *  - 清空“种草推荐”：PREFERENCE_AD_INFO 等
+ */
 
-QuantumultX rewrite link:
-https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/J/建行生活/rewrite/ccblife.conf
+(function () {
+  const url = ($request && $request.url) ? $request.url : "";
 
-********************************/
-
-const url = $request.url;
-if (!$response.body) $done({});
-let body = $response.body;
-let obj = JSON.parse(body);
-
-const moduleKeys = [
-  "TAG_AD_INFO",                  // 精选-右下角悬浮广告
-  "NOTICE_AD_INFO",               // 精选-中间文字推荐
-  "PREFERENCE_AD_INFO",           // 精选-本地优惠
-  "HPBANNER_AD_INFO_SECOND",      // 精选-精选推荐-横幅
-  "DAY_BEST_AD_FIRST",            // 精选-精选推荐-轮播1
-  "DAY_BEST_AD_SECOND",           // 精选-精选推荐-轮播2
-  "DAY_BEST_AD_THIRD",            // 精选-精选推荐-轮播3
-  "DAY_BEST_AD_FOURTH",           // 精选-精选推荐-轮播4
-
-  "LIFE_TOP_ROTATION_INFO_V3",    // 生活-上方轮播图
-  "EDITOR_RECOMMEND2_AD",         // 生活-小编推荐
-  "LIFE_V3_SCENE_AGGREGATION",    // 生活-分期·好生活
-  "LIFE_LIST",                    // 生活-本地优惠标签
-
-  "THROUGH_COLUMN_INFO",          // 金融-中间轮播图
-
-  "MEBCT_AD_INFO",                // 我的-底部横幅广告
-  "MYSELF_ENTRANCE_AD",           // 我的-财富会员入口
-  
-];
-
-const blockKeys = [
-  "A3341SB16",                    // 更新提示
-  "A3341C147",                    // 新人礼包
-  "A3341A009",                    // 开屏广告
-
-];
-
-const flowKeys = [
-  "A3341A095",                    // 精选-种草推荐
-  "A3341MB22",                    // 生活-本地优惠
-  "A3341A068",                    // 金融-热门资讯 
-];
-
-if (containKey(url,blockKeys)) {
-  $done({body: "", headers: "", status: "HTTP/1.1 204 No Content"});
-
-} else if (url.includes("A3341AB04")) {
-  if (obj?.data?.ICON_SKIN_INFO) {
-    delete obj.data.ICON_SKIN_INFO;
+  // 仅处理指定 txcode，避免误伤
+  const hitTx = /txcode=A3341AB0(3|5)\b/i.test(url);
+  if (!hitTx) {
+    $done({ body: $response.body });
+    return;
   }
-// 页面模块内容净化
-} else if (url.includes("A3341AB03")) {
-  if (obj?.data) {
-    moduleKeys.forEach(key => {
-      if (obj.data[key]) {
-        delete obj.data[key];
+
+  const body = $response.body || "";
+
+  // 快速判断是否 JSON
+  const trimmed = body.trim();
+  const looksJson =
+    (trimmed.startsWith("{") && trimmed.endsWith("}")) ||
+    (trimmed.startsWith("[") && trimmed.endsWith("]"));
+
+  if (!looksJson) {
+    $done({ body });
+    return;
+  }
+
+  // 你抓包里/常见首页运营位字段：存在于 obj.data 下
+  // 这里尽量“只清运营位”，不动核心业务字段，降低误伤概率
+  const moduleKeys = [
+    // 你脚本里原本就有的 + 常见变体
+    "TAG_AD_INFO",
+    "TAG_AD_INFO0",
+    "TAG_AD_INFO1",
+    "TAG_AD_INFO2",
+    "NOTICE_AD_INFO",
+    "PREFERENCE_AD_INFO",           // 种草/推荐（重点）
+    "HPBANNER_AD_INFO_SECOND",
+    "HPBANNER_AD_INFO",
+    "HPBANNER_AD_INFO0",
+    "HPBANNER_AD_INFO1",
+    "SECOND_AD_INFO",
+    "SECOND_AD_INFO0",
+    "SECOND_AD_INFO1",
+    "AD_INFO",
+    "AD_LIST",
+    "BANNER",
+    "BANNER_LIST",
+    "BANNER_INFO",
+    "POPUP_AD_INFO",
+    "POP_AD_INFO",
+
+    // 你这次反馈的：首页滚动推广图（重点）
+    "WINNOW_V3_FESTIVAL",
+
+    // 一些常见的运营/推荐位命名（尽量不碰业务数据）
+    "WINNOW",
+    "WINNOW_V3",
+    "RECOMMEND",
+    "RECOMMEND_INFO",
+    "RECOMMEND_LIST",
+    "MARKET",
+    "MARKET_INFO",
+    "MARKET_LIST",
+    "ACTIVITY",
+    "ACTIVITY_INFO",
+    "ACTIVITY_LIST",
+    "COUPON_AD_INFO",
+    "COUPON_BANNER",
+    "NOTICE_LIST",
+  ];
+
+  // 额外：按“字段名特征”清理（防止字段名变了）
+  // 注意：只在 obj.data 范围内做，减少误伤
+  function shouldRemoveByKeyName(key) {
+    const k = String(key || "").toUpperCase();
+
+    // 命中这些关键词，基本就是运营/推广位
+    const hit =
+      k.includes("PREFERENCE") ||   // 种草/偏好推荐
+      k.includes("BANNER") ||
+      k.includes("NOTICE") ||
+      (k.includes("AD") && !["DATA", "RESULT"].includes(k)) ||
+      k.includes("WINNOW") ||
+      k.includes("RECOMM") ||
+      k.includes("MARKET") ||
+      k.includes("PROMO") ||
+      k.includes("ACTIVITY");
+
+    // 避免误伤特别基础字段
+    const avoid =
+      k === "DATA" ||
+      k === "RESULT" ||
+      k === "ERRCODE" ||
+      k === "ERRMSG" ||
+      k === "SYSTEM_TIME" ||
+      k === "TXCODE";
+
+    return hit && !avoid;
+  }
+
+  // 深度清理：移除广告对象（如果藏在数组里）
+  function stripAdObjectsDeep(node) {
+    if (!node) return node;
+
+    if (Array.isArray(node)) {
+      const arr = node
+        .map(stripAdObjectsDeep)
+        .filter((item) => {
+          if (!item || typeof item !== "object") return true;
+
+          // 广告对象常见字段：AD_URL / AD_IMG / AD_ID / SECOND_AD_TYPE 等
+          const keys = Object.keys(item).map((x) => String(x).toUpperCase());
+          const looksAdObj =
+            keys.includes("AD_URL") ||
+            keys.includes("AD_IMG") ||
+            keys.includes("AD_ID") ||
+            keys.includes("AD_NAME") ||
+            keys.includes("SECOND_AD_TYPE") ||
+            keys.includes("JUMP_URL") ||
+            keys.includes("JUMPURL") ||
+            keys.includes("CLICK_URL") ||
+            keys.includes("CLICKURL");
+
+          return !looksAdObj;
+        });
+      return arr;
+    }
+
+    if (typeof node === "object") {
+      const out = {};
+      for (const [k, v] of Object.entries(node)) {
+        out[k] = stripAdObjectsDeep(v);
       }
-    });
+      return out;
+    }
+
+    return node;
   }
-// 弹窗广告去除
-} else if (url.includes("A3341A120")) {
-  if (obj?.data?.POP_AD_INFO) {
-    delete obj.data.POP_AD_INFO;
-  }
-// 信息流去除
-} else if (containKey(url,flowKeys)) {
-  if (obj?.data?.data?.recList && obj.data.data.recList.length > 0) {
-    delete obj.data.data.recList;
-  }
-  if (obj?.data?.data?.topList && obj.data.data.topList.length > 0) {
-    delete obj.data.data.topList;
-  }
-  if (obj?.data?.MCT_INFO && obj.data.MCT_INFO.length > 0) {
-    delete obj.data.MCT_INFO;
-  }
-// 楼层开关
-} else if (url.includes("A3341AB08")) {
-  if (obj?.data?.STOREY_DISPLAY_INFO && obj.data.STOREY_DISPLAY_INFO.length > 0) {
-    obj.data.STOREY_DISPLAY_INFO.forEach(item => {
-      if (item.STOREY_NM?.match(/广告|热门|轮播|分期|推荐|借|我要/)) {
-        item.IS_DISPLAY = "0";
+
+  try {
+    const obj = JSON.parse(body);
+
+    // 统一：只对 obj.data 动刀，最大限度减少误伤
+    if (obj && typeof obj === "object" && obj.data && typeof obj.data === "object") {
+      // 1) 精准删指定运营位字段
+      for (const k of moduleKeys) {
+        if (Object.prototype.hasOwnProperty.call(obj.data, k)) {
+          delete obj.data[k];
+        }
       }
-    });
+
+      // 2) 按字段名特征兜底删除（防字段变体）
+      for (const k of Object.keys(obj.data)) {
+        if (shouldRemoveByKeyName(k)) {
+          // 对数组/对象尽量直接清空；字符串/数字置空
+          const v = obj.data[k];
+          if (Array.isArray(v)) obj.data[k] = [];
+          else if (v && typeof v === "object") obj.data[k] = {};
+          else obj.data[k] = "";
+        }
+      }
+
+      // 3) 深度剔除数组里夹带的广告对象
+      obj.data = stripAdObjectsDeep(obj.data);
+    }
+
+    $done({ body: JSON.stringify(obj) });
+  } catch (e) {
+    // 解析失败放行原响应，避免白屏
+    $done({ body });
   }
-}
-
-body = JSON.stringify(obj);
-$done({body});
-
-
-function containKey(url,keys) {
-  return keys.some(key => url.includes(key));
-}
+})();
