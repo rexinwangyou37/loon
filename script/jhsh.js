@@ -1,72 +1,65 @@
 /*
- * 建行生活首页净化（Loon http-response）
- * 适用接口：txcode=A3341AB03 / A3341AB05
+ * 建行生活净化（Loon http-response）
+ * 覆盖：yunbusiness.ccb.com/(basic_service|clp_service)/txCtrl?txcode=A3341ABxx
  *
- * 保留（白名单）：
- *  - FUNCTIONAL_AREA_AD_INFO   （顶部：扫一扫/付款码/建行生活卡/龙积分商城）
- *  - WINNOW_V3_MEB_GIFT        （中间：每日签到/好券中心/热门活动/财富会员）
- *  - NOTICE_AD_INFO            （公告栏：默认保留）
- *
- * 删除（黑名单+规则）：
- *  - WINNOW_V3_FESTIVAL        （滚动大图：如“龙积分充话费 至高抵100元”）
- *  - PREFERENCE_AD_INFO        （种草/偏好推荐）
- *  - HPBANNER*                 （顶部大banner）
- *  - DAY_BEST_*                （精选推荐/热门话题/种草模块常见）
- *  - LOCAL_* / NEARBY_* / AROUND_* （生活页本地优惠/附近）
- *  - key 含 GRASS/PLANT/SEED/FEED/INFOFLOW （种草/信息流变体兜底）
+ * 目标：
+ * 1) 清内容广告字段（来自你提供的抓包文件：WINNOW_V3_FESTIVAL / HPBANNER / DAY_BEST_* / PREFERENCE 等）
+ * 2) 清楼层开关（STOREY_DISPLAY_INFO）：移除 本地优惠/种草推荐/小编推荐/分期好生活
+ * 3) 白名单保留：
+ *    - FUNCTIONAL_AREA_AD_INFO（顶部4入口：扫一扫/付款码/建行生活卡/龙积分商城）
+ *    - WINNOW_V3_MEB_GIFT（中间4卡：每日签到/好券中心/热门活动/财富会员）
  */
 
 (function () {
-  const url = ($request && $request.url) ? $request.url : "";
-  if (!/txcode=A3341AB0(3|5)\b/i.test(url)) {
-    $done({ body: $response.body });
-    return;
-  }
-
   const body = $response.body || "";
   const t = body.trim();
   const looksJson =
     (t.startsWith("{") && t.endsWith("}")) ||
     (t.startsWith("[") && t.endsWith("]"));
-  if (!looksJson) {
-    $done({ body });
-    return;
-  }
 
+  if (!looksJson) return $done({ body });
+
+  // ——你要保留的模块（坚决不动）——
   const KEEP_KEYS = new Set([
     "FUNCTIONAL_AREA_AD_INFO",
     "WINNOW_V3_MEB_GIFT",
-    "NOTICE_AD_INFO",
+    "NOTICE_AD_INFO", // 公告默认保留（你没要求删）
   ]);
 
-  const DELETE_KEYS = new Set([
-    "WINNOW_V3_FESTIVAL",
-    "PREFERENCE_AD_INFO",
+  // ——明确广告字段（来自你文件+常见变体）——
+  const DELETE_EXACT_KEYS = new Set([
+    "WINNOW_V3_FESTIVAL",          // 滚动推广图（积分充话费…）
+    "PREFERENCE_AD_INFO",          // 种草/推荐流（文件里存在）
+    "HPBANNER_AD_INFO_SECOND",     // 横幅（文件里存在）
+    "HPBANNER_AD_INFO",
+    "HPBANNER_AD_INFO_FIRST",
+    "HPBANNER_AD_INFO_THIRD",
     "TAG_AD_INFO",
     "TAG_AD_INFO0",
     "TAG_AD_INFO1",
     "TAG_AD_INFO2",
   ]);
 
-  // 字段名规则：用于删“本地优惠/附近”和“种草信息流”变体
-  function shouldDeleteByKeyName(key) {
-    const k = String(key || "").toUpperCase();
+  // ——楼层开关：要移除的楼层关键词（你要求删）——
+  const BAN_STOREY_NAME_PAT = /(本地优惠|种草推荐|小编推荐|分期好生活)/;
 
-    // 本地优惠/附近（你要求：生活栏目都删本地优惠）
-    if (/^(LOCAL|NEARBY|AROUND)_/.test(k)) return true;
-    if (k.includes("LOCAL_BENEFIT") || k.includes("LOCAL_PRIV") || k.includes("NEARBY")) return true;
+  // ——内容广告：字段名规则（谨慎，只打常见“广告位字段”，不做“凡带AD就删”的粗暴策略）——
+  function shouldDeleteKeyByName(k) {
+    const key = String(k || "").toUpperCase();
 
-    // 种草/信息流/精选推荐 常见命名变体兜底
-    if (k.includes("GRASS") || k.includes("PLANT") || k.includes("SEED") || k.includes("FEED") || k.includes("INFOFLOW")) return true;
+    // 精选/信息流常见
+    if (key.startsWith("DAY_BEST_")) return true; // DAY_BEST_AD_FIRST/SECOND/THIRD/FOURTH...
+    if (key.startsWith("HPBANNER")) return true;  // HPBANNER*
+    if (key.includes("PREFERENCE_AD")) return true;
 
-    // 其它已知模块
-    if (/^DAY_BEST_/.test(k)) return true;
-    if (/^HPBANNER/.test(k)) return true;
+    // 生活/本地优惠常见（仅匹配较明确的“楼层/广告位”命名，避免误伤业务）
+    if (key.includes("LOCAL_BENEFIT") || key.includes("NEARBY_BENEFIT")) return true;
+    if (key.startsWith("LOCAL_") || key.startsWith("NEARBY_") || key.startsWith("AROUND_")) return true;
 
     return false;
   }
 
-  // 深度剔除：数组里夹带的“明显广告对象”
+  // ——深度剔除：只剔除“明显广告对象”（减少误伤）——
   function stripAdObjectsDeep(node) {
     if (!node) return node;
 
@@ -76,6 +69,7 @@
         .filter((item) => {
           if (!item || typeof item !== "object") return true;
           const keys = Object.keys(item).map((x) => String(x).toUpperCase());
+          // 广告对象典型字段
           const looksAdObj =
             keys.includes("AD_URL") ||
             keys.includes("AD_IMG") ||
@@ -96,36 +90,41 @@
 
   try {
     const obj = JSON.parse(body);
-    if (!obj || typeof obj !== "object" || !obj.data || typeof obj.data !== "object") {
-      $done({ body });
-      return;
+    const data = obj?.data;
+
+    if (!data || typeof data !== "object") return $done({ body });
+
+    // 1) 如果存在 STOREY_DISPLAY_INFO（如你抓到的 AB08），按楼层名移除
+    if (Array.isArray(data.STOREY_DISPLAY_INFO)) {
+      data.STOREY_DISPLAY_INFO = data.STOREY_DISPLAY_INFO.filter((it) => {
+        const nm = String(it?.STOREY_NM || it?.STOREY_TITLE || "");
+        return !BAN_STOREY_NAME_PAT.test(nm);
+      });
     }
 
-    const data = obj.data;
-
-    // 1) 删除顶层模块字段（只在 data 下动刀）
+    // 2) 删除 data 下的广告位字段（保留白名单）
     for (const k of Object.keys(data)) {
       if (KEEP_KEYS.has(k)) continue;
 
-      if (DELETE_KEYS.has(k)) {
+      if (DELETE_EXACT_KEYS.has(k)) {
         delete data[k];
         continue;
       }
 
-      if (shouldDeleteByKeyName(k)) {
+      if (shouldDeleteKeyByName(k)) {
         delete data[k];
         continue;
       }
     }
 
-    // 2) 深度剔除（只对非白名单模块）
+    // 3) 深度剔除：对非白名单模块做“明显广告对象”过滤
     for (const k of Object.keys(data)) {
       if (KEEP_KEYS.has(k)) continue;
       data[k] = stripAdObjectsDeep(data[k]);
     }
 
-    $done({ body: JSON.stringify(obj) });
+    return $done({ body: JSON.stringify(obj) });
   } catch (e) {
-    $done({ body });
+    return $done({ body });
   }
 })();
