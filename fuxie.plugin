@@ -1086,7 +1086,5 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 [Script]
 http-response ^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true, timeout=10, tag=51信用卡管家-首页净化
 http-response ^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true, timeout=10, tag=51信用卡管家-我的页面净化
-http-response ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?txcode=A3341AB0(3|5) script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/jhsh.js, requires-body=true, timeout=20, tag=建行生活净化
-http-response ^https?:\/\/yunbusiness\.ccb\.com\/clp_service\/txCtrl\?txcode=A3341AB08 script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/jhsh.js, requires-body=true, timeout=20, tag=建行生活净化
-
+http-response ^https?:\/\/yunbusiness\.ccb\.com\/(basic_service|clp_service)\/txCtrl\?txcode=A3341AB0(3|5|8) script-path=https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/jhsh.js, requires-body=true, timeout=20, tag=建行生活净化
 # > 其他广告
