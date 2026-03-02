@@ -16,8 +16,6 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 # >>>>>>>>>>>>>>> ✅ 0开头 ✅ <<<<<<<<<<<<<<
 # >>>>>>>>>>>>>>> ✅ 1开头 ✅ <<<<<<<<<<<<<<
 [Rewrite]
-# > 12306
-^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList url script-analyze-echo-response https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/12306.js
 
 # >>>>>>>>>>>>>>> ✅ 2开头 ✅ <<<<<<<<<<<<<<
 # > 21经济网
@@ -28,8 +26,6 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 # >>>>>>>>>>>>>>> ✅ 5开头 ✅ <<<<<<<<<<<<<<
 # > 51信用卡管家 V12.9.2
 ^https?:\/\/api\.u51\.com\/(generic-config-gateway|rs-resys)\/api\/v\d\/(creditpage-config|recommend) reject-200
-^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js
-^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js
 # > 58
 ^https?+:\/\/.+?\.58cdn\.com\.cn\/brandads\/ reject-200
 ^https?+:\/\/app\.58\.com\/api\/home\/invite\/popupAdv reject-200
@@ -65,14 +61,10 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 # > 爱思助手
 ^http:\/\/d\.image\.i4\.cn\/adInfo\/image\/original url reject-dict
 ^https:\/\/list-app-m\.i4\.cn\/(adclickcb|getHotSearchList|getopfstadinfo)\.xhtml reject
-# > 爱奇艺
-^http:\/\/t7z\.cupid\.iqiyi\.com\/mixer\? url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/myBlockAds.js
 # > 安徽移动
 ^https?:\/\/api\.ahmobile\.cn:443\/eip\?eip_serv_id=app\.getAllNew reject-200
 # > 安徽掌上10000
 ^https?:\/\/www\.ahzs10000\.com\/palmhall\/client\/base\/newVerson_getStartUp\.action reject-200
-# > 阿里云盘
-^https?:\/\/api\.aliyundrive\.com\/apps\/v\d\/users\/apps\/widgets$ url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/alidrive.js
 # > 爱桐乡
 ^https?:\/\/mapi\.txcmapp\.com\/api\/open\/atx2\/ad\.php reject-200
 # > 安吉星
@@ -128,9 +120,6 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 ^https?:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad reject
 # > 百度网盘_活动推广
 ^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry reject
-# > 百度贴吧（副作用:新回复等通知功能不可用,需手动进入消息tab页点击查看）
-^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
-^http(s:\/\/tiebac|:\/\/c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
 # > 百度翻译 #开屏广告
 ^https?:\/\/mime\.baidu\.com\/v\d\/(IosStart|activity)\/(getStartInfo|advertisement) reject
 # > 百度文库 #开屏广告
@@ -252,8 +241,6 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 ^https?:\/\/ddrk\.me\/wp-content\/plugins\/advanced-floating-content-lite\/public\/images\/close\.png reject-img
 # > 大师兄 #开屏广告
 ^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/(dsx|xgapp)\.php\/v\d\/(top_notice\?|version|advert\?position=[^2]+) reject-200
-# > 动画疯(黑屏25秒) #开屏广告
-^https:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d/(token|m3u8).php\? url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js
 # > 到梦空间 #更新弹窗
 ^https:\/\/appdmkj\.5idream\.net\/v2\/login\/message\/tip reject-dict
 # > 大麦 #开屏广告
@@ -279,7 +266,6 @@ hostname = %APPEND% files.95579.com.cn, download*.bankcomm.com, m.360buyimg.com,
 ^https?:\/\/ptf\.flyertrip\.com\/common\/cf\/.*.jpg reject-200
 ^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=advis reject
 ^https?:\/\/47\.100\.65\.202\/api\/mobile\/index\.php\?version=\d&mobile=yes&module=basicdata&type=forumlist url response-body adv response-body ddgksf2013
-^https?:\/\/47\.100\.65\.202\/source\/plugin\/mobile\/mobile\.php\?module=threadpost&.+?&page=1 url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/fly.js
 # > 凤凰秀
 ^https?:\/\/dsa-mfp\.fengshows\.cn\/mfp\/mfpMultipleDelivery\.do\?.+?adunitid reject
 ^https?:\/\/api\.fengshows\.com\/api\/launchAD reject-img
@@ -429,15 +415,12 @@ https://fbchina.flipchina.cn/v2/ad/query/* reject
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|queryMaterialAdverts) reject-dict
 ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|stationPullService|uniformRecommend) reject-dict
 ^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ reject
-^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=(deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome) url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/jingdong.js
 # > 京东极速版 #开屏广告
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising url response-body jdLiteAdvertisingVO response-body ddgksf2013
 ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush url response-body pushData response-body ddgksf2013
 # > 京东健康 #开屏广告
 ^https?:\/\/m\.360buyimg\.com\/babel\/jfs\/t1\/[0-9]{6}\/[0-9]{2}\/[0-9]{5}\/[0-9]{6}\/.*.jpg reject-200
 ^https?:\/\/m\.360buyimg\.com\/babel\/jfs\/t1\/180291\/5\/23800\/294871\/625f5da2E13ac0ba3\/230238c767c61b6d\.jpg reject
-# > 京喜 #开屏广告
-^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/startup.js
 # > 京东金融 #开屏广告
 ^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/(new)?na\/m\/getLoadingPicture reject-200
 # > 京东读书 #开屏广告
@@ -474,7 +457,6 @@ https://fbchina.flipchina.cn/v2/ad/query/* reject
 # > 口袋银行
 ^https:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image\/.+.jpg reject-200
 # > 酷安
-^https?:\/\/api\.coolapk\.com\/v6\/(feed\/(replyList|detail)|main\/indexV8|dataList) url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/coolapk.js
 ^https?://api-access\.pangolin-sdk-toutiao\.com/api/ad/union/sdk reject
 ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch reject-dict
 # > 快看
@@ -488,8 +470,6 @@ https://fbchina.flipchina.cn/v2/ad/query/* reject
 ^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$ reject
 # > 看理想
 ^https?:\/\/api\.vistopia\.com\.cn\/api\/v\d\/home\/advertisement reject
-# > 快手联盟,优量汇,穿山甲
-^https:\/\/(api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js
 # > 肯德基
 ^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/apphome5\/apphome reject-200
 # > keep
@@ -632,18 +612,14 @@ https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* reject
 # > 平安证券 #开屏广告
 ^https:\/\/pacdn\.m\.stock\.pingan\.com\/images\/ reject-dict
 # > Pornhub #视频开头广告
-^https?:\/\/(\w{0,3}(\.){0,1}(pornhub)(\.)\w{0,3})(?!.*?(/(cdn-cgi)))(?!.*?(\.(css|js|jpeg|jpg|png|gif|ico|mp3|mp4|svg|tff|PNG|woff|woff2|m3u8))).* url script-response-body https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/surge_pornhub.js
+#^https?:\/\/(\w{0,3}(\.){0,1}(pornhub)(\.)\w{0,3})(?!.*?(/(cdn-cgi)))(?!.*?(\.(css|js|jpeg|jpg|png|gif|ico|mp3|mp4|svg|tff|PNG|woff|woff2|m3u8))).* url script-response-body https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adguard/surge_pornhub.js
 ^https:\/\/(cn|www)\.pornhub\.com\/_xa\/ads.* reject
-# > 苹果TestFlight App更新时, 提示"APP不可用"问题. 解除区域限制.
-^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ url script-request-body https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js
 # > 澎湃新闻 #开屏广告
 ^https?:\/\/adpai\.thepaper\.cn\/.+&ad= reject
 # > 票根 #开屏广告
 ^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ reject-200
 
 # >>>>>>>>>>>>>>> ✅ Q开头 ✅ <<<<<<<<<<<<<<
-# > 七猫小说
-^https?:\/\/(api-\w+|xiaoshuo)\.wtzw\.com\/api\/v\d\/ url script-response-body https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/QiMaoXiaoShuo.js
 # > 汽车之家
 ^https?:\/\/adproxy\.autohome\.com\.cn\/AdvertiseService\/ reject-img
 ^https?:\/\/app2\.autoimg\.cn\/apppdfs\/ reject-img
@@ -672,8 +648,6 @@ https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* reject
 ^https?:\/\/adstatic\.peopleapp\.com\/upload\/AppLoad\/.*.(jpg|png) reject-200
 
 # >>>>>>>>>>>>>>> ✅ S开头 ✅ <<<<<<<<<<<<<<
-# > 顺丰
-^https://ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/queryInfoFlow url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/shunfeng_json.js
 ^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade reject-dict
 ^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/ reject
 ^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen reject
@@ -751,8 +725,6 @@ https?:\/\/api\.taptapdada\.com\/startup\-logo\/v1\/combo\? reject-dict
 # > 腾讯地图
 ^https?+:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ reject-200
 ^https?:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ reject
-# > 腾讯新闻
-^https:\/\/(news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(get(QQNewsUnreadList|TagFeedList)|gw\/page\/event_detail|news_feed\/hot_module_list)) url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js
 # > 腾讯体育
 ^https?:\/\/news\.ssp\.qq\.com\/app reject
 ^https?:\/\/sports3\.gtimg\.com\/community\/20cf93884470434eaf38b2e77ab7796a\.png reject
@@ -801,8 +773,6 @@ https?:\/\/api\.taptapdada\.com\/startup\-logo\/v1\/combo\? reject-dict
 ^https?:\/\/ads\.zhinengxiyifang\.cn\/api\/v1\.1\/ads\/* reject-200
 
 # >>>>>>>>>>>>>>> ✅ V开头 ✅ <<<<<<<<<<<<<<
-# > vgTimeApp去开屏广告(需全新应用). 若要去新闻列表广告需要搭配广告联盟模块
-^http:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js
 # > Vista看天下
 ^https?:\/\/open3\.vistastory\.com\/v\d\/api\/inde/loading_ad reject-200
 
@@ -908,8 +878,6 @@ http:\/\/analytics\.163\.com\/ntes reject
 ^https?+:\/\/api\.jr\.mi\.com\/v\d\/adv\/ reject-200
 ^https?+:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen reject-200
 ^https?:\/\/api-mifit\.huami\.com\/discovery\/mi\/discovery\/(homepage_ad\?|sleep_ad\?|sport_summary_ad\?|sport_training_ad\?|step_detail_ad\?|training_video_ad\?) reject-img
-# > 小米商城 #开屏广告
-^https?:\/\/api\.m\.mi\.com\/v1\/app\/start url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/weibo.js
 # > 小米有品 #开屏广告
 ^https:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig reject-200
 # > 小米运动 #开屏广告
@@ -936,8 +904,6 @@ http:\/\/analytics\.163\.com\/ntes reject
 ^https:\/\/gw\.alicdn\.com\/(tfs|tps)\/.+\d{3,4}-\d{4} reject-200
 # > 希尔顿荣誉客会 #开屏广告
 ^https?:\/\/wcprd\.hilton\.com\.cn\/app-middleware\/graphql\?type=splashAd reject-200
-# > 香蕉是一种水果
-^https?:\/\/.+?\.(pipi|fuli|xiang(jiao|xiang))apps\.com\/(ucp\/index|getGlobalData|(\/|)vod\/reqplay\/) url script-response-body https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js
 # > 小牛 #开屏广告
 ^https?:\/\/app-api\.niu\.com\/v\d\/advertisement\/ reject
 # > 讯飞 #开屏广告
@@ -982,24 +948,9 @@ http:\/\/analytics\.163\.com\/ntes reject
 ^https:\/\/hz\.yxzq\.com\/news-configserver\/api\/v1\/query\/banner_advertisement reject-dict
 # > 银盛通 #开屏广告
 ^https?:\/\/ad\.ysepay\.com\/yst-ad\/ST101001\/[0-9]{11}\.jpg reject
-# > 优酷 #开屏广告
-^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/myBlockAds.js
 # > 一淘 #开屏广告
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.etao\.noah\.query\/.+tao_splash reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise reject
-# > 油管
-# > 视频广告请求
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) url 302 $1$2$3
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad reject-200
-^https:\/\/[\w-]+\.googlevideo\.com\/initplayback\?.+&oad reject-dict
-# > 通用广告请求
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads reject-200
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) reject-200
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext reject-200
-# > 请求体
-^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|get_watch|next|player|reel\/reel_watch_sequence) url script-request-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/request.js
-# > 响应体
-^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(account\/get_setting|browse|get_watch|guide|next|player|reel\/reel_watch_sequence|search) url script-response-body https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/refs/heads/main/JS/response.js
 # > 有道词典 #开屏广告
 ^https?:\/\/oimage([a-z])([0-9])\.ydstatic\.com\/.+adpublish reject
 ^https?:\/\/oimage\w\d\.ydstatic\.com\/image\?.+?=adpublish reject-img
@@ -1087,76 +1038,6 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 ^https:\/\/live\.inst-service\.htsc\.com\/live reject-dict
 ^https:\/\/geetest\.htsc\.com:8888\/pre_get_token reject-dict
 ^http:\/\/119\.29\.29\.98\/d reject-dict
-# > 知乎
-# > 拦截DNS解析
-^https?:\/\/118\.89\.204\.198 reject-dict
-^https?:\/\/103\.41\.167\.237 reject-dict
-^https?:\/\/2402:4e00:1200:ed00:0:9089:6dac:96b6 reject-200
-# > 屏蔽下发的配置，如皮肤等
-^https?:\/\/api\.zhihu\.com\/ab\/api\/v1\/products\/zhihu\/platforms\/ios\/config reject
-# >屏蔽我的页面开通会员的卡片
-# ^https?:\/\/api\.zhihu\.com\/unlimited\/go\/my_card reject
-# > 拦截开屏广告
-^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\? reject-dict
-^https?:\/\/api\.zhihu\.com\/commercial_api\/real_time_launch_v2\? reject-dict
-# > 拦截品牌提问广告
-^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\? reject-dict
-^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\? reject-dict
-# > 去除底部标签页关注人角标
-^https?:\/\/api\.zhihu\.com\/moments\/tab_v2 reject-dict
-# > 去除消息通知角标
-^https?:\/\/api\.zhihu\.com\/(notifications\/v\d\/count) reject-dict
-# > 拦截回答下的卡片广告
-^https?:\/\/www\.zhihu\.com\/api\/v\d\/answers\/\d+\/recommendations reject-dict
-# > 拦截应用内弹窗
-^https?:\/\/api\.zhihu\.com\/me\/guides reject-dict
-# > 去除关注页最常访问
-^https?:\/\/api\.zhihu\.com\/moments\/recent reject-dict
-# > 拦截推荐页顶部广告
-^https?:\/\/api\.zhihu\.com\/api\/v4\/ecom_data\/config reject-dict
-# > 底栏加号的广告
-^https?:\/\/api\.zhihu\.com\/content-distribution-core\/bubble\/common\/settings reject-dict
-# > 推荐页搜索栏左侧图标
-^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/current_reading reject-dict
-# > 疑似推荐页内容更新红点
-^https?:\/\/api\.zhihu\.com\/feed\/render\/revisit\/tag_config reject-dict
-# > 暂不清楚作用
-^https?:\/\/api\.zhihu\.com\/commercial_api\/banners_v3\/app_topstory_banner reject-dict
-# > 获取用户信息 - 隔离用户数据，开启本地会员等
-^https?:\/\/api\.zhihu\.com\/people\/ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 关键词屏蔽 - 解锁本地的关键词屏蔽功能，需要开启本地VIP
-^https?:\/\/api\.zhihu\.com\/feed-root\/block url script-analyze-echo-response https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 优化软件配置 - 优化下发的配置文件来实现某些效果
-^https?:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-^https?:\/\/appcloud2\.zhihu\.com\/v\d+\/config url script-analyze-echo-response https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 用户信息 - 修改用户盐值
-^https?:\/\/api\.zhihu\.com\/user-credit\/basis url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 关注页 - 内容优化及屏蔽转发的黑名单用户想法
-^https?:\/\/api\.zhihu\.com\/moments_v3\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 推荐页 - 移除黑名单用户发布的文章、去除广告，及自定义一些屏蔽项目
-^https:\/\/api\.zhihu\.com\/topstory\/recommend url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 黑名单页 - 同步黑名单数据
-^https?:\/\/api\.zhihu\.com\/settings\/blocked_users url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 问题的回答列表 - 移除黑名单用户的回答、去除广告
-^https?:\/\/api\.zhihu\.com\/(v4\/)?questions\/\d+ url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 回答信息流 - 移除黑名单用户的回答、去除广告
-^https?:\/\/api\.zhihu\.com\/next-data url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 回答页底部评论摘要 - 移除黑名单用户发表的评论
-^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 评论页及子页面 - 去除黑名单用户发表的评论
-^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 消息页 - 折叠官方消息、屏蔽营销消息
-^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message) url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 回答页 - 内容优化，付费、营销、推广内容文首提醒
-^https?:\/\/www\.zhihu\.com\/appview\/v2\/answer\/.*(entry=(?!(preload-topstory|preload-search|preload-subscription)))? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 回答页 - 屏蔽下翻出现的黑名单用户的回答
-^https?:\/\/api\.zhihu\.com\/next\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 文章页 - 去除底部广告
-^https?:\/\/www\.zhihu\.com\/api\/v\d\/articles\/\d+\/recommendation\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 热榜页 - 去除广告
-^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists?(\?|\/) url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
-# > 搜索页 - 去除预置广告
-^https?:\/\/api\.zhihu\.com\/search\/preset_words\? url script-response-body https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js
 # > 中国移动 #开屏广告
 ^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/(emotionMarket|explorePage\/getAdverList|init\/startInit) reject
 # > 中国移动云盘 #开屏广告
@@ -1195,16 +1076,6 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 ^https?:\/\/api\.izuiyou\.com\/ad\/ reject
 # > 掌上英雄联盟 #开屏广告
 ^https?:\/\/ossweb-img\.qq\.com\/upload\/adw\/image\/[0-9]{3}\/202[0-9]{5}\/[a-z0-9]{32}\.(jpg|jpeg) reject-200
-# > 转转 #开屏广告
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/getOpenScreen reject
-# > 转转 我的页面 - 发布闲置赚钱
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzusercenter\/myprofilevariouscards reject-dict
-# > 转转 我的页面 - 精选好货
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getchoicegoodsinfos reject-dict
-# > 转转 移除悬浮窗
-^https:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getfeedflowinfo url script-response-body https://raw.githubusercontent.com/axtyet/Luminous/main/KeLee/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js
-# > 转转 精简我的页面
-^https:\/\/app\.zhuanzhuan\.com\/zz\/transfer\/getmyprofilev3 url script-response-body https://raw.githubusercontent.com/axtyet/Luminous/main/KeLee/Resource/Script/ZhuanZhuan/ZhuanZhuan_remove_ads.js
 # > 竹马 #开屏广告
 ^http:\/\/online-api\.zhongheschool\.com\/api\/module\/show\/getLoading reject
 # > 住这儿 #开屏广告
