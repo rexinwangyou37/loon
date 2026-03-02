@@ -1214,6 +1214,11 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 # > 掌上鹿城 #开屏广告
 ^https:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new reject-dict
 
+[Script]
+http-response ^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true, timeout=10, tag=51信用卡管家-首页净化
+http-response ^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true, timeout=10, tag=51信用卡管家-我的页面净化
+
+
 
 
 # > 其他广告
