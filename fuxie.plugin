@@ -1080,8 +1080,6 @@ https://new-app-api.ylyk.com/v1/user/myinfo/adviser reject
 ^http:\/\/online-api\.zhongheschool\.com\/api\/module\/show\/getLoading reject
 # > 住这儿 #开屏广告
 ^https?:\/\/z\.onewo\.com\/passer\/api\/ads\/v1\/8\/list reject-200
-# > 智行APP（这个主机名会影响携程部分功能正常运行，携程8.40.0以下的版本，不受影响。） #开屏广告
-^https:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/scjson\/tripAds reject-dict
 # > 掌上鹿城 #开屏广告
 ^https:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new reject-dict
 
