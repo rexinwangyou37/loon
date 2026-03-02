@@ -1,0 +1,13 @@
+#!name=51信用卡管家 V12.9.2
+#!desc=净化推荐/页面配置
+#!author=rexinwangyou37
+
+[MITM]
+hostname = %APPEND% api.u51.com
+
+[Rewrite]
+^https?:\/\/api\.u51\.com\/(generic-config-gateway|rs-resys)\/api\/v\d\/(creditpage-config|recommend) reject-200
+
+[Script]
+http-response ^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true , timeout=10, tag=51信用卡管家-首页净化
+http-response ^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config script-path=https://raw.githubusercontent.com/rexinwangyou37/lajiguanggao/main/JS/51xykgj.js, requires-body=true , timeout=10, tag=51信用卡管家-我的页面净化
