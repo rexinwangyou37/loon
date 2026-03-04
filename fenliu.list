@@ -9,6 +9,8 @@ DOMAIN-SUFFIX,sdk.open.talk.igexin.com
 # > 工商银行
 DOMAIN, oisc.icbc.com.cn
 DOMAIN, pageviewp.icbc.com.cn
+# > 农业银行代理检测
+DOMAIN, msmp.abchina.com.cn
 # > 云闪付
 DOMAIN, ads.95516.com
 DOMAIN, cm-10-138.getui.com
