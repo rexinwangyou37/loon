@@ -28,6 +28,34 @@ DOMAIN-KEYWORD, api-adservices.apple.com
 DOMAIN-KEYWORD, ls.apple.com
 DOMAIN-KEYWORD, gsa.apple.com
 DOMAIN-KEYWORD, ess.apple.com
+# > 盈透证券 (Interactive Brokers) 直连规则
+# 核心基建、TWS 软件与 Gateway 网关 (必须直连以保证交易连接稳定)
+DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,ibllc.com.cn
+DOMAIN-SUFFIX,mclbbs.com
+# 客户端与 Web API 通讯
+DOMAIN,api.ibkr.com
+DOMAIN-SUFFIX,ibtws.com
+# 全球官方网站与账户管理中心
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibkr.info
+# 区域专属门户 (香港、英国、澳洲、日本、欧洲等分支机构)
+DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,ibkr.hk
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN-SUFFIX,ibkr.co.uk
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,interactivebrokers.co.jp
+DOMAIN-SUFFIX,interactivebrokers.ie
+DOMAIN-SUFFIX,interactivebrokers.com.sg
+# 中国大陆专用服务域名
+DOMAIN-SUFFIX,interactivebrokers.com.cn
+DOMAIN-SUFFIX,ibkr.com.cn
+# 兜底关键字匹配 (可选，如果你发现还有遗漏，可以加上这条)
+DOMAIN-KEYWORD,interactivebrokers
+DOMAIN-KEYWORD,ibkr
+DOMAIN-KEYWORD,ibllc
 # > QQ空间
 DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com
 # > 携程
