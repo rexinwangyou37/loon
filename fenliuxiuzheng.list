@@ -33,6 +33,34 @@ DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com
 # > 携程
 DOMAIN-KEYWORD, aw-s.tripcdn.com
 DOMAIN-KEYWORD, trip.com
+# 嘉信理财 (Charles Schwab) 核心及衍生域名
+DOMAIN-SUFFIX,schwab.com
+DOMAIN-SUFFIX,schwab.ca
+DOMAIN-SUFFIX,schwab.co.uk
+DOMAIN-SUFFIX,schwab.com.hk
+DOMAIN-SUFFIX,aboutschwab.com
+DOMAIN-SUFFIX,findyourindependentadvisor.com
+DOMAIN-SUFFIX,schwab-global.com
+DOMAIN-SUFFIX,schwabassetmanagement.com
+DOMAIN-SUFFIX,schwabcharitable.org
+DOMAIN-SUFFIX,schwabevents.com
+DOMAIN-SUFFIX,schwabfoundation.org
+DOMAIN-SUFFIX,schwabfunds.com
+DOMAIN-SUFFIX,schwabinstitutional.com
+DOMAIN-SUFFIX,schwabintelligenttechnologies.com
+DOMAIN-SUFFIX,schwabmoneywise.com
+DOMAIN-SUFFIX,schwabplan.com
+DOMAIN-SUFFIX,schwabpt.com
+DOMAIN-SUFFIX,schwabrt.com
+DOMAIN-SUFFIX,schwabtransition.com
+# Thinkorswim 及 TD Ameritrade (原TD系域名)
+DOMAIN-SUFFIX,amtd.com
+DOMAIN-SUFFIX,tdaconferences.com
+DOMAIN-SUFFIX,tdainstitutional.com
+DOMAIN-SUFFIX,tdameritrade.com
+DOMAIN-SUFFIX,tdameritrade.net
+DOMAIN-SUFFIX,thinkorswim.com
+
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochkonline.com
