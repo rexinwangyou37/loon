@@ -60,6 +60,9 @@ DOMAIN-SUFFIX,tdainstitutional.com
 DOMAIN-SUFFIX,tdameritrade.com
 DOMAIN-SUFFIX,tdameritrade.net
 DOMAIN-SUFFIX,thinkorswim.com
+DOMAIN-KEYWORD,schwab
+DOMAIN-KEYWORD,thinkorswim
+DOMAIN-KEYWORD,tdameritrade
 
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
