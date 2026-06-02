@@ -33,6 +33,10 @@ DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com
 # > 携程
 DOMAIN-KEYWORD, aw-s.tripcdn.com
 DOMAIN-KEYWORD, trip.com
+# > 致富证券
+DOMAIN-SUFFIX,chiefgroup.com.hk
+DOMAIN-SUFFIX,chieftrade.com
+DOMAIN-SUFFIX,chiefsec.com.hk
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochkonline.com
