@@ -37,6 +37,13 @@ DOMAIN-KEYWORD, trip.com
 DOMAIN-SUFFIX,chiefgroup.com.hk
 DOMAIN-SUFFIX,chieftrade.com
 DOMAIN-SUFFIX,chiefsec.com.hk
+DOMAIN-SUFFIX,cm-chiefgroup.com
+DOMAIN-SUFFIX,chieftrader1979.com
+DOMAIN-SUFFIX,cg1979.com
+DOMAIN-SUFFIX,toprader1979.com
+DOMAIN-SUFFIX,zft2000.com
+DOMAIN-SUFFIX,zft2025.com
+IP-CIDR,183.87.34.6/32
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochkonline.com
