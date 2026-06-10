@@ -50,6 +50,15 @@ IP-CIDR,183.87.34.6/32
 DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN-SUFFIX,hsbc.com
 DOMAIN-SUFFIX,hsbc.co.uk
+# 汇丰银行核心业务域名
+DOMAIN-SUFFIX,hsbc.edge.sdk.awswaf.com
+# 汇丰在线客服系统
+DOMAIN-SUFFIX,liveperson.net
+DOMAIN-SUFFIX,lpsnmedia.net
+# 统计分析
+DOMAIN-SUFFIX,online-metrix.net
+# 证书查询
+DOMAIN,ocsp.sectigo.com
 # > 汇立银行 (WeLab Bank)
 DOMAIN-SUFFIX,welab.bank
 DOMAIN-SUFFIX,welab.co
