@@ -46,6 +46,17 @@ DOMAIN-SUFFIX,zft2025.com
 DOMAIN-SUFFIX,toptrader1979.com
 IP-CIDR,189.1.244.101/32
 IP-CIDR,183.87.34.6/32
+# > 汇丰银行 (HSBC HK)
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com
+DOMAIN-SUFFIX,hsbc.co.uk
+# > 汇立银行 (WeLab Bank)
+DOMAIN-SUFFIX,welab.bank
+DOMAIN-SUFFIX,welab.co
+# > 东亚银行 (Bank of East Asia)
+# hkbea-cyberbanking.com 主要用于部分网银交互和跳转
+DOMAIN-SUFFIX,hkbea.com
+DOMAIN-SUFFIX,hkbea-cyberbanking.com
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochkonline.com
