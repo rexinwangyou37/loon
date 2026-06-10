@@ -66,6 +66,9 @@ DOMAIN-SUFFIX,welab.co
 # hkbea-cyberbanking.com 主要用于部分网银交互和跳转
 DOMAIN-SUFFIX,hkbea.com
 DOMAIN-SUFFIX,hkbea-cyberbanking.com
+# 东亚银行核心业务域名
+DOMAIN,global.config.nebula
+DOMAIN,d5kdcd5lbgky9.cloudfront.net
 # > 中国银行(香港)
 DOMAIN-SUFFIX,bochk.com
 DOMAIN-SUFFIX,bochkonline.com
