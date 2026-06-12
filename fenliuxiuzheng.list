@@ -46,6 +46,31 @@ DOMAIN-SUFFIX,zft2025.com
 DOMAIN-SUFFIX,toptrader1979.com
 IP-CIDR,189.1.244.101/32
 IP-CIDR,183.87.34.6/32
+# > IBKR盈透
+DOMAIN-SUFFIX,ibkr.com.cn,DIRECT
+DOMAIN-SUFFIX,ibllc.com.cn,DIRECT
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,ibkr.com.hk
+DOMAIN-SUFFIX,ibkr.com.au
+DOMAIN-SUFFIX,ibcdn.com
+DOMAIN-SUFFIX,iblink.com
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,interactivebrokers.ie
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,ndcdyn.interactivebrokers.com
+DOMAIN-SUFFIX,cdcdyn.interactivebrokers.com
+# > schwab嘉信理财
+DOMAIN-SUFFIX,thinkorswim.com
+DOMAIN-SUFFIX,tdameritrade.com
+DOMAIN-SUFFIX,schwab.com
+HOST,tosmediaserver.schwab.com
 # > 汇丰银行 (HSBC HK)
 DOMAIN-SUFFIX,hsbc.com.hk
 DOMAIN-SUFFIX,hsbc.com
