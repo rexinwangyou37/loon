@@ -1,3 +1,10 @@
 # 华盛证券 / 华盛通 (Valuable Capital)
+# ---- 华盛证券核心资产（强制走代理） ----
 DOMAIN-SUFFIX,vbkr.com
 DOMAIN-SUFFIX,hstong.com
+DOMAIN-SUFFIX,vcltrade.com
+DOMAIN-SUFFIX,hszq6.com
+
+# ---- 华盛通专用底层服务器与 HttpDNS（强制走代理） ----
+IP-CIDR,193.112.84.180/32
+IP-CIDR,119.29.29.88/32
