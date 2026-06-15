@@ -1,3 +1,9 @@
 # ---- 华盛通：合规与打新通道（香港代理） ----
 DOMAIN-SUFFIX,vbkr.com
 DOMAIN-SUFFIX,hstong.com
+# > 华盛通：实时行情通道（直连）
+DOMAIN-SUFFIX,vcltrade.com
+DOMAIN-SUFFIX,hszq6.com
+DOMAIN-SUFFIX,hszq8.com
+IP-CIDR,193.112.84.180/32
+IP-CIDR,119.28.183.126/32
