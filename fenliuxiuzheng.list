@@ -33,12 +33,6 @@ DOMAIN-KEYWORD, ctc.qzs.qzone.qq.com
 # > 携程
 DOMAIN-KEYWORD, aw-s.tripcdn.com
 DOMAIN-KEYWORD, trip.com
-# > 华盛通：实时行情通道（直连）
-DOMAIN-SUFFIX,vcltrade.com
-DOMAIN-SUFFIX,hszq6.com
-DOMAIN-SUFFIX,hszq8.com
-IP-CIDR,193.112.84.180/32
-IP-CIDR,119.28.183.126/32
 # > 致富证券
 DOMAIN-SUFFIX,chiefgroup.com.hk
 DOMAIN-SUFFIX,chieftrade.com
