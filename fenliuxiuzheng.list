@@ -117,6 +117,8 @@ DOMAIN-SUFFIX,alipay.hk
 DOMAIN-SUFFIX,antbank.hk
 DOMAIN-SUFFIX,alipayplus.com
 DOMAIN-SUFFIX,antom.com
+DOMAIN,imdap-sea.alipay.com
+IP-CIDR,47.235.24.194/32
 # > ZABANK
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zafinsvc.com
