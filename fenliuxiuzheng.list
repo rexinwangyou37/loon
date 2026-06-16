@@ -111,6 +111,12 @@ DOMAIN-SUFFIX,sy.idp.liveperson.net
 DOMAIN-SUFFIX,sc.com,SCHK
 DOMAIN-SUFFIX,standchartbank.data.adobedc.net
 DOMAIN-SUFFIX,adobedtm.com
+# > alipayhk
+DOMAIN-SUFFIX,alipayhk.com
+DOMAIN-SUFFIX,alipay.hk
+DOMAIN-SUFFIX,antbank.hk
+DOMAIN-SUFFIX,alipayplus.com
+DOMAIN-SUFFIX,antom.com
 # > ZABANK
 DOMAIN-SUFFIX,zajourney.com
 DOMAIN-SUFFIX,zafinsvc.com
