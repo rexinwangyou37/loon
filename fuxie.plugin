@@ -462,12 +462,12 @@ https://fbchina.flipchina.cn/v2/ad/query/* reject
 
 # >>>>>>>>>>>>>>> ✅ K开头 ✅ <<<<<<<<<<<<<<
 # > 卡牛信用卡管家
-# 1. 去掉首页顶部“卡牛臻享/20万借款”广告
-response if ${url} ~= /^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/home-card\/query-loan-card$/ && ${response.status} == 200 then response.json.jq(".data = []")
-# 2. 去掉首页“新手教程”整个模块
-response if ${url} ~= /^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/tutorial\/queryTutorials$/ && ${response.status} == 200 then response.json.jq(".data = []")
-# 3. 去掉底部导航栏“借钱”
-response if ${url} ~= /^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/terminal\/resource$/ && ${response.status} == 200 then response.json.jq(".data |= map(select(.resourceName != \"借钱\"))")
+# 1. 去掉首页“卡牛臻享 / 20万借款”
+^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/home-card\/query-loan-card$ response-body-json-replace data []
+# 2. 去掉首页“新手教程”
+^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/tutorial\/queryTutorials$ response-body-json-replace data []
+# 3. 去掉底部“借钱”
+^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/terminal\/resource$ response-body-json-jq '.data|=map(select(.resourceName!="借钱"))'
 # > 口袋银行
 ^https:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image\/.+.jpg reject-200
 # > 酷安
