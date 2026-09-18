@@ -467,7 +467,7 @@ https://fbchina.flipchina.cn/v2/ad/query/* reject
 # 2. 去掉首页“新手教程”
 ^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/tutorial\/queryTutorials$ response-body-json-replace data []
 # 3. 去掉底部“借钱”
-^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/terminal\/resource$ response-body-json-jq '.data|=map(select(.resourceName!="借钱"))'
+^https:\/\/api\.cardniu\.com\/cardniu-operation-ws\/api\/terminal\/resource$ response-body-json-jq '.data |= map(select(.resourceName != "借钱" and .resourceName != "日历"))'
 # > 口袋银行
 ^https:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image\/.+.jpg reject-200
 # > 酷安
