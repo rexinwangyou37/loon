@@ -32,6 +32,8 @@ DOMAIN-SUFFIX,jpush.html5.qq.com
 DOMAIN-SUFFIX, c-hzgt2.getui.com
 # > 招钱进宝
 DOMAIN-SUFFIX, p26-be-pack-sign.pglstatp-toutiao.com
+# > 卡牛信用卡管家
+DOMAIN, tg.feidee.com
 # > 哈啰
 DOMAIN-SUFFIX, assets.51downapp.cn
 # > 叮嗒出行
