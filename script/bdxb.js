@@ -1,22 +1,32 @@
-// 浦大喜奔图片尺寸检测 - 诊断版
-// 只检测、只打印日志，不拦截任何图片
+// 浦大喜奔开屏广告：按真实图片分辨率拦截
+// 目标：1125 x 1931
+// 支持 JPEG / PNG / GIF
+// 配合 Loon binary-body-mode=true 使用
+
+const TARGET_W = 1125;
+const TARGET_H = 1931;
 
 function be32(b, p) {
   return (
-    ((b[p] << 24) >>> 0) +
-    (b[p + 1] << 16) +
-    (b[p + 2] << 8) +
+    ((b[p] << 24) >>> 0) |
+    (b[p + 1] << 16) |
+    (b[p + 2] << 8) |
     b[p + 3]
   ) >>> 0;
 }
 
-function png(b) {
+// PNG
+function getPNG(b) {
   if (
     b.length >= 24 &&
     b[0] === 0x89 &&
     b[1] === 0x50 &&
     b[2] === 0x4e &&
-    b[3] === 0x47
+    b[3] === 0x47 &&
+    b[4] === 0x0d &&
+    b[5] === 0x0a &&
+    b[6] === 0x1a &&
+    b[7] === 0x0a
   ) {
     return {
       type: "PNG",
@@ -27,12 +37,16 @@ function png(b) {
   return null;
 }
 
-function gif(b) {
+// GIF87a / GIF89a
+function getGIF(b) {
   if (
     b.length >= 10 &&
     b[0] === 0x47 &&
     b[1] === 0x49 &&
-    b[2] === 0x46
+    b[2] === 0x46 &&
+    b[3] === 0x38 &&
+    (b[4] === 0x37 || b[4] === 0x39) &&
+    b[5] === 0x61
   ) {
     return {
       type: "GIF",
@@ -43,8 +57,13 @@ function gif(b) {
   return null;
 }
 
-function jpeg(b) {
-  if (b.length < 4 || b[0] !== 0xff || b[1] !== 0xd8) {
+// JPEG
+function getJPEG(b) {
+  if (
+    b.length < 4 ||
+    b[0] !== 0xff ||
+    b[1] !== 0xd8
+  ) {
     return null;
   }
 
@@ -61,6 +80,7 @@ function jpeg(b) {
 
     const marker = b[p++];
 
+    // 不带长度的 marker
     if (
       marker === 0xd8 ||
       marker === 0xd9 ||
@@ -74,7 +94,9 @@ function jpeg(b) {
 
     const len = (b[p] << 8) | b[p + 1];
 
-    const sof =
+    if (len < 2 || p + len > b.length) break;
+
+    const isSOF =
       marker === 0xc0 ||
       marker === 0xc1 ||
       marker === 0xc2 ||
@@ -89,7 +111,7 @@ function jpeg(b) {
       marker === 0xce ||
       marker === 0xcf;
 
-    if (sof && len >= 7) {
+    if (isSOF && len >= 7) {
       return {
         type: "JPEG",
         height: (b[p + 3] << 8) | b[p + 4],
@@ -97,7 +119,6 @@ function jpeg(b) {
       };
     }
 
-    if (len < 2) break;
     p += len;
   }
 
@@ -105,43 +126,60 @@ function jpeg(b) {
 }
 
 try {
-  console.log("[SPDB] 脚本已进入");
+  console.log("[SPDB] 脚本进入");
   console.log("[SPDB] URL = " + $request.url);
 
-  const body = $response.body;
+  const b = $response.body;
 
-  if (!(body instanceof Uint8Array)) {
-    console.log(
-      "[SPDB] Body不是Uint8Array，类型=" +
-      typeof body
-    );
+  console.log(
+    "[SPDB] Body类型 = " +
+    Object.prototype.toString.call(b)
+  );
+
+  if (!(b instanceof Uint8Array)) {
+    console.log("[SPDB] ❌ Body不是Uint8Array，不处理");
     $done({});
   } else {
-    console.log("[SPDB] Body大小=" + body.length + " bytes");
+    console.log("[SPDB] Body大小 = " + b.length + " bytes");
 
-    const info = png(body) || gif(body) || jpeg(body);
+    const info =
+      getPNG(b) ||
+      getGIF(b) ||
+      getJPEG(b);
 
     if (!info) {
-      console.log("[SPDB] 未识别图片格式");
+      console.log("[SPDB] 未识别图片格式 → 放行");
+      $done({});
     } else {
       console.log(
-        "[SPDB] 图片=" +
-        info.type +
-        " " +
-        info.width +
-        "x" +
-        info.height
+        `[SPDB] ${info.type} ${info.width}x${info.height}`
       );
 
-      if (info.width === 1125 && info.height === 1931) {
+      if (
+        info.width === TARGET_W &&
+        info.height === TARGET_H
+      ) {
         console.log(
-          "[SPDB] ★★★ 命中目标开屏尺寸 1125x1931 ★★★"
+          `[SPDB] ★ 命中开屏广告 ${TARGET_W}x${TARGET_H} → 拦截`
         );
+
+        $done({
+          response: {
+            status: 204,
+            headers: {
+              "Content-Length": "0"
+            },
+            body: ""
+          }
+        });
+      } else {
+        console.log(
+          `[SPDB] 非目标尺寸 ${info.width}x${info.height} → 放行`
+        );
+
+        $done({});
       }
     }
-
-    // 诊断阶段全部放行
-    $done({});
   }
 } catch (e) {
   console.log("[SPDB] ERROR = " + e);
