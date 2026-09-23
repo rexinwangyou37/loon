@@ -1,119 +1,80 @@
-// spdb_splash_size.js
-// 浦大喜奔：按图片真实分辨率拦截开屏广告
-// 仅拦截 1125 x 1931
-// 支持 JPEG / PNG / GIF
-// 其他分辨率、其他格式全部放行
+// 浦大喜奔图片尺寸检测 - 诊断版
+// 只检测、只打印日志，不拦截任何图片
 
-const TARGET_WIDTH = 1125;
-const TARGET_HEIGHT = 1931;
-
-function toUint8Array(body) {
-  if (body instanceof Uint8Array) return body;
-
-  if (body instanceof ArrayBuffer) {
-    return new Uint8Array(body);
-  }
-
-  // 二进制图片正常情况下 Loon 会给 Uint8Array。
-  // 如果拿到的是字符串，为避免误判，直接不处理。
-  return null;
-}
-
-function readBE32(b, offset) {
+function be32(b, p) {
   return (
-    ((b[offset] << 24) >>> 0) +
-    (b[offset + 1] << 16) +
-    (b[offset + 2] << 8) +
-    b[offset + 3]
+    ((b[p] << 24) >>> 0) +
+    (b[p + 1] << 16) +
+    (b[p + 2] << 8) +
+    b[p + 3]
   ) >>> 0;
 }
 
-function getPngSize(b) {
-  // PNG signature
+function png(b) {
   if (
-    b.length < 24 ||
-    b[0] !== 0x89 ||
-    b[1] !== 0x50 ||
-    b[2] !== 0x4e ||
-    b[3] !== 0x47 ||
-    b[4] !== 0x0d ||
-    b[5] !== 0x0a ||
-    b[6] !== 0x1a ||
-    b[7] !== 0x0a
+    b.length >= 24 &&
+    b[0] === 0x89 &&
+    b[1] === 0x50 &&
+    b[2] === 0x4e &&
+    b[3] === 0x47
   ) {
+    return {
+      type: "PNG",
+      width: be32(b, 16),
+      height: be32(b, 20)
+    };
+  }
+  return null;
+}
+
+function gif(b) {
+  if (
+    b.length >= 10 &&
+    b[0] === 0x47 &&
+    b[1] === 0x49 &&
+    b[2] === 0x46
+  ) {
+    return {
+      type: "GIF",
+      width: b[6] | (b[7] << 8),
+      height: b[8] | (b[9] << 8)
+    };
+  }
+  return null;
+}
+
+function jpeg(b) {
+  if (b.length < 4 || b[0] !== 0xff || b[1] !== 0xd8) {
     return null;
   }
 
-  return {
-    type: "PNG",
-    width: readBE32(b, 16),
-    height: readBE32(b, 20)
-  };
-}
+  let p = 2;
 
-function getGifSize(b) {
-  if (b.length < 10) return null;
-
-  const isGif =
-    b[0] === 0x47 && // G
-    b[1] === 0x49 && // I
-    b[2] === 0x46 && // F
-    b[3] === 0x38 &&
-    (b[4] === 0x37 || b[4] === 0x39) &&
-    b[5] === 0x61;   // a
-
-  if (!isGif) return null;
-
-  return {
-    type: "GIF",
-    width: b[6] | (b[7] << 8),
-    height: b[8] | (b[9] << 8)
-  };
-}
-
-function getJpegSize(b) {
-  if (
-    b.length < 4 ||
-    b[0] !== 0xff ||
-    b[1] !== 0xd8
-  ) {
-    return null;
-  }
-
-  let pos = 2;
-
-  while (pos + 8 < b.length) {
-    // 找 marker
-    if (b[pos] !== 0xff) {
-      pos++;
+  while (p + 8 < b.length) {
+    if (b[p] !== 0xff) {
+      p++;
       continue;
     }
 
-    while (pos < b.length && b[pos] === 0xff) pos++;
-    if (pos >= b.length) break;
+    while (p < b.length && b[p] === 0xff) p++;
+    if (p >= b.length) break;
 
-    const marker = b[pos++];
+    const marker = b[p++];
 
-    // 无长度字段的 marker
     if (
       marker === 0xd8 ||
       marker === 0xd9 ||
-      (marker >= 0xd0 && marker <= 0xd7) ||
-      marker === 0x01
+      marker === 0x01 ||
+      (marker >= 0xd0 && marker <= 0xd7)
     ) {
       continue;
     }
 
-    if (pos + 1 >= b.length) break;
+    if (p + 1 >= b.length) break;
 
-    const segmentLength = (b[pos] << 8) | b[pos + 1];
+    const len = (b[p] << 8) | b[p + 1];
 
-    if (segmentLength < 2 || pos + segmentLength > b.length) {
-      break;
-    }
-
-    // SOF markers
-    const isSOF =
+    const sof =
       marker === 0xc0 ||
       marker === 0xc1 ||
       marker === 0xc2 ||
@@ -128,71 +89,61 @@ function getJpegSize(b) {
       marker === 0xce ||
       marker === 0xcf;
 
-    if (isSOF && segmentLength >= 7) {
-      const height = (b[pos + 3] << 8) | b[pos + 4];
-      const width  = (b[pos + 5] << 8) | b[pos + 6];
-
+    if (sof && len >= 7) {
       return {
         type: "JPEG",
-        width,
-        height
+        height: (b[p + 3] << 8) | b[p + 4],
+        width: (b[p + 5] << 8) | b[p + 6]
       };
     }
 
-    pos += segmentLength;
+    if (len < 2) break;
+    p += len;
   }
 
   return null;
 }
 
-function getImageSize(b) {
-  return getPngSize(b) ||
-         getGifSize(b) ||
-         getJpegSize(b);
-}
-
 try {
-  const bytes = toUint8Array($response.body);
+  console.log("[SPDB] 脚本已进入");
+  console.log("[SPDB] URL = " + $request.url);
 
-  if (!bytes) {
-    console.log("[浦大喜奔] 非二进制响应，放行");
+  const body = $response.body;
+
+  if (!(body instanceof Uint8Array)) {
+    console.log(
+      "[SPDB] Body不是Uint8Array，类型=" +
+      typeof body
+    );
     $done({});
   } else {
-    const info = getImageSize(bytes);
+    console.log("[SPDB] Body大小=" + body.length + " bytes");
+
+    const info = png(body) || gif(body) || jpeg(body);
 
     if (!info) {
-      console.log("[浦大喜奔] 未识别图片格式，放行");
-      $done({});
+      console.log("[SPDB] 未识别图片格式");
     } else {
       console.log(
-        `[浦大喜奔] ${info.type} ${info.width}x${info.height} ${$request.url}`
+        "[SPDB] 图片=" +
+        info.type +
+        " " +
+        info.width +
+        "x" +
+        info.height
       );
 
-      if (
-        info.width === TARGET_WIDTH &&
-        info.height === TARGET_HEIGHT
-      ) {
+      if (info.width === 1125 && info.height === 1931) {
         console.log(
-          `[浦大喜奔] 命中开屏尺寸 ${TARGET_WIDTH}x${TARGET_HEIGHT}，拦截`
+          "[SPDB] ★★★ 命中目标开屏尺寸 1125x1931 ★★★"
         );
-
-        // 返回空内容，不把广告图片交给 App
-        $done({
-          response: {
-            status: 204,
-            headers: {
-              "Content-Length": "0"
-            },
-            body: ""
-          }
-        });
-      } else {
-        // 其他图片完全不修改
-        $done({});
       }
     }
+
+    // 诊断阶段全部放行
+    $done({});
   }
 } catch (e) {
-  console.log(`[浦大喜奔] 脚本异常：${e}`);
+  console.log("[SPDB] ERROR = " + e);
   $done({});
 }
