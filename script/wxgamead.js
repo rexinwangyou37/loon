@@ -1,188 +1,111 @@
-/*
- * 万嘉管家微信小程序游戏广告预拦截
- *
- * 目标：
- * 1. 拦截微信插屏广告位 posid=3030046789020061
- * 2. 拦截 ads_svp_video__ 视频/游戏广告
- * 3. 拦截同一视频广告附带的配套素材
- *
- * 重点：
- * 在 HTTP-REQUEST 阶段直接返回 404，
- * 尽量让微信广告 SDK 判定“加载失败”，
- * 而不是图片加载后再拦，避免黑屏倒计时。
- */
+// ======================================================
+// 万嘉管家 - 微信游戏广告精准预拦截 / 诊断版
+//
+// 已确认目标：
+// 1. 5秒全屏广告：URL 出现 ads_svp_video__
+// 2. 30秒插屏广告：posid=3030046789020061
+//
+// 万嘉管家小程序 AppID：
+// wxd75da208031717f6
+//
+// 原则：
+// - 确认广告：真正 HARD DROP
+// - 普通 wximg 素材：只记录，不乱拦
+// ======================================================
 
 const url = $request.url || "";
 const headers = $request.headers || {};
 
-// ==============================
-// Header 大小写兼容
-// ==============================
-function getHeader(name) {
-    const target = name.toLowerCase();
+const referer =
+    headers["Referer"] ||
+    headers["referer"] ||
+    "";
 
-    for (const key in headers) {
-        if (key.toLowerCase() === target) {
-            return headers[key] || "";
-        }
-    }
-
-    return "";
-}
-
-const referer = getHeader("referer");
-const userAgent = getHeader("user-agent");
+const TARGET_APPID = "wxd75da208031717f6";
 
 
 // ==============================
-// 已确认的小程序 AppID
+// 判断类型
 // ==============================
-const MINI_APP_ID = "wxd75da20803171f76";
 
+// 万嘉管家小程序来源
+const isTargetMiniProgram =
+    referer.indexOf("servicewechat.com/" + TARGET_APPID + "/") !== -1;
 
-// ==============================
-// 已确认广告位
-// ==============================
-const INTERSTITIAL_POSID = "3030046789020061";
+// 5秒全屏视频广告
+const isSplashGameAd =
+    /ads_svp_video__/i.test(url);
 
-
-// ==============================
-// 基础判断
-// ==============================
-const isWxImg =
-    /^https?:\/\/wximg\.wxs\.qq\.com\//i.test(url);
+// 30秒插屏广告
+const isInterstitialGameAd =
+    /[?&]posid=3030046789020061(?:&|$)/i.test(url);
 
 
 // ==============================
-// 规则 1：插屏广告
+// 日志
 // ==============================
-//
-// HAR 中确认：
-// ?posid=3030046789020061
-//
-const isInterstitialAd =
-    isWxImg &&
-    new RegExp(
-        "[?&]posid=" +
-        INTERSTITIAL_POSID +
-        "(?:&|$)",
-        "i"
-    ).test(url);
+
+console.log("[WXAD] ==============================");
+console.log("[WXAD] URL = " + url);
+console.log("[WXAD] Referer = " + referer);
 
 
 // ==============================
-// 规则 2：视频 / 游戏广告核心素材
+// 5秒全屏广告
 // ==============================
-//
-// 典型：
-// /snssvpdownload/.../reserved/
-// ads_svp_video__xxxx.jpeg
-//
-const isSvpVideoAd =
-    isWxImg &&
-    /\/snssvpdownload\/.*\/reserved\/ads_svp_video__/i.test(url);
 
+if (isSplashGameAd) {
 
-// ==============================
-// 规则 3：视频广告配套素材
-// ==============================
-//
-// HAR 中 ads_svp_video__ 同一时刻还有：
-// /snscosdownload/.../reserved/xxxx
-//
-// 这些请求带：
-// Referer:
-// https://servicewechat.com/wxd75da20803171f76/xxx/page-frame.html
-//
-// 所以只针对这个小程序，不全局封杀微信 CDN。
-// ==============================
-const isMiniProgramAdCompanion =
-    isWxImg &&
-    referer.includes(
-        "servicewechat.com/" +
-        MINI_APP_ID +
-        "/"
-    ) &&
-    /\/snscosdownload\/.*\/reserved\//i.test(url);
+    console.log("[WXAD] ★ 5秒全屏游戏广告");
+    console.log("[WXAD] ★ HARD DROP");
 
-
-// ==============================
-// 快速返回广告加载失败
-// ==============================
-function block(reason) {
-
-    console.log(
-        "[WXAD] BLOCK = " +
-        reason
-    );
-
-    console.log(
-        "[WXAD] URL = " +
-        url
-    );
-
-    if (referer) {
-        console.log(
-            "[WXAD] Referer = " +
-            referer
-        );
-    }
-
-    /*
-     * 不返回透明图片。
-     *
-     * 如果返回 200 + 空图，
-     * 微信可能认为广告“加载成功”，
-     * 然后照样启动 5 秒/30 秒计时器。
-     *
-     * 直接返回 404，
-     * 目的是触发广告 SDK 加载失败。
-     */
-    $done({
-        response: {
-            status: 404,
-            headers: {
-                "Content-Type": "text/plain; charset=utf-8",
-                "Cache-Control": "no-store, no-cache, must-revalidate",
-                "Pragma": "no-cache",
-                "Content-Length": "0"
-            },
-            body: ""
-        }
-    });
+    // 真正终止请求
+    $done();
+    return;
 }
 
 
 // ==============================
-// 开始判断
+// 30秒插屏广告
 // ==============================
 
-if (isInterstitialAd) {
+if (isInterstitialGameAd) {
 
-    block(
-        "插屏广告 posid=" +
-        INTERSTITIAL_POSID
-    );
+    console.log("[WXAD] ★ 30秒插屏游戏广告");
+    console.log("[WXAD] ★ posid = 3030046789020061");
+    console.log("[WXAD] ★ HARD DROP");
 
-} else if (isSvpVideoAd) {
+    // 真正终止请求
+    $done();
+    return;
+}
 
-    block(
-        "ads_svp_video 视频广告"
-    );
 
-} else if (isMiniProgramAdCompanion) {
+// ==============================
+// 万嘉管家中的其他微信广告素材
+// 现在只记录，不拦截
+// ==============================
 
-    block(
-        "游戏广告配套素材"
-    );
+if (
+    isTargetMiniProgram &&
+    /^https?:\/\/wximg\.wxs\.qq\.com\//i.test(url)
+) {
 
-} else {
-
-    // 其他 wximg 正常放行
     console.log(
-        "[WXAD] PASS = " +
-        url
+        "[WXAD] 未识别的 wximg 素材 → 暂时放行"
+    );
+
+    console.log(
+        "[WXAD] 后续用来寻找真正广告主资源"
     );
 
     $done({});
+    return;
 }
+
+
+// ==============================
+// 其他请求
+// ==============================
+
+$done({});
