@@ -525,6 +525,7 @@ https://dl-cu-hz.lechange.cn/oms-online/advertisementPush/* reject
 # > 每日英语听力 #开屏广告
 ^https?:\/\/static(?:-main)?\.frdic\.com\/bg\/startpage\/.* reject-200
 # > 买单吧 #开屏广告
+response if ${url} ~= /^https?:\/\/creditcard\.bankcomm\.(cn|com)\/tofimg\/bucket-pj-btss-tfcn-dmz\/OSS-F\/.+/i then script("https://raw.githubusercontent.com/rexinwangyou37/loon/refs/heads/main/script/maidanba.js") with tag="买单吧开屏广告", requires_body=true, binary_body_mode=true
 ^https?:\/\/creditcardapp\.bankcomm\.cn\/mappweb_interface\/common\/(qryPopAds|qryLaunchAds)\.do reject-200
 # > 民生银行 #开屏广告
 ^https?+:\/\/www\.cmbc\.com\.cn\/m\/image\/loadingpage\/ reject-200
